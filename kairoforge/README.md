@@ -87,3 +87,6 @@ kairoforge/
 ## Footer
 
 **KAIROFORGE — Created by Dhruv Vaniawala | uwddhruv@gmail.com**
+
+
+"Built by Dhruv Vaniawala, a 16-year-old investor from Surat who has been investing in equity markets since age 10 and read Benjamin Graham's The Intelligent Investor at 12. KairoForge is the tool I always wished existed for Indian retail investors."
