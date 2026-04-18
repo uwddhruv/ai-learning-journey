@@ -7,7 +7,8 @@ import yfinance as yf
 import streamlit as st
 import pandas as pd
 import numpy as np
-from typing import Dict, Optional
+from datetime import datetime
+from typing import Dict, List, Optional
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -238,3 +239,57 @@ def fmt_price(n: Optional[float]) -> str:
     if n is None:
         return "N/A"
     return f"${n:,.2f}"
+
+
+# ── News helpers ─────────────────────────────────────────────────────────────
+
+def _parse_news_items(raw: list) -> List[Dict]:
+    """Normalise yfinance news items into a consistent shape."""
+    items = []
+    for article in raw or []:
+        try:
+            ts = article.get("providerPublishTime") or article.get("pubDate")
+            if ts:
+                pub_dt = datetime.utcfromtimestamp(int(ts)).strftime("%b %d, %Y  %H:%M UTC")
+            else:
+                pub_dt = "—"
+            items.append({
+                "title":     article.get("title", "Untitled"),
+                "publisher": article.get("publisher", "Unknown"),
+                "link":      article.get("link", "#"),
+                "published": pub_dt,
+            })
+        except Exception:
+            continue
+    return items
+
+
+@st.cache_data(ttl=900, show_spinner=False)
+def fetch_market_news(limit: int = 10) -> List[Dict]:
+    """
+    Fetch recent broad-market headlines via yfinance (using SPY as a market proxy).
+    Cached for 15 minutes to stay within rate limits.
+    Returns a list of dicts with title, publisher, link, published.
+    """
+    try:
+        raw = yf.Ticker("SPY").news or []
+        if not raw:
+            # Fallback to a second broad-market proxy
+            raw = yf.Ticker("^GSPC").news or []
+        return _parse_news_items(raw)[:limit]
+    except Exception:
+        return []
+
+
+@st.cache_data(ttl=900, show_spinner=False)
+def fetch_ticker_news(ticker: str, limit: int = 8) -> List[Dict]:
+    """
+    Fetch recent news headlines scoped to *ticker*.
+    Cached for 15 minutes to stay within rate limits.
+    Returns a list of dicts with title, publisher, link, published.
+    """
+    try:
+        raw = yf.Ticker(ticker.upper()).news or []
+        return _parse_news_items(raw)[:limit]
+    except Exception:
+        return []

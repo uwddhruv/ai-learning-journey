@@ -19,6 +19,8 @@ st.set_page_config(
 )
 
 # ── IMPORTS ───────────────────────────────────────────────────────────────────
+import os
+import base64
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
@@ -27,7 +29,8 @@ from datetime import datetime
 from typing import List, Dict
 
 from modules.data_layer import (
-    fetch_stock_data, fetch_price_history, fmt_large, fmt_pct, fmt_price
+    fetch_stock_data, fetch_price_history, fetch_market_news, fetch_ticker_news,
+    fmt_large, fmt_pct, fmt_price
 )
 from modules.valuation_engine import calculate_dcf, calculate_graham, get_relative_valuation
 from modules.scoring_engine import compute_score, signal_from_score
@@ -64,17 +67,37 @@ if "portfolio" not in st.session_state: st.session_state.portfolio = []
 # ══════════════════════════════════════════════════════════════════════════════
 
 with st.sidebar:
-    st.markdown(
-        """
-        <div class="kf-header" style="border-bottom:none;margin-bottom:0.5rem;">
-            <div>
-                <div class="kf-header-logo">⚡ KAIROFORGE</div>
-                <div class="kf-header-sub">Equity Intelligence Terminal</div>
+    # ── LOGO ──────────────────────────────────────────────────────────────
+    _logo_path = os.path.join(os.path.dirname(__file__), "assets", "logo.png")
+    if os.path.exists(_logo_path):
+        with open(_logo_path, "rb") as _f:
+            _logo_b64 = base64.b64encode(_f.read()).decode()
+        st.markdown(
+            f"""
+            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem;">
+                <img src="data:image/png;base64,{_logo_b64}"
+                     width="48" height="48"
+                     style="border-radius:50%;flex-shrink:0;" alt="KAIROFORGE logo"/>
+                <div>
+                    <div class="kf-header-logo" style="font-size:1.1rem;">KAIROFORGE</div>
+                    <div class="kf-header-sub">Equity Intelligence Terminal</div>
+                </div>
             </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+            """,
+            unsafe_allow_html=True,
+        )
+    else:
+        st.markdown(
+            """
+            <div class="kf-header" style="border-bottom:none;margin-bottom:0.5rem;">
+                <div>
+                    <div class="kf-header-logo">⚡ KAIROFORGE</div>
+                    <div class="kf-header-sub">Equity Intelligence Terminal</div>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
     st.markdown("<hr style='border-color:#1e1e2e;margin:1rem 0;'>", unsafe_allow_html=True)
 
@@ -319,6 +342,12 @@ def page_screener():
             st.session_state.page     = "Analysis"
             st.rerun()
 
+    # ── MARKET NEWS ────────────────────────────────────────────────────────
+    st.markdown("<div style='margin-top:2.5rem;'></div>", unsafe_allow_html=True)
+    with st.spinner("Loading market headlines…"):
+        market_news = fetch_market_news(limit=10)
+    _render_news_feed(market_news, title="📰 Market News", loading=False)
+
     _render_footer()
 
 
@@ -451,6 +480,15 @@ def page_analysis():
                 unsafe_allow_html=True,
             )
 
+    # ── ANALYST PRICE TARGET PANEL ──────────────────────────────────────────
+    _render_price_target_panel(data)
+
+    # ── TICKER NEWS ─────────────────────────────────────────────────────────
+    st.markdown("<div style='margin-top:1rem;'></div>", unsafe_allow_html=True)
+    with st.spinner(f"Loading {ticker} news…"):
+        ticker_news = fetch_ticker_news(ticker, limit=8)
+    _render_news_feed(ticker_news, title=f"📰 {ticker} News", loading=False)
+
     _render_footer()
 
 
@@ -501,6 +539,61 @@ def _metric_row(metrics: list):
     for col, (label, value, tip) in zip(cols, metrics):
         with col:
             st.metric(label=label, value=value, help=tip)
+
+
+def _render_price_target_panel(data: Dict):
+    """Render an analyst consensus price-target panel, styled like existing KPI cards."""
+    target      = data.get("target_price")
+    price       = data.get("current_price")
+    n_analysts  = data.get("analyst_count", 0)
+
+    # Compute upside / downside vs current price
+    if target and price and price > 0:
+        upside_pct = (target - price) / price * 100
+        upside_str = (
+            f'<span style="color:#00d4aa;font-size:.8rem;font-weight:600;">▲ +{upside_pct:.1f}%</span>'
+            if upside_pct >= 0 else
+            f'<span style="color:#f87171;font-size:.8rem;font-weight:600;">▼ {upside_pct:.1f}%</span>'
+        )
+    else:
+        upside_str = ""
+
+    analyst_note = (
+        f"{n_analysts} analyst{'s' if n_analysts != 1 else ''}"
+        if n_analysts else "analyst consensus"
+    )
+
+    st.markdown("<div class='kf-section-title'>🎯 Analyst Price Target</div>", unsafe_allow_html=True)
+    st.markdown(
+        f"""
+        <div class="kf-card" style="display:flex;align-items:center;gap:2.5rem;padding:1.25rem 1.5rem;
+                                     flex-wrap:wrap;">
+            <div>
+                <div class="kf-metric-label">Consensus Target</div>
+                <div style="color:#f1f5f9;font-size:1.6rem;font-weight:700;
+                            font-family:'JetBrains Mono',monospace;">
+                    {fmt_price(target)}
+                </div>
+            </div>
+            <div>
+                <div class="kf-metric-label">Current Price</div>
+                <div style="color:#94a3b8;font-size:1.1rem;font-weight:600;
+                            font-family:'JetBrains Mono',monospace;">
+                    {fmt_price(price)}
+                </div>
+            </div>
+            <div>
+                <div class="kf-metric-label">Implied Move</div>
+                <div style="font-size:1.1rem;">{upside_str if upside_str else '<span style="color:#64748b;">N/A</span>'}</div>
+            </div>
+            <div>
+                <div class="kf-metric-label">Coverage</div>
+                <div style="color:#64748b;font-size:.8rem;">{analyst_note}</div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def _render_price_chart(ticker: str, current_price: float):
@@ -1093,6 +1186,59 @@ def _render_footer():
             Data via Yahoo Finance
         </div>
         """,
+        unsafe_allow_html=True,
+    )
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  SHARED NEWS RENDERER
+# ══════════════════════════════════════════════════════════════════════════════
+
+def _render_news_feed(news_items: list, title: str = "Market News", loading: bool = False):
+    """
+    Render a list of news items inside a styled card.
+    Each item: {title, publisher, link, published}
+    """
+    st.markdown(f"<div class='kf-section-title'>{title}</div>", unsafe_allow_html=True)
+
+    if loading:
+        st.markdown(
+            "<div class='kf-explain' style='color:#64748b;'>Loading headlines…</div>",
+            unsafe_allow_html=True,
+        )
+        return
+
+    if not news_items:
+        st.markdown(
+            "<div class='kf-explain' style='border-left-color:#475569;color:#64748b;'>"
+            "No headlines available right now. Check back shortly."
+            "</div>",
+            unsafe_allow_html=True,
+        )
+        return
+
+    rows_html = ""
+    for item in news_items:
+        rows_html += f"""
+        <div style="padding:.65rem 0;border-bottom:1px solid #1a1a28;">
+            <a href="{item['link']}" target="_blank" rel="noopener noreferrer"
+               style="color:#e2e8f0;font-size:.85rem;font-weight:500;text-decoration:none;
+                      line-height:1.4;display:block;margin-bottom:.25rem;">
+                {item['title']}
+            </a>
+            <div style="display:flex;gap:1rem;align-items:center;">
+                <span style="color:#00d4aa;font-size:.72rem;font-weight:600;">
+                    {item['publisher']}
+                </span>
+                <span style="color:#334155;font-size:.72rem;">
+                    {item['published']}
+                </span>
+            </div>
+        </div>
+        """
+
+    st.markdown(
+        f'<div class="kf-card" style="padding:.5rem 1.25rem;">{rows_html}</div>',
         unsafe_allow_html=True,
     )
 
