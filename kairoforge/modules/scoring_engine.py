@@ -232,9 +232,9 @@ def _build_narrative(score, signal, data, dcf, graham, relative) -> str:
         mos_pct = (dcf["intrinsic_value"] - price) / price * 100
         iv = dcf["intrinsic_value"]
         if mos_pct > 25:
-            parts.append(f"DCF intrinsic value is ${iv:.2f} — approximately {mos_pct:.0f}% above the market price.")
+            parts.append(f"DCF intrinsic value is ₹{iv:.2f} — approximately {mos_pct:.0f}% above the market price.")
         elif mos_pct < -25:
-            parts.append(f"DCF model values the business at ${iv:.2f}, below the current price of ${price:.2f}.")
+            parts.append(f"DCF model values the business at ₹{iv:.2f}, below the current price of ₹{price:.2f}.")
 
     # Graham
     g_mos = graham.get("margin_of_safety")

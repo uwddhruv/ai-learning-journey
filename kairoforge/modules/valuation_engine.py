@@ -17,18 +17,18 @@ from typing import Dict, Optional
 # ── SECTOR P/E BENCHMARKS ────────────────────────────────────────────────────
 
 SECTOR_PE = {
-    "Technology": 28,
-    "Healthcare": 22,
-    "Financial Services": 14,
-    "Consumer Cyclical": 20,
-    "Consumer Defensive": 22,
-    "Energy": 12,
-    "Utilities": 16,
-    "Real Estate": 35,
-    "Industrials": 20,
-    "Basic Materials": 15,
-    "Communication Services": 22,
-    "Unknown": 20,
+    "Technology": 25,
+    "Healthcare": 35,
+    "Financial Services": 20,
+    "Consumer Cyclical": 40,
+    "Consumer Defensive": 50,
+    "Energy": 15,
+    "Utilities": 18,
+    "Real Estate": 30,
+    "Industrials": 25,
+    "Basic Materials": 18,
+    "Communication Services": 20,
+    "Unknown": 25,
 }
 
 
@@ -100,14 +100,14 @@ def calculate_dcf(data: Dict) -> Dict:
         )
 
     # WACC
-    rfr  = 0.045          # 10-Year Treasury proxy
-    erp  = 0.055          # Equity risk premium
-    wacc = max(0.08, min(0.16, rfr + beta * erp))
+    rfr  = 0.068          # India 10-Year G-Sec proxy
+    erp  = 0.065          # India equity risk premium
+    wacc = max(0.09, min(0.18, rfr + beta * erp))
 
     # Growth rates
     g1 = growth
     g2 = growth * 0.50
-    g_t = 0.025
+    g_t = 0.035
 
     # Stage 1
     cf = base_cf
@@ -235,7 +235,7 @@ def _dcf_error(msg: str) -> Dict:
 
 def _graham_narrative(gn, price, eps, bvps, mos) -> str:
     lines = [
-        f"Graham Number = √(22.5 × EPS ${eps:.2f} × BVPS ${bvps:.2f}) = ${gn:.2f}."
+        f"Graham Number = √(22.5 × EPS ₹{eps:.2f} × BVPS ₹{bvps:.2f}) = ₹{gn:.2f}."
     ]
     if mos is not None:
         if mos > 0.30:
@@ -259,19 +259,19 @@ def _graham_narrative(gn, price, eps, bvps, mos) -> str:
 
 def _dcf_narrative(base_cf, growth, wacc, value, price, source, capped) -> str:
     lines = [
-        f"DCF anchors on {source} of ${base_cf:.2f}/share.",
-        f"Assumed {growth*100:.1f}% growth (Years 1–5), fading to 2.5% terminal rate.",
+        f"DCF anchors on {source} of ₹{base_cf:.2f}/share.",
+        f"Assumed {growth*100:.1f}% growth (Years 1–5), fading to 3.5% terminal rate.",
         f"Discount rate (WACC): {wacc*100:.1f}% — reflecting the stock's risk profile.",
     ]
     if price and value:
         mos_pct = (value - price) / price * 100
         if mos_pct > 25:
             lines.append(
-                f"At ${price:.2f}, the stock appears ~{mos_pct:.0f}% below estimated intrinsic value "
-                f"of ${value:.2f} — a meaningful margin of safety."
+                f"At ₹{price:.2f}, the stock appears ~{mos_pct:.0f}% below estimated intrinsic value "
+                f"of ₹{value:.2f} — a meaningful margin of safety."
             )
         elif mos_pct > 0:
-            lines.append(f"Modestly undervalued vs. intrinsic estimate of ${value:.2f}.")
+            lines.append(f"Modestly undervalued vs. intrinsic estimate of ₹{value:.2f}.")
         else:
             lines.append(
                 f"Stock trades {abs(mos_pct):.0f}% above DCF estimate — "

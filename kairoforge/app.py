@@ -41,9 +41,11 @@ st.markdown(inject_styles(), unsafe_allow_html=True)
 
 # ── CONSTANTS ─────────────────────────────────────────────────────────────────
 DEFAULT_TICKERS = [
-    "AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA", "TSLA",
-    "JPM",  "JNJ",  "V",     "WMT",  "BAC",  "PG",   "HD",
-    "MA",   "UNH",  "COST",  "ABBV", "MRK",  "KO",   "XOM",
+    "RELIANCE.NS", "TCS.NS",        "HDFCBANK.NS",  "ICICIBANK.NS",  "INFY.NS",
+    "HINDUNILVR.NS","ITC.NS",        "SBIN.NS",       "BHARTIARTL.NS", "KOTAKBANK.NS",
+    "LT.NS",        "AXISBANK.NS",   "BAJFINANCE.NS", "ASIANPAINT.NS", "MARUTI.NS",
+    "TITAN.NS",     "NESTLEIND.NS",  "WIPRO.NS",      "TECHM.NS",      "HCLTECH.NS",
+    "POWERGRID.NS",
 ]
 
 PLOTLY_DARK = dict(
@@ -120,7 +122,7 @@ with st.sidebar:
     st.markdown("<hr style='border-color:#1e1e2e;margin:1rem 0;'>", unsafe_allow_html=True)
 
     # Quick ticker jump
-    jump = st.text_input("🔎  Analyse a ticker", placeholder="e.g. AAPL").strip().upper()
+    jump = st.text_input("🔎  Analyse a ticker", placeholder="e.g. RELIANCE.NS").strip().upper()
     if st.button("Analyse →") and jump:
         st.session_state.selected = jump
         st.session_state.page     = "Analysis"
@@ -205,7 +207,7 @@ def page_screener():
     with col_a:
         extra = st.text_input(
             "Add tickers (comma-separated)",
-            placeholder="e.g. NFLX, DIS, SBUX",
+            placeholder="e.g. BAJFINANCE.NS, ADANIENT.NS, ZOMATO.NS",
             label_visibility="collapsed",
         )
     with col_b:
@@ -496,7 +498,7 @@ def _render_key_metrics(data: Dict):
     """Render a clean metrics grid."""
     st.markdown("<div class='kf-section-title'>Valuation Ratios</div>", unsafe_allow_html=True)
     m = [
-        ("P/E Ratio",    fmt_price(data.get("pe_ratio")).lstrip("$") if data.get("pe_ratio") else "N/A",
+        ("P/E Ratio",    fmt_price(data.get("pe_ratio")).lstrip("₹") if data.get("pe_ratio") else "N/A",
          "Price to trailing earnings"),
         ("P/B Ratio",    f"{data.get('pb_ratio'):.2f}x" if data.get("pb_ratio") else "N/A",
          "Price to book value"),
@@ -707,7 +709,7 @@ def _render_valuation_breakdown(data: Dict, sc: Dict):
                 f"""
                 <div class="kf-val-row">
                     <div class="kf-val-label">{label}</div>
-                    <div class="kf-val-value">${val:.2f}{mos_str}</div>
+                    <div class="kf-val-value">₹{val:.2f}{mos_str}</div>
                     <div class="kf-val-bar-wrap">
                         <div class="kf-val-bar-fill" style="width:{pct:.0f}%;background:{bar_color};"></div>
                     </div>
@@ -728,7 +730,7 @@ def _render_valuation_breakdown(data: Dict, sc: Dict):
             x=["Stage 1\n(Yrs 1–5)", "Stage 2\n(Yrs 6–10)", "Terminal\nValue"],
             y=[d1, d2, dt],
             marker_color=["#00d4aa", "#7c3aed", "#f97316"],
-            text=[f"${v:.2f}" for v in [d1, d2, dt]],
+            text=[f"₹{v:.2f}" for v in [d1, d2, dt]],
             textposition="outside",
             textfont=dict(color="#94a3b8", size=12),
         ))
@@ -743,7 +745,7 @@ def _render_valuation_breakdown(data: Dict, sc: Dict):
         c1, c2, c3 = st.columns(3)
         c1.metric("WACC", f"{dcf.get('wacc',0)*100:.1f}%", help="Weighted avg cost of capital used")
         c2.metric("Stage 1 Growth", f"{dcf.get('stage1_growth',0)*100:.1f}%", help="Applied in years 1–5")
-        c3.metric("Cashflow Base", f"${dcf.get('base_cashflow',0):.2f}", help=dcf.get("cashflow_source",""))
+        c3.metric("Cashflow Base", f"₹{dcf.get('base_cashflow',0):.2f}", help=dcf.get("cashflow_source",""))
 
         st.markdown(
             f'<div class="kf-explain">{dcf.get("explanation","")}</div>',
@@ -912,7 +914,7 @@ def page_portfolio():
     manual = st.text_input(
         "Add tickers to portfolio (comma-separated)",
         value=", ".join(st.session_state.portfolio),
-        placeholder="e.g. AAPL, MSFT, JPM",
+        placeholder="e.g. RELIANCE.NS, TCS.NS, HDFCBANK.NS",
     )
     if manual.strip():
         st.session_state.portfolio = [

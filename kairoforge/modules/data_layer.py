@@ -214,7 +214,7 @@ def _score_data_quality(eps, bvps, fcf, roe, pe, shares, current_price) -> float
     return round(score, 3)
 
 
-def fmt_large(n: Optional[float], prefix: str = "$") -> str:
+def fmt_large(n: Optional[float], prefix: str = "₹") -> str:
     """Format large numbers: 1.23T, 456.7B, etc."""
     if n is None:
         return "N/A"
@@ -238,7 +238,7 @@ def fmt_pct(n: Optional[float]) -> str:
 def fmt_price(n: Optional[float]) -> str:
     if n is None:
         return "N/A"
-    return f"${n:,.2f}"
+    return f"₹{n:,.2f}"
 
 
 # ── News helpers ─────────────────────────────────────────────────────────────
@@ -267,15 +267,15 @@ def _parse_news_items(raw: list) -> List[Dict]:
 @st.cache_data(ttl=900, show_spinner=False)
 def fetch_market_news(limit: int = 10) -> List[Dict]:
     """
-    Fetch recent broad-market headlines via yfinance (using SPY as a market proxy).
+    Fetch recent broad-market headlines via yfinance (using ^NSEI as a market proxy).
     Cached for 15 minutes to stay within rate limits.
     Returns a list of dicts with title, publisher, link, published.
     """
     try:
-        raw = yf.Ticker("SPY").news or []
+        raw = yf.Ticker("^NSEI").news or []
         if not raw:
-            # Fallback to a second broad-market proxy
-            raw = yf.Ticker("^GSPC").news or []
+            # Fallback to Sensex
+            raw = yf.Ticker("^BSESN").news or []
         return _parse_news_items(raw)[:limit]
     except Exception:
         return []
