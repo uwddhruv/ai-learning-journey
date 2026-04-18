@@ -789,10 +789,9 @@ def _render_intelligence(data: Dict, sc: Dict):
             "Data Quality":  15, "Consistency":    5,
         }
         fig.update_layout(
-            **PLOTLY_DARK,
+            **{**PLOTLY_DARK, "xaxis": dict(gridcolor="#1e1e2e", showline=False, zeroline=False, range=[0, 35])},
             height=280,
             showlegend=False,
-            xaxis=dict(range=[0, 35], gridcolor="#1e1e2e"),
             xaxis_title="Points scored",
         )
         # Add max gridlines
@@ -1113,10 +1112,9 @@ def page_portfolio():
         textfont=dict(color="#94a3b8"),
     ))
     fig_scores.update_layout(
-        **PLOTLY_DARK,
+        **{**PLOTLY_DARK, "yaxis": dict(gridcolor="#1e1e2e", showline=False, zeroline=False, range=[0, 105], title="Score")},
         height=280,
         showlegend=False,
-        yaxis=dict(range=[0, 105], title="Score"),
     )
     fig_scores.add_hline(y=72, line_dash="dot", line_color="#00d4aa",
                          annotation_text="Strong Buy", annotation_font_color="#00d4aa")
