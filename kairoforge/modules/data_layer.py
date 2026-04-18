@@ -7,7 +7,7 @@ import yfinance as yf
 import streamlit as st
 import pandas as pd
 import numpy as np
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, List, Optional
 import warnings
 warnings.filterwarnings("ignore")
@@ -250,7 +250,7 @@ def _parse_news_items(raw: list) -> List[Dict]:
         try:
             ts = article.get("providerPublishTime") or article.get("pubDate")
             if ts:
-                pub_dt = datetime.utcfromtimestamp(int(ts)).strftime("%b %d, %Y  %H:%M UTC")
+                pub_dt = datetime.fromtimestamp(int(ts), tz=timezone.utc).strftime("%b %d, %Y  %H:%M UTC")
             else:
                 pub_dt = "—"
             items.append({
