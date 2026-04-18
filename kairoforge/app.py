@@ -282,6 +282,8 @@ def page_screener():
 
     # Progress + fetch
     progress_bar = st.progress(0, text="Loading market data…")
+    # Safety guard: should not happen with DEFAULT_TICKERS, but
+    # prevents a crash if, e.g., all network requests fail.
     results = []
     for i, ticker in enumerate(tickers):
         progress_bar.progress((i + 1) / len(tickers), text=f"Analysing {ticker}…")
@@ -291,7 +293,7 @@ def page_screener():
     progress_bar.empty()
 
     if not results:
-        st.info("No stocks to display. Add stocks using the selector above.")
+        st.warning("No data available right now. Check your connection and try again.")
         _render_footer()
         return
 
