@@ -3,6 +3,7 @@ data_layer.py — Defensive data fetching from yfinance.
 Treats missing data as expected, not exceptional.
 """
 
+import os
 import yfinance as yf
 import streamlit as st
 import pandas as pd
@@ -11,6 +12,39 @@ from datetime import datetime, timezone
 from typing import Dict, List, Optional
 import warnings
 warnings.filterwarnings("ignore")
+
+# ── Stock Universe ────────────────────────────────────────────────────────────
+
+@st.cache_data(ttl=86400, show_spinner=False)
+def load_india_stocks() -> pd.DataFrame:
+    """
+    Load the curated Indian stock universe from the bundled CSV.
+    Returns a DataFrame with columns: ticker, company, sector.
+    Cached for 24 hours (data changes rarely).
+    Falls back to a small hardcoded list if the CSV is unavailable.
+    """
+    csv_path = os.path.join(os.path.dirname(__file__), "..", "data", "india_stocks.csv")
+    try:
+        df = pd.read_csv(csv_path, dtype=str).dropna(subset=["ticker", "company"])
+        df["ticker"] = df["ticker"].str.strip()
+        df["company"] = df["company"].str.strip()
+        df["sector"] = df["sector"].fillna("Unknown").str.strip()
+        return df.reset_index(drop=True)
+    except Exception:
+        # Minimal fallback
+        fallback = [
+            ("RELIANCE.NS", "Reliance Industries", "Energy"),
+            ("TCS.NS", "Tata Consultancy Services", "Information Technology"),
+            ("HDFCBANK.NS", "HDFC Bank", "Financial Services"),
+            ("ICICIBANK.NS", "ICICI Bank", "Financial Services"),
+            ("INFY.NS", "Infosys", "Information Technology"),
+            ("SBIN.NS", "State Bank of India", "Financial Services"),
+            ("BHARTIARTL.NS", "Bharti Airtel", "Telecom"),
+            ("WIPRO.NS", "Wipro", "Information Technology"),
+            ("TATAMOTORS.NS", "Tata Motors", "Automobile"),
+            ("MARUTI.NS", "Maruti Suzuki India", "Automobile"),
+        ]
+        return pd.DataFrame(fallback, columns=["ticker", "company", "sector"])
 
 
 @st.cache_data(ttl=3600, show_spinner=False)
