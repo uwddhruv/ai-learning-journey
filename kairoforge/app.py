@@ -20,6 +20,7 @@ st.set_page_config(
 
 # ── IMPORTS ───────────────────────────────────────────────────────────────────
 import os
+import base64
 import html
 from urllib.parse import urlparse
 import pandas as pd
@@ -73,6 +74,21 @@ PROVIDED_LOGO_URL = os.getenv(
     "KAIROFORGE_LOGO_URL",
     "https://github.com/user-attachments/assets/31e5cbee-9a99-4fe1-89dd-bf7e4d1dd30b",
 )
+CORE_MODE_LABELS = ("Screener", "Stock Analysis", "Portfolio Builder")
+
+
+def resolve_logo_src() -> str:
+    """Resolve logo source with URL-first strategy and local fallback."""
+    if PROVIDED_LOGO_URL and PROVIDED_LOGO_URL.strip():
+        return PROVIDED_LOGO_URL.strip()
+    _local_logo_path = os.path.join(os.path.dirname(__file__), "assets", "logo.png")
+    if os.path.exists(_local_logo_path):
+        try:
+            with open(_local_logo_path, "rb") as _f:
+                return f"data:image/png;base64,{base64.b64encode(_f.read()).decode()}"
+        except Exception:
+            return ""
+    return ""
 
 
 # ── SESSION STATE ─────────────────────────────────────────────────────────────
@@ -93,11 +109,8 @@ if "screener_applied_sig_filter" not in st.session_state: st.session_state.scree
 
 with st.sidebar:
     # ── LOGO ──────────────────────────────────────────────────────────────
-    _logo_path = os.path.join(os.path.dirname(__file__), "assets", "logo.png")
     try:
-        _logo_src = PROVIDED_LOGO_URL if PROVIDED_LOGO_URL else ""
-        if not _logo_src and os.path.exists(_logo_path):
-            _logo_src = _logo_path
+        _logo_src = resolve_logo_src()
         if _logo_src:
             st.markdown(
                 f"""
@@ -257,17 +270,22 @@ def render_score_gauge(score: float, color: str) -> str:
 # ══════════════════════════════════════════════════════════════════════════════
 
 def page_landing():
+    _landing_logo_src = resolve_logo_src()
+    _landing_logo_html = (
+        f'<img src="{_landing_logo_src}" class="kf-landing-logo" alt="KAIROFORGE logo" />'
+        if _landing_logo_src else ""
+    )
     st.markdown(
         f"""
         <section class="kf-landing-hero">
-            <img src="{PROVIDED_LOGO_URL}" class="kf-landing-logo" alt="KAIROFORGE logo" />
+            {_landing_logo_html}
             <div class="kf-landing-kicker">India-Focused Equity Intelligence</div>
             <h1>KAIROFORGE Terminal</h1>
             <p>
                 Search any stock from a 2,000+ coverage universe, open deep valuation analysis,
                 and move from signal to decision with a modern research workflow.
             </p>
-            <a class="kf-landing-scroll" href="#kf-scroll-target" role="button" aria-label="Scroll to features section">Scroll down ↓</a>
+            <a class="kf-landing-scroll" href="#kf-scroll-target" aria-label="Scroll to features section">Scroll down ↓</a>
         </section>
         """,
         unsafe_allow_html=True,
@@ -322,7 +340,7 @@ def page_landing():
 
     cc1, cc2, cc3 = st.columns(3)
     cc1.metric("Stocks Covered", f"{len(_stocks_df):,}+")
-    cc2.metric("Core Modes", "3")
+    cc2.metric("Core Modes", str(len(CORE_MODE_LABELS)))
     cc3.metric("Data Refresh", "Hourly")
     _render_footer()
 
