@@ -22,6 +22,7 @@ st.set_page_config(
 import os
 import base64
 import html
+from urllib.parse import urlparse
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
@@ -226,6 +227,7 @@ def render_score_gauge(score: float, color: str) -> str:
             score = 0.0
     except (TypeError, ValueError):
         score = 0.0
+    # Gauge is defined on a bounded 0–100 scale.
     score = max(0.0, min(100.0, score))
 
     r = 50
@@ -1411,7 +1413,8 @@ def _render_news_feed(
         publisher = html.escape(str(item.get("publisher", "Unknown")), quote=True)
         published = html.escape(str(item.get("published", "—")), quote=True)
         link = str(item.get("link", "#")).strip()
-        if not (link.startswith("http://") or link.startswith("https://")):
+        parsed_link = urlparse(link)
+        if parsed_link.scheme.lower() not in ("http", "https"):
             link = "#"
         link = html.escape(link, quote=True)
         rows_html += f"""
