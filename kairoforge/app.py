@@ -69,7 +69,10 @@ PLOTLY_DARK = dict(
     margin=dict(l=10, r=10, t=30, b=10),
 )
 
-PROVIDED_LOGO_URL = "https://github.com/user-attachments/assets/31e5cbee-9a99-4fe1-89dd-bf7e4d1dd30b"
+PROVIDED_LOGO_URL = os.getenv(
+    "KAIROFORGE_LOGO_URL",
+    "https://github.com/user-attachments/assets/31e5cbee-9a99-4fe1-89dd-bf7e4d1dd30b",
+)
 
 
 # ── SESSION STATE ─────────────────────────────────────────────────────────────
@@ -117,7 +120,9 @@ with st.sidebar:
                 unsafe_allow_html=True,
             )
         else:
-            raise ValueError("No logo source available")
+            raise ValueError(
+                "Logo could not be loaded: neither KAIROFORGE_LOGO_URL nor local logo.png are available"
+            )
     except Exception:
         st.markdown(
             """
@@ -262,7 +267,7 @@ def page_landing():
                 Search any stock from a 2,000+ coverage universe, open deep valuation analysis,
                 and move from signal to decision with a modern research workflow.
             </p>
-            <a class="kf-landing-scroll" href="#kf-scroll-target">Scroll down ↓</a>
+            <a class="kf-landing-scroll" href="#kf-scroll-target" role="button" aria-label="Scroll to features section">Scroll down ↓</a>
         </section>
         """,
         unsafe_allow_html=True,
@@ -270,8 +275,12 @@ def page_landing():
 
     _cur_ticker = st.session_state.selected
     _cur_label = _TICKER_TO_LABEL.get(_cur_ticker, "")
-    _placeholder = ["— choose a stock —"] + _ALL_LABELS
-    _select_idx = (_placeholder.index(_cur_label) if _cur_label in _placeholder else 0)
+    _options_with_placeholder = ["— choose a stock —"] + _ALL_LABELS
+    _select_idx = (
+        _options_with_placeholder.index(_cur_label)
+        if _cur_label in _options_with_placeholder
+        else 0
+    )
 
     c1, c2, c3 = st.columns([1.1, 2.8, 1.1])
     with c2:
@@ -279,7 +288,7 @@ def page_landing():
         with st.form("landing_stock_search"):
             _jump_label = st.selectbox(
                 "Search by company or ticker",
-                options=_placeholder,
+                options=_options_with_placeholder,
                 index=_select_idx,
                 key="landing_stock_select",
                 label_visibility="collapsed",
