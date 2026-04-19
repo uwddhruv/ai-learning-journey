@@ -119,6 +119,104 @@ html, body, [class*="css"] {
     color: #64748b;
 }
 
+/* ── LANDING PAGE ─────────────────────────────────────────────── */
+.kf-landing-hero {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,212,170,0.18), transparent 45%),
+        radial-gradient(circle at 80% 0%, rgba(124,58,237,0.22), transparent 45%),
+        linear-gradient(135deg, #0f1020 0%, #15152a 48%, #171735 100%);
+    border: 1px solid #2b2b45;
+    border-radius: 20px;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    margin-bottom: 1.25rem;
+}
+.kf-landing-logo {
+    width: 112px;
+    height: 112px;
+    border-radius: 18px;
+    object-fit: cover;
+    border: 1px solid #2d2d42;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+    margin-bottom: 1rem;
+}
+.kf-landing-kicker {
+    color: #00d4aa;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    margin-bottom: .4rem;
+}
+.kf-landing-hero h1 {
+    color: #f8fafc;
+    font-size: clamp(2rem, 5vw, 3.3rem);
+    margin: 0;
+    letter-spacing: -0.03em;
+}
+.kf-landing-hero p {
+    color: #94a3b8;
+    font-size: 1rem;
+    max-width: 720px;
+    margin: .9rem auto 1.5rem auto;
+    line-height: 1.7;
+}
+.kf-landing-scroll {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+    border: 1px solid #3a3a58;
+    border-radius: 999px;
+    color: #e2e8f0 !important;
+    font-size: .84rem;
+    font-weight: 600;
+    padding: .55rem 1.1rem;
+    background: rgba(10,10,15,0.35);
+    transition: all .2s ease;
+}
+.kf-landing-scroll:hover {
+    border-color: #00d4aa;
+    color: #00d4aa !important;
+}
+.kf-landing-search-title {
+    text-align: center;
+    color: #cbd5e1;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin: .5rem 0 .65rem 0;
+}
+.kf-landing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin: 1.4rem 0 1.1rem 0;
+}
+.kf-landing-card {
+    background: linear-gradient(180deg, rgba(18,18,27,.95) 0%, rgba(14,14,22,.95) 100%);
+    border: 1px solid #23233a;
+    border-radius: 14px;
+    padding: 1.1rem 1.2rem;
+}
+.kf-landing-card h3 {
+    margin: 0 0 .5rem 0;
+    color: #f1f5f9;
+    font-size: 1rem;
+}
+.kf-landing-card p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: .84rem;
+    line-height: 1.6;
+}
+
 /* ── SIGNAL BADGE ────────────────────────────────────────────── */
 .kf-signal {
     display: inline-block;
