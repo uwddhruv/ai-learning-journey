@@ -282,10 +282,10 @@ def page_landing():
             <div class="kf-landing-kicker">India-Focused Equity Intelligence</div>
             <h1>KAIROFORGE Terminal</h1>
             <p>
-                Search any stock from a 2,000+ coverage universe, open deep valuation analysis,
+                Search any stock from a {len(_stocks_df):,}+ coverage universe, open deep valuation analysis,
                 and move from signal to decision with a modern research workflow.
             </p>
-            <a class="kf-landing-scroll" href="#kf-scroll-target" aria-label="Scroll to features section">Scroll down ↓</a>
+            <a class="kf-landing-scroll" href="#kf-scroll-target" aria-label="Scroll down to features section">Scroll down ↓</a>
         </section>
         """,
         unsafe_allow_html=True,
@@ -340,7 +340,7 @@ def page_landing():
 
     cc1, cc2, cc3 = st.columns(3)
     cc1.metric("Stocks Covered", f"{len(_stocks_df):,}+")
-    cc2.metric("Research Modes", str(len(PAGE_MODES)))
+    cc2.metric("Navigation Modes", str(len(PAGE_MODES)))
     cc3.metric("Data Refresh", "Hourly")
     _render_footer()
 
