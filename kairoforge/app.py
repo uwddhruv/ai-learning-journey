@@ -21,6 +21,7 @@ st.set_page_config(
 # ── IMPORTS ───────────────────────────────────────────────────────────────────
 import os
 import base64
+import html
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
@@ -219,6 +220,14 @@ def color_for_value(v: float, v_min: float, v_max: float) -> str:
 
 def render_score_gauge(score: float, color: str) -> str:
     """SVG donut gauge for the score."""
+    try:
+        score = float(score)
+        if not np.isfinite(score):
+            score = 0.0
+    except Exception:
+        score = 0.0
+    score = max(0.0, min(100.0, score))
+
     r = 50
     cx = cy = 60
     circumference = 2 * np.pi * r
@@ -292,9 +301,10 @@ def page_screener():
         st.session_state.screener_applied_sort_by = st.session_state.screener_sort_by
         st.session_state.screener_applied_sig_filter = st.session_state.screener_sig_filter
 
-    added_labels = st.session_state.screener_applied_labels
-    sort_by = st.session_state.screener_applied_sort_by
-    sig_filter = st.session_state.screener_applied_sig_filter
+    # Use live control values so search/filter changes are reflected immediately.
+    added_labels = list(st.session_state.screener_selected_labels)
+    sort_by = st.session_state.screener_sort_by
+    sig_filter = st.session_state.screener_sig_filter
 
     # Build ticker list
     tickers = DEFAULT_TICKERS.copy()
@@ -338,6 +348,11 @@ def page_screener():
     # Filter
     if sig_filter != "All Signals":
         results = [r for r in results if r["_score"].get("signal") == sig_filter]
+
+    if not results:
+        st.info("No stocks match the current screener search/filter selection.")
+        _render_footer()
+        return
 
     # Summary row
     signals = [r["_score"].get("signal", "NO DATA") for r in results]
@@ -976,14 +991,17 @@ def _render_intelligence(data: Dict, sc: Dict):
 
     rows_html = ""
     for key, (label, val_str, signal, note) in label_map.items():
-        sig_disp = sig_label.get(signal, "—")
+        safe_label = html.escape(str(label), quote=True)
+        safe_val = html.escape(str(val_str), quote=True)
+        safe_note = html.escape(str(note), quote=True)
+        sig_disp = html.escape(str(sig_label.get(signal, "—")), quote=True)
         rows_html += f"""
         <div style="display:flex;gap:1.5rem;padding:.75rem 0;border-bottom:1px solid #1a1a28;
                     align-items:center;">
-            <div style="width:100px;color:#94a3b8;font-size:.8rem;">{label}</div>
-            <div style="width:80px;color:#f1f5f9;font-weight:600;font-family:'JetBrains Mono',mono;">{val_str}</div>
+            <div style="width:100px;color:#94a3b8;font-size:.8rem;">{safe_label}</div>
+            <div style="width:80px;color:#f1f5f9;font-weight:600;font-family:'JetBrains Mono',mono;">{safe_val}</div>
             <div style="width:160px;color:#e2e8f0;font-size:.8rem;">{sig_disp}</div>
-            <div style="flex:1;color:#475569;font-size:.75rem;">{note}</div>
+            <div style="flex:1;color:#475569;font-size:.75rem;">{safe_note}</div>
         </div>
         """
 
@@ -1389,19 +1407,26 @@ def _render_news_feed(
 
     rows_html = ""
     for item in news_items:
+        title = html.escape(str(item.get("title", "Untitled")), quote=True)
+        publisher = html.escape(str(item.get("publisher", "Unknown")), quote=True)
+        published = html.escape(str(item.get("published", "—")), quote=True)
+        link = str(item.get("link", "#")).strip()
+        if not (link.startswith("http://") or link.startswith("https://")):
+            link = "#"
+        link = html.escape(link, quote=True)
         rows_html += f"""
         <div style="padding:.65rem 0;border-bottom:1px solid #1a1a28;">
-            <a href="{item['link']}" target="_blank" rel="noopener noreferrer"
+            <a href="{link}" target="_blank" rel="noopener noreferrer"
                style="color:#e2e8f0;font-size:.85rem;font-weight:500;text-decoration:none;
-                      line-height:1.4;display:block;margin-bottom:.25rem;">
-                {item['title']}
+                       line-height:1.4;display:block;margin-bottom:.25rem;">
+                {title}
             </a>
             <div style="display:flex;gap:1rem;align-items:center;">
                 <span style="color:#00d4aa;font-size:.72rem;font-weight:600;">
-                    {item['publisher']}
+                    {publisher}
                 </span>
                 <span style="color:#334155;font-size:.72rem;">
-                    {item['published']}
+                    {published}
                 </span>
             </div>
         </div>
