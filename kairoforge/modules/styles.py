@@ -13,6 +13,9 @@ def inject_styles() -> str:
 html, body, [class*="css"] {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
+html, body {
+    scroll-behavior: smooth;
+}
 
 /* ── APP BACKGROUND ─────────────────────────────────────────── */
 .stApp {

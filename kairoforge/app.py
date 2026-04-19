@@ -340,7 +340,7 @@ def page_landing():
 
     cc1, cc2, cc3 = st.columns(3)
     cc1.metric("Stocks Covered", f"{len(_stocks_df):,}+")
-    cc2.metric("Core Modes", str(len(CORE_MODE_LABELS)))
+    cc2.metric("Research Modes", str(len(CORE_MODE_LABELS)))
     cc3.metric("Data Refresh", "Hourly")
     _render_footer()
 
