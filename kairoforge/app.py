@@ -74,7 +74,7 @@ PROVIDED_LOGO_URL = os.getenv(
     "KAIROFORGE_LOGO_URL",
     "https://github.com/user-attachments/assets/31e5cbee-9a99-4fe1-89dd-bf7e4d1dd30b",
 )
-CORE_MODE_LABELS = ("Screener", "Stock Analysis", "Portfolio Builder")
+CORE_MODE_LABELS = ("Landing", "Screener", "Stock Analysis", "Portfolio Builder")
 
 
 def resolve_logo_src() -> str:
