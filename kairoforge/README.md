@@ -10,7 +10,7 @@ KAIROFORGE blends three core tools into one clean interface:
 
 | Module | Description |
 |--------|-------------|
-| **Screener** | Scans 30 Nifty 50 stocks by default; add any of **500+ Indian equities** from the searchable dropdown. Each stock gets a signal: STRONG BUY → AVOID |
+| **Screener** | Scans 30 Nifty 50 stocks by default; add any of **2000+ Indian equities** from the searchable dropdown. Each stock gets a signal: STRONG BUY → AVOID |
 | **Stock Analysis** | Full equity report: Hero panel, price chart, DCF/Graham breakdown, scoring intelligence |
 | **Portfolio Builder** | Build a portfolio using the searchable multi-stock selector. Interprets composition, risk profile, and concentration |
 
@@ -54,7 +54,7 @@ The app opens automatically at **http://localhost:8501**.
 kairoforge/
 ├── app.py                    ← Main Streamlit entry point / UI router
 ├── data/
-│   └── india_stocks.csv      ← 500+ NSE stock universe (ticker, company, sector)
+│   └── india_stocks.csv      ← 2000+ Indian stock universe (ticker, company, sector)
 ├── assets/
 │   └── logo.png              ← Brand logo (auto-loaded in sidebar)
 ├── modules/
@@ -70,7 +70,7 @@ kairoforge/
 
 ### Indian Stock Universe (`data/india_stocks.csv`)
 
-The file contains **500+ NSE-listed equities** with columns:
+The file contains **2000+ Indian-listed equities** (NSE + BSE symbols) with columns:
 
 | Column | Description |
 |--------|-------------|
@@ -85,7 +85,7 @@ Defence, Retail, and more.
 ### Searchable Dropdown Selector
 
 - **Sidebar**: "Search & Analyse Stock" selectbox — type to search by company name or ticker.
-- **Screener**: Multi-select to add any stock from the 500+ universe to the screener watchlist.
+- **Screener**: Multi-select to add any stock from the 2000+ universe to the screener watchlist.
 - **Portfolio Builder**: Multi-select to build a portfolio from the full stock universe.
 - No exact ticker typing required; search by partial company name or symbol.
 

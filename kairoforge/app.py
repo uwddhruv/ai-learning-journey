@@ -29,7 +29,7 @@ from datetime import datetime
 from typing import List, Dict
 
 from modules.data_layer import (
-    fetch_stock_data, fetch_price_history, fetch_market_news, fetch_ticker_news,
+    fetch_stock_data, fetch_price_history, fetch_market_news_state, fetch_ticker_news_state,
     fmt_large, fmt_pct, fmt_price, load_india_stocks,
 )
 from modules.valuation_engine import calculate_dcf, calculate_graham, get_relative_valuation
@@ -73,6 +73,12 @@ PLOTLY_DARK = dict(
 if "page"      not in st.session_state: st.session_state.page      = "Screener"
 if "selected"  not in st.session_state: st.session_state.selected  = ""
 if "portfolio" not in st.session_state: st.session_state.portfolio = []
+if "screener_selected_labels" not in st.session_state: st.session_state.screener_selected_labels = []
+if "screener_sort_by" not in st.session_state: st.session_state.screener_sort_by = "Score ↓"
+if "screener_sig_filter" not in st.session_state: st.session_state.screener_sig_filter = "All Signals"
+if "screener_applied_labels" not in st.session_state: st.session_state.screener_applied_labels = []
+if "screener_applied_sort_by" not in st.session_state: st.session_state.screener_applied_sort_by = "Score ↓"
+if "screener_applied_sig_filter" not in st.session_state: st.session_state.screener_applied_sig_filter = "All Signals"
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -244,34 +250,51 @@ def page_screener():
         <div class="kf-section-title">Stock Screener</div>
         <p style="color:#64748b;font-size:0.85rem;margin-bottom:1.5rem;">
             Real-time valuation signals across major Indian equities.
-            Select stocks from 500+ coverage universe or use the default watchlist.
+            Select stocks from 2,000+ coverage universe or use the default watchlist.
         </p>
         """,
         unsafe_allow_html=True,
     )
 
-    # Controls row 1: stock selector + sort + filter
-    col_a, col_b, col_c = st.columns([3, 1, 1])
-    with col_a:
-        added_labels = st.multiselect(
-            "Add stocks to screen",
-            options=_ALL_LABELS,
-            placeholder="Search by company name or ticker symbol…",
-            label_visibility="collapsed",
-            key="screener_add_stocks",
-        )
-    with col_b:
-        sort_by = st.selectbox(
-            "Sort",
-            ["Score ↓", "Price ↓", "P/E ↑", "MOS ↓"],
-            label_visibility="collapsed",
-        )
-    with col_c:
-        sig_filter = st.selectbox(
-            "Filter",
-            ["All Signals", "STRONG BUY", "BUY", "HOLD", "AVOID"],
-            label_visibility="collapsed",
-        )
+    # Controls row 1: stock selector + sort + filter (explicit apply action)
+    with st.form("screener_controls", clear_on_submit=False):
+        col_a, col_b, col_c, col_d = st.columns([3, 1, 1, 1])
+        with col_a:
+            st.multiselect(
+                "Add stocks to screen",
+                options=_ALL_LABELS,
+                default=st.session_state.screener_selected_labels,
+                placeholder="Search by company name or ticker symbol…",
+                label_visibility="collapsed",
+                key="screener_selected_labels",
+            )
+        with col_b:
+            st.selectbox(
+                "Sort",
+                ["Score ↓", "Price ↓", "P/E ↑", "MOS ↓"],
+                index=["Score ↓", "Price ↓", "P/E ↑", "MOS ↓"].index(st.session_state.screener_sort_by),
+                label_visibility="collapsed",
+                key="screener_sort_by",
+            )
+        with col_c:
+            st.selectbox(
+                "Filter",
+                ["All Signals", "STRONG BUY", "BUY", "HOLD", "AVOID"],
+                index=["All Signals", "STRONG BUY", "BUY", "HOLD", "AVOID"].index(st.session_state.screener_sig_filter),
+                label_visibility="collapsed",
+                key="screener_sig_filter",
+            )
+        with col_d:
+            apply_filters = st.form_submit_button("Apply filters", use_container_width=True)
+
+    if apply_filters:
+        st.session_state.screener_applied_labels = list(st.session_state.screener_selected_labels)
+        st.session_state.screener_applied_sort_by = st.session_state.screener_sort_by
+        st.session_state.screener_applied_sig_filter = st.session_state.screener_sig_filter
+
+    added_labels = st.session_state.screener_applied_labels
+    sort_by = st.session_state.screener_applied_sort_by
+    sig_filter = st.session_state.screener_applied_sig_filter
 
     # Build ticker list
     tickers = DEFAULT_TICKERS.copy()
@@ -406,9 +429,15 @@ def page_screener():
 
     # ── MARKET NEWS ────────────────────────────────────────────────────────
     st.markdown("<div style='margin-top:2.5rem;'></div>", unsafe_allow_html=True)
-    with st.spinner("Loading market headlines…"):
-        market_news = fetch_market_news(limit=10)
-    _render_news_feed(market_news, title="📰 Market News", loading=False)
+    market_news_state = fetch_market_news_state(limit=10)
+    _render_news_feed(
+        market_news_state.get("items", []),
+        title="📰 Market News",
+        loading=False,
+        state=market_news_state.get("state", "ok"),
+        message=market_news_state.get("message", ""),
+        source=market_news_state.get("source", ""),
+    )
 
     _render_footer()
 
@@ -547,29 +576,40 @@ def page_analysis():
 
     # ── TICKER NEWS ─────────────────────────────────────────────────────────
     st.markdown("<div style='margin-top:1rem;'></div>", unsafe_allow_html=True)
-    with st.spinner(f"Loading {ticker} news…"):
-        ticker_news = fetch_ticker_news(ticker, limit=8)
-    _render_news_feed(ticker_news, title=f"📰 {ticker} News", loading=False)
+    ticker_news_state = fetch_ticker_news_state(ticker, limit=8)
+    _render_news_feed(
+        ticker_news_state.get("items", []),
+        title=f"📰 {ticker} News",
+        loading=False,
+        state=ticker_news_state.get("state", "ok"),
+        message=ticker_news_state.get("message", ""),
+        source=ticker_news_state.get("source", ""),
+    )
 
     _render_footer()
 
 
 def _render_key_metrics(data: Dict):
     """Render a clean metrics grid."""
+    def ratio(v: float, suffix: str = "x", digits: int = 2) -> str:
+        if v is None:
+            return "N/A"
+        return f"{v:.{digits}f}{suffix}"
+
     st.markdown("<div class='kf-section-title'>Valuation Ratios</div>", unsafe_allow_html=True)
     m = [
-        ("P/E Ratio",    fmt_price(data.get("pe_ratio")).lstrip("₹") if data.get("pe_ratio") else "N/A",
+        ("P/E Ratio",    ratio(data.get("pe_ratio")),
          "Price to trailing earnings"),
-        ("P/B Ratio",    f"{data.get('pb_ratio'):.2f}x" if data.get("pb_ratio") else "N/A",
+        ("P/B Ratio",    ratio(data.get("pb_ratio")),
          "Price to book value"),
-        ("P/S Ratio",    f"{data.get('ps_ratio'):.2f}x" if data.get("ps_ratio") else "N/A",
+        ("P/S Ratio",    ratio(data.get("ps_ratio")),
          "Price to sales"),
-        ("PEG Ratio",    f"{data.get('peg_ratio'):.2f}"  if data.get("peg_ratio") else "N/A",
+        ("PEG Ratio",    ratio(data.get("peg_ratio"), suffix="", digits=2),
          "P/E to growth — < 1 is attractive"),
+        ("EV/EBITDA",    ratio(data.get("ev_to_ebitda")),
+         "Enterprise value to EBITDA"),
         ("EV",           fmt_large(data.get("enterprise_value")),
          "Enterprise value"),
-        ("Div. Yield",   fmt_pct(data.get("dividend_yield")),
-         "Trailing annual dividend"),
     ]
     _metric_row(m)
 
@@ -830,6 +870,10 @@ def _render_valuation_breakdown(data: Dict, sc: Dict):
 
 def _render_intelligence(data: Dict, sc: Dict):
     """Score breakdown + narrative intelligence layer."""
+    if not sc:
+        st.warning("Score intelligence is temporarily unavailable for this symbol.")
+        return
+
     breakdown = sc.get("breakdown", {})
 
     # Score breakdown radar / bar
@@ -865,6 +909,13 @@ def _render_intelligence(data: Dict, sc: Dict):
                     annotation_font_color="#2d2d42",
                 )
         st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.markdown(
+            "<div class='kf-explain' style='border-left-color:#475569;color:#94a3b8;'>"
+            "Insufficient valuation inputs to render full score breakdown."
+            "</div>",
+            unsafe_allow_html=True,
+        )
 
     # Analyst Narrative
     st.markdown("<div class='kf-section-title'>Analyst Intelligence</div>", unsafe_allow_html=True)
@@ -886,7 +937,9 @@ def _render_intelligence(data: Dict, sc: Dict):
         "pb_ratio":  ("P/B Ratio",  f'{rel.get("pb_ratio"):.2f}x' if rel.get("pb_ratio") else "N/A",
                       rel.get("pb_signal"),  "< 1.0 often considered deep value"),
         "peg_ratio": ("PEG Ratio",  f'{rel.get("peg_ratio"):.2f}'  if rel.get("peg_ratio") else "N/A",
-                      rel.get("peg_signal"), "< 1.0 suggests growth at reasonable price"),
+                       rel.get("peg_signal"), "< 1.0 suggests growth at reasonable price"),
+        "ev_to_ebitda": ("EV/EBITDA", f'{rel.get("ev_to_ebitda"):.2f}x' if rel.get("ev_to_ebitda") else "N/A",
+                         rel.get("ev_ebitda_signal"), f'Sector median: {rel.get("benchmark_ev_ebitda",12):.1f}x'),
     }
 
     sig_label = {
@@ -1267,7 +1320,14 @@ def _render_footer():
 #  SHARED NEWS RENDERER
 # ══════════════════════════════════════════════════════════════════════════════
 
-def _render_news_feed(news_items: list, title: str = "Market News", loading: bool = False):
+def _render_news_feed(
+    news_items: list,
+    title: str = "Market News",
+    loading: bool = False,
+    state: str = "ok",
+    message: str = "",
+    source: str = "",
+):
     """
     Render a list of news items inside a styled card.
     Each item: {title, publisher, link, published}
@@ -1281,10 +1341,22 @@ def _render_news_feed(news_items: list, title: str = "Market News", loading: boo
         )
         return
 
+    if message:
+        st.markdown(
+            f"<div style='color:#64748b;font-size:.72rem;margin:-.4rem 0 .65rem 0;'>{message}</div>",
+            unsafe_allow_html=True,
+        )
+
+    if source:
+        st.markdown(
+            f"<div style='color:#475569;font-size:.68rem;margin:-.25rem 0 .65rem 0;'>Source: {source}</div>",
+            unsafe_allow_html=True,
+        )
+
     if not news_items:
         st.markdown(
             "<div class='kf-explain' style='border-left-color:#475569;color:#64748b;'>"
-            "No headlines available right now. Check back shortly."
+            "No headlines available right now after checking all configured providers."
             "</div>",
             unsafe_allow_html=True,
         )

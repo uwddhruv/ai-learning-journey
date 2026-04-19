@@ -16,19 +16,29 @@ from typing import Dict, Optional
 
 # ── SECTOR P/E BENCHMARKS ────────────────────────────────────────────────────
 
-SECTOR_PE = {
-    "Technology": 25,
-    "Healthcare": 35,
-    "Financial Services": 20,
-    "Consumer Cyclical": 40,
-    "Consumer Defensive": 50,
-    "Energy": 15,
-    "Utilities": 18,
-    "Real Estate": 30,
-    "Industrials": 25,
-    "Basic Materials": 18,
-    "Communication Services": 20,
-    "Unknown": 25,
+SECTOR_BENCHMARKS = {
+    "Technology": {"pe": 25, "ev_ebitda": 18},
+    "Healthcare": {"pe": 35, "ev_ebitda": 20},
+    "Financial Services": {"pe": 20, "ev_ebitda": 12},
+    "Consumer Cyclical": {"pe": 40, "ev_ebitda": 22},
+    "Consumer Defensive": {"pe": 50, "ev_ebitda": 24},
+    "Energy": {"pe": 15, "ev_ebitda": 8},
+    "Utilities": {"pe": 18, "ev_ebitda": 10},
+    "Real Estate": {"pe": 30, "ev_ebitda": 14},
+    "Industrials": {"pe": 25, "ev_ebitda": 14},
+    "Basic Materials": {"pe": 18, "ev_ebitda": 10},
+    "Communication Services": {"pe": 20, "ev_ebitda": 12},
+    "Unknown": {"pe": 22, "ev_ebitda": 12},
+}
+
+SECTOR_ALIASES = {
+    "Information Technology": "Technology",
+    "Financial": "Financial Services",
+    "Consumer Staples": "Consumer Defensive",
+    "Consumer Discretionary": "Consumer Cyclical",
+    "Materials": "Basic Materials",
+    "Industrial": "Industrials",
+    "Telecom": "Communication Services",
 }
 
 
@@ -168,9 +178,12 @@ def get_relative_valuation(data: Dict) -> Dict:
     pe     = data.get("pe_ratio")
     pb     = data.get("pb_ratio")
     peg    = data.get("peg_ratio")
-    sector = data.get("sector", "Unknown")
-
-    bench_pe = SECTOR_PE.get(sector, 20)
+    ev_ebitda = data.get("ev_to_ebitda")
+    sector_raw = data.get("sector", "Unknown")
+    sector = SECTOR_ALIASES.get(sector_raw, sector_raw)
+    bench = SECTOR_BENCHMARKS.get(sector, SECTOR_BENCHMARKS["Unknown"])
+    bench_pe = bench["pe"]
+    bench_ev_ebitda = bench["ev_ebitda"]
 
     def pe_signal(v):
         if v is None or v <= 0:
@@ -194,15 +207,29 @@ def get_relative_valuation(data: Dict) -> Dict:
         if v < 2.5:  return "overvalued"
         return "very_overvalued"
 
+    def ev_ebitda_signal(v):
+        if v is None or v <= 0:
+            return None
+        if v < bench_ev_ebitda * 0.80:
+            return "cheap"
+        if v <= bench_ev_ebitda * 1.20:
+            return "fair"
+        if v <= bench_ev_ebitda * 1.60:
+            return "slightly_rich"
+        return "expensive"
+
     return {
         "pe_ratio":    pe,
         "pb_ratio":    pb,
         "peg_ratio":   peg,
+        "ev_to_ebitda": ev_ebitda,
         "benchmark_pe": bench_pe,
+        "benchmark_ev_ebitda": bench_ev_ebitda,
         "sector":      sector,
         "pe_signal":   pe_signal(pe),
         "pb_signal":   pb_signal(pb),
         "peg_signal":  peg_signal(peg),
+        "ev_ebitda_signal": ev_ebitda_signal(ev_ebitda),
     }
 
 
