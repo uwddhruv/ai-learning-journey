@@ -347,12 +347,10 @@ def _parse_news_items(raw: list) -> List[Dict]:
             pub_dt = _format_publish_time(ts)
             title = _clean_news_text(article.get("title") or content.get("title"))
             publisher = _clean_news_text(
-                article.get("publisher") or content.get("provider", {}).get("displayName") or "Unknown"
-            )
+                article.get("publisher") or content.get("provider", {}).get("displayName")
+            ) or "Unknown"
             if not title:
                 continue
-            if not publisher:
-                publisher = "Unknown"
             items.append({
                 "title": title,
                 "publisher": publisher,
@@ -730,8 +728,8 @@ def _filter_market_relevant_news(items: List[Dict]) -> List[Dict]:
     seen = set()
     filtered = []
     for item in items:
-        title = _clean_news_text(item.get("title", ""))
-        publisher = _clean_news_text(item.get("publisher", ""))
+        title = str(item.get("title", "")).strip()
+        publisher = str(item.get("publisher", "")).strip()
         key = title.lower()
         if not key or key in seen:
             continue
