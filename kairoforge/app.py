@@ -74,9 +74,6 @@ PROVIDED_LOGO_URL = os.getenv(
     "KAIROFORGE_LOGO_URL",
     "https://github.com/user-attachments/assets/31e5cbee-9a99-4fe1-89dd-bf7e4d1dd30b",
 )
-PAGE_MODES = ("Landing", "Screener", "Stock Analysis", "Portfolio Builder")
-
-
 def resolve_logo_src() -> str:
     """Resolve logo source with URL-first strategy and local fallback."""
     if PROVIDED_LOGO_URL and PROVIDED_LOGO_URL.strip():
@@ -317,30 +314,31 @@ def page_landing():
             st.session_state.page = "Analysis"
             st.rerun()
 
-    st.markdown("<div id='kf-scroll-target'></div>", unsafe_allow_html=True)
     st.markdown(
         """
-        <div class="kf-landing-grid">
-            <div class="kf-landing-card">
-                <h3>📊 Smart Screener</h3>
-                <p>Filter signals, sort by valuation metrics, and scan market pulse in one view.</p>
+        <section id="kf-scroll-target" role="region" aria-label="KairoForge feature overview">
+            <div class="kf-landing-grid">
+                <div class="kf-landing-card">
+                    <h3>📊 Smart Screener</h3>
+                    <p>Filter signals, sort by valuation metrics, and scan market pulse in one view.</p>
+                </div>
+                <div class="kf-landing-card">
+                    <h3>🔍 Deep Analysis</h3>
+                    <p>Open detailed valuation, score breakdown, risk factors, and chart context instantly.</p>
+                </div>
+                <div class="kf-landing-card">
+                    <h3>💼 Portfolio Builder</h3>
+                    <p>Assemble holdings, inspect concentration risks, and monitor score distribution.</p>
+                </div>
             </div>
-            <div class="kf-landing-card">
-                <h3>🔍 Deep Analysis</h3>
-                <p>Open detailed valuation, score breakdown, risk factors, and chart context instantly.</p>
-            </div>
-            <div class="kf-landing-card">
-                <h3>💼 Portfolio Builder</h3>
-                <p>Assemble holdings, inspect concentration risks, and monitor score distribution.</p>
-            </div>
-        </div>
+        </section>
         """,
         unsafe_allow_html=True,
     )
 
     cc1, cc2, cc3 = st.columns(3)
     cc1.metric("Stocks Covered", f"{len(_stocks_df):,}+")
-    cc2.metric("Navigation Modes", str(len(PAGE_MODES)))
+    cc2.metric("Active Mode", st.session_state.page)
     cc3.metric("Data Refresh", "Hourly")
     _render_footer()
 
