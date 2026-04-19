@@ -70,9 +70,26 @@ PLOTLY_DARK = dict(
     margin=dict(l=10, r=10, t=30, b=10),
 )
 
+PROVIDED_LOGO_URL = os.getenv(
+    "KAIROFORGE_LOGO_URL",
+    "https://github.com/user-attachments/assets/31e5cbee-9a99-4fe1-89dd-bf7e4d1dd30b",
+)
+def resolve_logo_src() -> str:
+    """Resolve logo source with URL-first strategy and local fallback."""
+    if PROVIDED_LOGO_URL and PROVIDED_LOGO_URL.strip():
+        return PROVIDED_LOGO_URL.strip()
+    _local_logo_path = os.path.join(os.path.dirname(__file__), "assets", "logo.png")
+    if os.path.exists(_local_logo_path):
+        try:
+            with open(_local_logo_path, "rb") as _f:
+                return f"data:image/png;base64,{base64.b64encode(_f.read()).decode()}"
+        except Exception:
+            return ""
+    return ""
+
 
 # ── SESSION STATE ─────────────────────────────────────────────────────────────
-if "page"      not in st.session_state: st.session_state.page      = "Screener"
+if "page"      not in st.session_state: st.session_state.page      = "Landing"
 if "selected"  not in st.session_state: st.session_state.selected  = ""
 if "portfolio" not in st.session_state: st.session_state.portfolio = []
 if "screener_selected_labels" not in st.session_state: st.session_state.screener_selected_labels = []
@@ -89,19 +106,17 @@ if "screener_applied_sig_filter" not in st.session_state: st.session_state.scree
 
 with st.sidebar:
     # ── LOGO ──────────────────────────────────────────────────────────────
-    _logo_path = os.path.join(os.path.dirname(__file__), "assets", "logo.png")
-    if os.path.exists(_logo_path):
-        try:
-            with open(_logo_path, "rb") as _f:
-                _logo_b64 = base64.b64encode(_f.read()).decode()
+    try:
+        _logo_src = resolve_logo_src()
+        if _logo_src:
             st.markdown(
                 f"""
                 <div style="display:flex;align-items:center;gap:.75rem;
                             padding:.5rem 0 .75rem 0;margin-bottom:.25rem;">
-                    <img src="data:image/png;base64,{_logo_b64}"
+                    <img src="{_logo_src}"
                          width="52" height="52"
                          style="border-radius:12px;flex-shrink:0;
-                                box-shadow:0 2px 8px rgba(0,212,170,0.25);"
+                                box-shadow:0 2px 8px rgba(0,212,170,0.25);object-fit:cover;"
                          alt="KAIROFORGE logo"/>
                     <div>
                         <div class="kf-header-logo" style="font-size:1.15rem;
@@ -114,17 +129,11 @@ with st.sidebar:
                 """,
                 unsafe_allow_html=True,
             )
-        except Exception:
-            st.markdown(
-                """
-                <div style="padding:.5rem 0 .75rem 0;margin-bottom:.25rem;">
-                    <div class="kf-header-logo">⚡ KAIROFORGE</div>
-                    <div class="kf-header-sub">Equity Intelligence Terminal</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
+        else:
+            raise ValueError(
+                "Logo could not be loaded: neither KAIROFORGE_LOGO_URL nor local logo.png are available"
             )
-    else:
+    except Exception:
         st.markdown(
             """
             <div style="padding:.5rem 0 .75rem 0;margin-bottom:.25rem;">
@@ -139,13 +148,15 @@ with st.sidebar:
 
     nav_choice = st.radio(
         "Navigate",
-        ["📊  Screener", "🔍  Stock Analysis", "💼  Portfolio Builder"],
-        index=0 if st.session_state.page == "Screener"
-              else 1 if st.session_state.page == "Analysis"
-              else 2,
+        ["🏠  Landing", "📊  Screener", "🔍  Stock Analysis", "💼  Portfolio Builder"],
+        index=0 if st.session_state.page == "Landing"
+              else 1 if st.session_state.page == "Screener"
+              else 2 if st.session_state.page == "Analysis"
+              else 3,
         label_visibility="hidden",
     )
     st.session_state.page = (
+        "Landing"  if "Landing"  in nav_choice else
         "Screener"  if "Screener"  in nav_choice else
         "Analysis"  if "Analysis"  in nav_choice else
         "Portfolio"
@@ -249,6 +260,87 @@ def render_score_gauge(score: float, color: str) -> str:
             fill="#64748b" font-size="9" letter-spacing="1">/100</text>
     </svg>
     """
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  PAGE: LANDING
+# ══════════════════════════════════════════════════════════════════════════════
+
+def page_landing():
+    _landing_logo_src = resolve_logo_src()
+    _landing_logo_html = (
+        f'<img src="{_landing_logo_src}" class="kf-landing-logo" alt="KAIROFORGE logo" />'
+        if _landing_logo_src else ""
+    )
+    st.markdown(
+        f"""
+        <section class="kf-landing-hero">
+            {_landing_logo_html}
+            <div class="kf-landing-kicker">India-Focused Equity Intelligence</div>
+            <h1>KAIROFORGE Terminal</h1>
+            <p>
+                Search any stock from a {len(_stocks_df):,}+ coverage universe, open deep valuation analysis,
+                and move from signal to decision with a modern research workflow.
+            </p>
+            <a class="kf-landing-scroll" href="#kf-scroll-target" aria-label="Scroll down to features section">Scroll down ↓</a>
+        </section>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    _cur_ticker = st.session_state.selected
+    _cur_label = _TICKER_TO_LABEL.get(_cur_ticker, "")
+    _options_with_placeholder = ["— choose a stock —"] + _ALL_LABELS
+    _select_idx = (
+        _options_with_placeholder.index(_cur_label)
+        if _cur_label in _options_with_placeholder
+        else 0
+    )
+
+    c1, c2, c3 = st.columns([1.1, 2.8, 1.1])
+    with c2:
+        st.markdown("<div class='kf-landing-search-title'>Search Stocks</div>", unsafe_allow_html=True)
+        with st.form("landing_stock_search"):
+            _jump_label = st.selectbox(
+                "Search by company or ticker",
+                options=_options_with_placeholder,
+                index=_select_idx,
+                key="landing_stock_select",
+                label_visibility="collapsed",
+            )
+            _analyse_now = st.form_submit_button("Analyse Stock", use_container_width=True)
+        if _analyse_now and _jump_label and _jump_label != "— choose a stock —":
+            st.session_state.selected = _LABEL_TO_TICKER.get(_jump_label, "")
+            st.session_state.page = "Analysis"
+            st.rerun()
+
+    st.markdown(
+        """
+        <section id="kf-scroll-target" role="region" aria-label="KairoForge feature overview">
+            <div class="kf-landing-grid">
+                <div class="kf-landing-card">
+                    <h3>📊 Smart Screener</h3>
+                    <p>Filter signals, sort by valuation metrics, and scan market pulse in one view.</p>
+                </div>
+                <div class="kf-landing-card">
+                    <h3>🔍 Deep Analysis</h3>
+                    <p>Open detailed valuation, score breakdown, risk factors, and chart context instantly.</p>
+                </div>
+                <div class="kf-landing-card">
+                    <h3>💼 Portfolio Builder</h3>
+                    <p>Assemble holdings, inspect concentration risks, and monitor score distribution.</p>
+                </div>
+            </div>
+        </section>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    cc1, cc2, cc3 = st.columns(3)
+    cc1.metric("Stocks Covered", f"{len(_stocks_df):,}+")
+    cc2.metric("Active Mode", st.session_state.page)
+    cc3.metric("Data Refresh", "Hourly")
+    _render_footer()
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1446,6 +1538,7 @@ def _render_news_feed(
 # ══════════════════════════════════════════════════════════════════════════════
 
 page = st.session_state.page
-if   page == "Screener":  page_screener()
+if   page == "Landing":   page_landing()
+elif page == "Screener":  page_screener()
 elif page == "Analysis":  page_analysis()
 elif page == "Portfolio": page_portfolio()
