@@ -411,6 +411,7 @@ def fetch_ticker_news_state(ticker: str, limit: int = 8) -> Dict:
 
 
 def _fetch_info_with_retries(stock, retries: int = 3, delay: float = 0.6) -> Dict:
+    """Fetch stock.info with lightweight retries to handle transient provider failures."""
     last_error = None
     for i in range(retries):
         try:
@@ -427,6 +428,7 @@ def _fetch_info_with_retries(stock, retries: int = 3, delay: float = 0.6) -> Dic
 
 
 def _safe_fast_info(stock) -> Dict:
+    """Return stock.fast_info as a plain dict, or {} when unavailable."""
     try:
         fi = stock.fast_info or {}
         if hasattr(fi, "items"):
@@ -437,6 +439,7 @@ def _safe_fast_info(stock) -> Dict:
 
 
 def _fallback_price_from_history(stock) -> Optional[float]:
+    """Derive last close from recent history when quote endpoints return no live price."""
     try:
         h = stock.history(period="5d")
         if h.empty:
@@ -450,6 +453,7 @@ def _fallback_price_from_history(stock) -> Optional[float]:
 
 
 def _fetch_yfinance_news(symbol: str, retries: int = 3, delay: float = 0.5) -> list:
+    """Fetch Yahoo Finance news with retries; returns [] when no usable payload is found."""
     last_error = None
     for i in range(retries):
         try:
@@ -466,6 +470,7 @@ def _fetch_yfinance_news(symbol: str, retries: int = 3, delay: float = 0.5) -> l
 
 
 def _format_publish_time(raw_ts) -> str:
+    """Normalize epoch/RFC/ISO-like timestamps into a UTC display string."""
     if raw_ts in (None, "", 0):
         return "—"
     try:
@@ -482,6 +487,7 @@ def _format_publish_time(raw_ts) -> str:
 
 
 def _fetch_google_news_rss(query: str, limit: int) -> List[Dict]:
+    """Fetch Google News RSS search results and convert them into normalized news items."""
     url = f"https://news.google.com/rss/search?q={requests.utils.quote(query)}&hl=en-IN&gl=IN&ceid=IN:en"
     xml = _http_get_with_retries(url)
     if not xml:
@@ -490,6 +496,7 @@ def _fetch_google_news_rss(query: str, limit: int) -> List[Dict]:
 
 
 def _http_get_with_retries(url: str, retries: int = 3, timeout: int = 6) -> str:
+    """Perform GET with timeout + retries and return response text on success."""
     for i in range(retries):
         try:
             r = requests.get(url, timeout=timeout)
@@ -503,6 +510,7 @@ def _http_get_with_retries(url: str, retries: int = 3, timeout: int = 6) -> str:
 
 
 def _parse_rss_items(xml_text: str) -> List[Dict]:
+    """Parse RSS XML <item> nodes into {title, publisher, link, published} dictionaries."""
     items = []
     try:
         root = ET.fromstring(xml_text)
