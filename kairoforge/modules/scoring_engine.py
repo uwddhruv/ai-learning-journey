@@ -159,14 +159,16 @@ def _score_quality(data: Dict) -> float:
 
 def _score_relative(rel: Dict) -> float:
     """Score relative valuation context on 0–15 scale."""
-    pe_map  = {"cheap": 8, "fair": 5, "slightly_rich": 2, "expensive": 0}
-    peg_map = {"undervalued": 7, "fair": 5, "overvalued": 2, "very_overvalued": 0}
-    pb_map  = {"deep_value": 3, "fair": 2, "growth_premium": 1, "expensive": 0}
+    pe_map   = {"cheap": 5.0, "fair": 3.5, "slightly_rich": 1.5, "expensive": 0.0}
+    peg_map  = {"undervalued": 4.0, "fair": 2.8, "overvalued": 1.0, "very_overvalued": 0.0}
+    pb_map   = {"deep_value": 3.0, "fair": 2.0, "growth_premium": 0.8, "expensive": 0.0}
+    eve_map  = {"cheap": 3.0, "fair": 2.0, "slightly_rich": 0.8, "expensive": 0.0}
 
     score = 0.0
-    score += pe_map.get(rel.get("pe_signal"),  4)   # neutral default 4
-    score += peg_map.get(rel.get("peg_signal"), 3)  # neutral default 3 if no PEG
-    score += pb_map.get(rel.get("pb_signal"),  1)
+    score += pe_map.get(rel.get("pe_signal"), 1.5)
+    score += peg_map.get(rel.get("peg_signal"), 1.0)
+    score += pb_map.get(rel.get("pb_signal"), 0.8)
+    score += eve_map.get(rel.get("ev_ebitda_signal"), 0.8)
 
     return min(15.0, score)
 

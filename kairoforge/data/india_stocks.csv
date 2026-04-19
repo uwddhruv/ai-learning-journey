@@ -1,528 +1,2250 @@
 ticker,company,sector
-RELIANCE.NS,Reliance Industries,Energy
-TCS.NS,Tata Consultancy Services,Information Technology
-HDFCBANK.NS,HDFC Bank,Financial Services
-ICICIBANK.NS,ICICI Bank,Financial Services
-INFY.NS,Infosys,Information Technology
-HINDUNILVR.NS,Hindustan Unilever,FMCG
-ITC.NS,ITC Limited,FMCG
-SBIN.NS,State Bank of India,Financial Services
-BHARTIARTL.NS,Bharti Airtel,Telecom
-KOTAKBANK.NS,Kotak Mahindra Bank,Financial Services
-LT.NS,Larsen & Toubro,Capital Goods
-AXISBANK.NS,Axis Bank,Financial Services
-BAJFINANCE.NS,Bajaj Finance,Financial Services
-ASIANPAINT.NS,Asian Paints,Chemicals
-MARUTI.NS,Maruti Suzuki India,Automobile
-TITAN.NS,Titan Company,Consumer Discretionary
-NESTLEIND.NS,Nestle India,FMCG
-WIPRO.NS,Wipro,Information Technology
-TECHM.NS,Tech Mahindra,Information Technology
-HCLTECH.NS,HCL Technologies,Information Technology
-POWERGRID.NS,Power Grid Corporation,Utilities
-NTPC.NS,NTPC Limited,Utilities
-ONGC.NS,Oil & Natural Gas Corporation,Energy
-COALINDIA.NS,Coal India,Mining
-HDFCLIFE.NS,HDFC Life Insurance,Financial Services
-JSWSTEEL.NS,JSW Steel,Metals
-TATASTEEL.NS,Tata Steel,Metals
-INDUSINDBK.NS,IndusInd Bank,Financial Services
-BAJAJFINSV.NS,Bajaj Finserv,Financial Services
-ADANIENT.NS,Adani Enterprises,Conglomerate
-ADANIPORTS.NS,Adani Ports & SEZ,Infrastructure
-SUNPHARMA.NS,Sun Pharmaceutical Industries,Pharma
-CIPLA.NS,Cipla,Pharma
-DIVISLAB.NS,Divi's Laboratories,Pharma
-APOLLOHOSP.NS,Apollo Hospitals,Healthcare
-ULTRACEMCO.NS,UltraTech Cement,Cement
-GRASIM.NS,Grasim Industries,Diversified
-HINDALCO.NS,Hindalco Industries,Metals
-M&M.NS,Mahindra & Mahindra,Automobile
-BAJAJ-AUTO.NS,Bajaj Auto,Automobile
-EICHERMOT.NS,Eicher Motors,Automobile
-DRREDDY.NS,Dr. Reddy's Laboratories,Pharma
-BPCL.NS,Bharat Petroleum Corporation,Energy
-HEROMOTOCO.NS,Hero MotoCorp,Automobile
-TATAMOTORS.NS,Tata Motors,Automobile
-BRITANNIA.NS,Britannia Industries,FMCG
-TATACONSUM.NS,Tata Consumer Products,FMCG
-SBILIFE.NS,SBI Life Insurance,Financial Services
-ICICIPRULI.NS,ICICI Prudential Life Insurance,Financial Services
-UPL.NS,UPL Limited,Agrochemicals
-ADANIGREEN.NS,Adani Green Energy,Renewable Energy
-AMBUJACEM.NS,Ambuja Cements,Cement
-BANDHANBNK.NS,Bandhan Bank,Financial Services
-BERGEPAINT.NS,Berger Paints India,Chemicals
-BOSCHLTD.NS,Bosch Limited,Auto Ancillaries
-CHOLAFIN.NS,Cholamandalam Investment & Finance,Financial Services
-COLPAL.NS,Colgate-Palmolive India,FMCG
-DABUR.NS,Dabur India,FMCG
-DLF.NS,DLF Limited,Real Estate
-HDFCAMC.NS,HDFC Asset Management Company,Financial Services
-HINDZINC.NS,Hindustan Zinc,Metals
-ICICIGI.NS,ICICI Lombard General Insurance,Financial Services
-INDIGO.NS,InterGlobe Aviation (IndiGo),Aviation
-INDUSTOWER.NS,Indus Towers,Telecom
-IOC.NS,Indian Oil Corporation,Energy
-MUTHOOTFIN.NS,Muthoot Finance,Financial Services
-NAUKRI.NS,Info Edge India,Technology
-NMDC.NS,NMDC Limited,Mining
-PAGEIND.NS,Page Industries,Textiles
-PIDILITIND.NS,Pidilite Industries,Chemicals
-PIIND.NS,PI Industries,Agrochemicals
-PNB.NS,Punjab National Bank,Financial Services
-RECLTD.NS,REC Limited,Financial Services
-SIEMENS.NS,Siemens India,Capital Goods
-SRF.NS,SRF Limited,Chemicals
-TORNTPHARM.NS,Torrent Pharmaceuticals,Pharma
-TRENT.NS,Trent Limited,Retail
-VEDL.NS,Vedanta Limited,Metals
-ZOMATO.NS,Zomato Limited,Technology
-HAVELLS.NS,Havells India,Capital Goods
-GODREJCP.NS,Godrej Consumer Products,FMCG
-TATAPOWER.NS,Tata Power Company,Utilities
-MARICO.NS,Marico Limited,FMCG
-CANBK.NS,Canara Bank,Financial Services
-BANKBARODA.NS,Bank of Baroda,Financial Services
-INDHOTEL.NS,Indian Hotels Company (Taj Hotels),Hospitality
-LUPIN.NS,Lupin Limited,Pharma
-MPHASIS.NS,Mphasis Limited,Information Technology
-PERSISTENT.NS,Persistent Systems,Information Technology
-LTIM.NS,LTIMindtree,Information Technology
-LTTS.NS,L&T Technology Services,Information Technology
-OBEROIRLTY.NS,Oberoi Realty,Real Estate
-PHOENIXLTD.NS,The Phoenix Mills,Real Estate
-POLICYBZR.NS,PB Fintech (PolicyBazaar),Technology
-DMART.NS,Avenue Supermarts (DMart),Retail
-SHRIRAMFIN.NS,Shriram Finance,Financial Services
-TATACOMM.NS,Tata Communications,Telecom
-JSWENERGY.NS,JSW Energy,Utilities
-ADANITRANS.NS,Adani Transmission,Utilities
-LODHA.NS,Macrotech Developers (Lodha),Real Estate
-COFORGE.NS,Coforge Limited,Information Technology
-TATAELXSI.NS,Tata Elxsi,Information Technology
-KPITTECH.NS,KPIT Technologies,Information Technology
-OFSS.NS,Oracle Financial Services Software,Information Technology
-MASTEK.NS,Mastek Limited,Information Technology
-ZENSAR.NS,Zensar Technologies,Information Technology
-FIRSTSOURCE.NS,FirstSource Solutions,Information Technology
-BSOFT.NS,Birlasoft,Information Technology
-SONATA.NS,Sonata Software,Information Technology
-CYIENT.NS,Cyient Limited,Information Technology
-NIIT.NS,NIIT Limited,Information Technology
-RAMCOSYS.NS,Ramco Systems,Information Technology
-TANLA.NS,Tanla Platforms,Information Technology
-INTELLECT.NS,Intellect Design Arena,Information Technology
-ROUTE.NS,Route Mobile,Technology
-INDIAMART.NS,IndiaMART InterMESH,Technology
-IRCTC.NS,IRCTC,Technology
-DELHIVERY.NS,Delhivery,Logistics
-EASEMYTRIP.NS,Easy Trip Planners,Technology
-NEWGEN.NS,Newgen Software Technologies,Information Technology
-HAPPSTMNDS.NS,Happiest Minds Technologies,Information Technology
-SUBEXLTD.NS,Subex Limited,Information Technology
-RATEGAIN.NS,RateGain Travel Technologies,Technology
-CARTRADE.NS,CarTrade Tech,Technology
-TATATECH.NS,Tata Technologies,Information Technology
-LATENTVIEW.NS,LatentView Analytics,Information Technology
-MAPMYINDIA.NS,CE Info Systems (MapmyIndia),Technology
-SWIGGY.NS,Swiggy (Bundl Technologies),Technology
-PAYTM.NS,One97 Communications (Paytm),Technology
-NYKAA.NS,FSN E-Commerce Ventures (Nykaa),Technology
-NAZARA.NS,Nazara Technologies,Technology
-ECLERX.NS,eClerx Services,Information Technology
-MPSLTD.NS,MPS Limited,Information Technology
-RAILTEL.NS,RailTel Corporation,Technology
-IDEAFORGE.NS,ideaForge Technology,Technology
-KAYNES.NS,Kaynes Technology India,Electronics
-SYRMA.NS,Syrma SGS Technology,Electronics
-DIXON.NS,Dixon Technologies India,Electronics
-AMBER.NS,Amber Enterprises India,Electronics
-OPTIEMUS.NS,Optiemus Infracom,Technology
-INFIBEAM.NS,Infibeam Avenues,Technology
-QUICKHEAL.NS,Quick Heal Technologies,Technology
-FEDERALBNK.NS,Federal Bank,Financial Services
-IDFCFIRSTB.NS,IDFC First Bank,Financial Services
-YESBANK.NS,Yes Bank,Financial Services
-RBLBANK.NS,RBL Bank,Financial Services
-AUBANK.NS,AU Small Finance Bank,Financial Services
-KARURVYSYA.NS,Karur Vysya Bank,Financial Services
-CUB.NS,City Union Bank,Financial Services
-DCBBANK.NS,DCB Bank,Financial Services
-SOUTHBNK.NS,South Indian Bank,Financial Services
-UJJIVANSFB.NS,Ujjivan Small Finance Bank,Financial Services
-EQUITASBNK.NS,Equitas Small Finance Bank,Financial Services
-CANFINHOME.NS,Can Fin Homes,Financial Services
-LICHSGFIN.NS,LIC Housing Finance,Financial Services
-MANAPPURAM.NS,Manappuram Finance,Financial Services
-LICI.NS,Life Insurance Corporation of India,Financial Services
-IRFC.NS,Indian Railway Finance Corporation,Financial Services
-POWERFIN.NS,Power Finance Corporation,Financial Services
-PNBHOUSING.NS,PNB Housing Finance,Financial Services
-IIFL.NS,IIFL Finance,Financial Services
-CAMS.NS,Computer Age Management Services,Financial Services
-CDSL.NS,Central Depository Services,Financial Services
-BSE.NS,BSE Limited,Financial Services
-KFINTECH.NS,KFin Technologies,Financial Services
-MFSL.NS,Max Financial Services,Financial Services
-STARHEALTH.NS,Star Health Insurance,Financial Services
-NIACL.NS,New India Assurance,Financial Services
-IIFLWAM.NS,IIFL Wealth Management,Financial Services
-CREDITACC.NS,CreditAccess Grameen,Financial Services
-SPANDANA.NS,Spandana Sphoorty Financial,Financial Services
-CARERATING.NS,CARE Ratings,Financial Services
-ICRA.NS,ICRA Limited,Financial Services
-CRISIL.NS,CRISIL Limited,Financial Services
-SUNDARMFIN.NS,Sundaram Finance,Financial Services
-SRTRANSFIN.NS,Shriram Transport Finance,Financial Services
-NUVAMA.NS,Nuvama Wealth Management,Financial Services
+20MICRONS.NS,20 Microns Limited,Basic Materials
+21STCENMGM.NS,21st Century Management Services Limited,Unknown
 360ONE.NS,360 One WAM,Financial Services
-ANANDRATHI.NS,Anand Rathi Wealth,Financial Services
-ANGELONE.NS,Angel One,Financial Services
-MOTILALOFS.NS,Motilal Oswal Financial Services,Financial Services
-ICICISEC.NS,ICICI Securities,Financial Services
+3IINFOTECH.NS,3i Infotech Limited,Unknown
+3MINDIA.NS,3M India,Diversified
+3PLAND.NS,3P Land Holdings Limited,Unknown
 5PAISA.NS,5paisa Capital,Financial Services
-APTUS.NS,Aptus Value Housing Finance,Financial Services
-HOMEFIRST.NS,Home First Finance Company,Financial Services
-REPCO.NS,Repco Home Finance,Financial Services
-AAVAS.NS,Aavas Financiers,Financial Services
-BAJAJHFL.NS,Bajaj Housing Finance,Financial Services
-INDOSTAR.NS,IndoStar Capital Finance,Financial Services
-TATAINVEST.NS,Tata Investment Corporation,Financial Services
-BAJAJHLDNG.NS,Bajaj Holdings & Investment,Financial Services
-SBFC.NS,SBFC Finance,Financial Services
-UGROCAP.NS,Ugro Capital,Financial Services
-PILANI.NS,Pilani Investment & Industries,Financial Services
-GEOJITFSL.NS,Geojit Financial Services,Financial Services
-AUROPHARMA.NS,Aurobindo Pharma,Pharma
-BIOCON.NS,Biocon Limited,Pharma
-ALKEM.NS,Alkem Laboratories,Pharma
-GLENMARK.NS,Glenmark Pharmaceuticals,Pharma
-LALPATHLAB.NS,Dr. Lal PathLabs,Healthcare
-METROPOLIS.NS,Metropolis Healthcare,Healthcare
-MAXHEALTH.NS,Max Healthcare Institute,Healthcare
-FORTIS.NS,Fortis Healthcare,Healthcare
-NARAYANA.NS,Narayana Hrudayalaya,Healthcare
-RAINBOW.NS,Rainbow Children's Medicare,Healthcare
-SYNGENE.NS,Syngene International,Healthcare
-AJANTPHARM.NS,Ajanta Pharma,Pharma
-APLLTD.NS,Alembic Pharmaceuticals,Pharma
-WOCKPHARMA.NS,Wockhardt,Pharma
-ZYDUSLIFE.NS,Zydus Lifesciences,Pharma
-JBCHEPHARM.NS,J.B. Chemicals & Pharmaceuticals,Pharma
-IPCALAB.NS,IPCA Laboratories,Pharma
-NATCOPHARM.NS,Natco Pharma,Pharma
-GRANULES.NS,Granules India,Pharma
-THYROCARE.NS,Thyrocare Technologies,Healthcare
-LAURUS.NS,Laurus Labs,Pharma
-GLAND.NS,Gland Pharma,Pharma
-SOLARA.NS,Solara Active Pharma Sciences,Pharma
-SEQUENT.NS,SeQuent Scientific,Pharma
-SHILPAMED.NS,Shilpa Medicare,Pharma
-NEULAND.NS,Neuland Laboratories,Pharma
-SUPRIYA.NS,Supriya Lifescience,Pharma
-SHALBY.NS,Shalby Limited,Healthcare
-KIMS.NS,Krishna Institute of Medical Sciences,Healthcare
-MAXINDIA.NS,Max India,Healthcare
-SANOFI.NS,Sanofi India,Pharma
-ABBOTINDIA.NS,Abbott India,Pharma
-PFIZER.NS,Pfizer Limited,Pharma
-NOVARTIS.NS,Novartis India,Pharma
-SUVEN.NS,Suven Pharmaceuticals,Pharma
-JUBLPHARMA.NS,Jubilant Pharmova,Pharma
-HIKAL.NS,Hikal Limited,Pharma
-PIRAMALPH.NS,Piramal Pharma,Pharma
-ASTRAZENECA.NS,AstraZeneca Pharma India,Pharma
-WINDLAS.NS,Windlas Biotech,Pharma
-RPGLIFE.NS,RPG Life Sciences,Pharma
-LINCOLN.NS,Lincoln Pharmaceuticals,Pharma
-MOREPEN.NS,Morepen Laboratories,Pharma
-INDSWFTLAB.NS,Ind-Swift Laboratories,Pharma
-POLYMED.NS,Poly Medicure,Healthcare
-YATHARTH.NS,Yatharth Hospital & Trauma Care,Healthcare
-FERMENTA.NS,Fermenta Biotech,Pharma
-ACC.NS,ACC Limited,Cement
-JKCEMENT.NS,JK Cement,Cement
-RAMCOCEM.NS,The Ramco Cements,Cement
-SHREECEM.NS,Shree Cement,Cement
-HEIDELBERG.NS,Heidelberg Materials India,Cement
-INDIACEM.NS,India Cements,Cement
-BIRLACORPN.NS,Birla Corporation,Cement
-JKLAKSHMI.NS,JK Lakshmi Cement,Cement
-NUVOCO.NS,Nuvoco Vistas Corporation,Cement
-KAJARIACER.NS,Kajaria Ceramics,Building Materials
-CERA.NS,Cera Sanitaryware,Building Materials
-ASTRAL.NS,Astral Limited,Building Materials
-SUPREMEIND.NS,Supreme Industries,Plastics
-FINOLEX.NS,Finolex Industries,Plastics
-GREENPANEL.NS,Greenpanel Industries,Building Materials
-CENTURYPLY.NS,Century Plyboards India,Building Materials
-GREENPLY.NS,Greenply Industries,Building Materials
-HSIL.NS,HSIL Limited,Building Materials
-SOMANYCER.NS,Somany Ceramics,Building Materials
-ORIENTBELL.NS,Orient Bell,Building Materials
-ACRYSIL.NS,Acrysil Limited,Building Materials
-HINDWAREAP.NS,Hindware Home Innovation,Building Materials
-TVSMOTOR.NS,TVS Motor Company,Automobile
-ESCORTS.NS,Escorts Kubota,Automobile
-ASHOKLEY.NS,Ashok Leyland,Automobile
-FORCEMOT.NS,Force Motors,Automobile
-BALKRISIND.NS,Balkrishna Industries,Automobile
-MOTHERSUMI.NS,Samvardhana Motherson International,Auto Ancillaries
-EXIDEIND.NS,Exide Industries,Auto Ancillaries
-AMARAJABAT.NS,Amara Raja Energy & Mobility,Auto Ancillaries
-ENDURANCE.NS,Endurance Technologies,Auto Ancillaries
-SCHAEFFLER.NS,Schaeffler India,Auto Ancillaries
-GABRIEL.NS,Gabriel India,Auto Ancillaries
-VARROC.NS,Varroc Engineering,Auto Ancillaries
-MINDA.NS,Uno Minda,Auto Ancillaries
-SUPRAJIT.NS,Suprajit Engineering,Auto Ancillaries
-MAHINDCIE.NS,Mahindra CIE Automotive,Auto Ancillaries
-WABCOINDIA.NS,WABCO India,Auto Ancillaries
-LUMAXIND.NS,Lumax Auto Technologies,Auto Ancillaries
-PRICOL.NS,Pricol Limited,Auto Ancillaries
-UNIPARTS.NS,Uniparts India,Auto Ancillaries
-CRAFTSMAN.NS,Craftsman Automation,Capital Goods
-OLAELECTRIC.NS,Ola Electric Mobility,Automobile
-EXICOM.NS,Exicom Tele-Systems,EV Charging
-TATACHEM.NS,Tata Chemicals,Chemicals
-DEEPAKNTR.NS,Deepak Nitrite,Chemicals
-DCMSHRIRAM.NS,DCM Shriram,Chemicals
-CLEAN.NS,Clean Science and Technology,Chemicals
-FINEORG.NS,Fine Organic Industries,Chemicals
-GALAXYSURF.NS,Galaxy Surfactants,Chemicals
-GNFC.NS,Gujarat Narmada Valley Fertilizers,Chemicals
-ATUL.NS,Atul Limited,Chemicals
-VINATIORGA.NS,Vinati Organics,Chemicals
-SUDARSCHEM.NS,Sudarshan Chemical Industries,Chemicals
-PCBL.NS,PCBL Limited (Phillips Carbon Black),Chemicals
-AARTI.NS,Aarti Industries,Chemicals
-NAVINFLUOR.NS,Navin Fluorine International,Chemicals
-FLUOROCHEM.NS,Gujarat Fluorochemicals,Chemicals
-LXCHEM.NS,Laxmi Organic Industries,Chemicals
-ANUPAM.NS,Anupam Rasayan India,Chemicals
-ROSSARI.NS,Rossari Biotech,Chemicals
-HSCL.NS,Himadri Speciality Chemical,Chemicals
-AETHER.NS,Aether Industries,Chemicals
-BALCHEMIND.NS,Balaji Amines,Chemicals
-GSFC.NS,Gujarat State Fertilizers & Chemicals,Chemicals
-DEEPAKFERT.NS,Deepak Fertilisers & Petrochemicals,Chemicals
-COROMANDEL.NS,Coromandel International,Agrochemicals
-PAUSHAK.NS,Paushak Limited,Chemicals
-TATVA.NS,Tatva Chintan Pharma Chem,Chemicals
-GUJGASLTD.NS,Gujarat Gas,Utilities
-GUJALKALI.NS,Gujarat Alkalies and Chemicals,Chemicals
-RCF.NS,Rashtriya Chemicals & Fertilizers,Chemicals
-PARADEEP.NS,Paradeep Phosphates,Chemicals
-JUBILANT.NS,Jubilant Industries,Chemicals
-ESTER.NS,Ester Industries,Chemicals
-INDIAGLYC.NS,India Glycols,Chemicals
-PCJEWELLER.NS,PC Jeweller,Retail
+63MOONS.NS,63 moons technologies limited,Unknown
+A2ZINFRA.NS,A2Z Infra Engineering Limited,Unknown
+A2ZMES.NS,A2Z Maintenance & Engineering Services Limited,Unknown
+AADHARHFC.NS,AADHAR HOUSING FINANCE L,Financial Services
 AARTIDRUGS.NS,Aarti Drugs,Pharma
-SAIL.NS,Steel Authority of India,Metals
-NATIONALUM.NS,National Aluminium Company,Metals
-HINDCOPPER.NS,Hindustan Copper,Metals
-MOIL.NS,MOIL Limited,Mining
+AARTI.NS,Aarti Industries,Chemicals
+AARTIIND.NS,Aarti Industries Limited,Unknown
+AARTIPHARM.NS,Aarti Pharmalabs Limited,Healthcare
+AARVEEDEN.NS,Aarvee Denims & Exports Limited,Unknown
+AAVAS.NS,Aavas Financiers,Financial Services
+ABAN.NS,Aban Offshore Limited,Unknown
+ABB.NS,ABB India,Capital Goods
+ABBOTINDIA.NS,Abbott India,Pharma
+ABGSHIP.NS,ABG Shipyard Limited,Unknown
+ABHISHEK.NS,Abhishek Corporation Limited,Unknown
+ABSHEKINDS.NS,Abhishek Industries Limited,Unknown
+ABMINTLTD.NS,ABM International Limited,Unknown
+ACC.NS,ACC Limited,Cement
+AFL.NS,Accel Frontline Limited,Unknown
+ACCELYA.NS,Accelya Solutions India Limited,Technology
+ACKRUTI.NS,Ackruti City Limited,Unknown
+ACRYSIL.NS,Acrysil Limited,Building Materials
+ACE.NS,Action Construction Equipment Limited,Unknown
+ADANIENSOL.NS,Adani Energy Solutions,Utilities
+ADANIENT.NS,Adani Enterprises,Conglomerate
+ADANIGAS.NS,Adani Gas Limited,Unknown
+ADANIGREEN.NS,Adani Green Energy,Renewable Energy
+ADANIPORTS.NS,Adani Ports & SEZ,Infrastructure
+ADANIPOWER.NS,Adani Power Limited,Utilities
+ADANITRANS.NS,Adani Transmission,Utilities
+ADFFOODS.NS,ADF Foods Limited,Unknown
+ADHUNIKIND.NS,Adhunik Industries Limited,Unknown
+ADHUNIK.NS,Adhunik Metaliks Limited,Unknown
+ABCAPITAL.NS,Aditya Birla Capital Limited,Financial Services
+ABCIL.NS,Aditya Birla Chemicals (India) Limited,Unknown
+ABFRL.NS,Aditya Birla Fashion and Retail,Retail
+BIRLAMONEY.NS,Aditya Birla Money Limited,Financial Services
+ABIRLANUVO.NS,Aditya Birla Nuvo Limited,Unknown
+ABSLAMC.NS,Aditya Birla Sun Life AMC Limited,Financial Services
+ADLABS.NS,Adlabs Entertainment Limited,Unknown
+ADORWELD.NS,Ador Welding Limited,Unknown
+ADROITINFO.NS,Adroit Infotech Limited,Technology
+ADVENZYMES.NS,Advanced Enzyme Technologies Limited,Unknown
+ADVANIHOTR.NS,Advani Hotels & Resorts (India) Limited,Unknown
+ADVANTA.NS,Advanta India Limited,Unknown
+AEGISCHEM.NS,Aegis Logistics Limited,Unknown
+AETHER.NS,Aether Industries,Chemicals
+AFFLE.NS,Affle (India) Limited,Unknown
+AFTEK.NS,Aftek Limited,Unknown
+AGARIND.NS,Agarwal Industrial Corporation Limited,Unknown
+AGCNET.NS,AGC Networks Limited,Unknown
+AGRE.NS,Agre Developers Limited,Unknown
+AGRITECH.NS,Agri-Tech (India) Limited,Unknown
+AGRODUTCH.NS,Agro Dutch Industries Limited,Unknown
+AGROPHOS.NS,Agro Phos India Limited,Unknown
+ATFL.NS,Agro Tech Foods Limited,Unknown
+AHLUCONT.NS,Ahluwalia Contracts,Infrastructure
+AHMEDFORGE.NS,Ahmednagar Forgings Limited,Unknown
+AIAENG.NS,AIA Engineering,Capital Goods
+AIRAN.NS,Airan Limited,Unknown
+AJANTPHARM.NS,Ajanta Pharma,Pharma
+AJMERA.NS,Ajmera Realty & Infra India Limited,Real Estate
+AKASH.NS,Akash Infra-Projects Limited,Unknown
+AKSHOPTFBR.NS,Aksh Optifibre Limited,Unknown
+AKSHARCHEM.NS,AksharChem India Limited,Unknown
+AKZOINDIA.NS,Akzo Nobel India Limited,Unknown
+ALANKIT.NS,Alankit Limited,Unknown
+ALBERTDAVD.NS,Albert David Limited,Unknown
+ALCHEM.NS,Alchemist Limited,Unknown
+ALEMBICLTD.NS,Alembic Limited,Unknown
+APLLTD.NS,Alembic Pharmaceuticals,Pharma
+ALFALAVAL.NS,Alfa Laval (India) Limited,Unknown
+ALICON.NS,Alicon Castalloy Limited,Unknown
+ALKALI.NS,Alkali Metals Limited,Unknown
+ALKEM.NS,Alkem Laboratories,Pharma
+ALKYLAMINE.NS,Alkyl Amines Chemicals Limited,Unknown
+ALBK.NS,Allahabad Bank,Unknown
+ALLCARGO.NS,Allcargo Logistics,Logistics
+ATL.NS,Allcargo Terminals Limited,Industrials
+ALLDIGI.NS,Alldigi Tech Limited,Industrials
+ADSL.NS,Allied Digital Services Limited,Unknown
+ALLSEC.NS,Allsec Technologies Limited,Unknown
+ALMONDZ.NS,Almondz Global Securities Limited,Financial Services
+ALOKTEXT.NS,Alok Industries Limited,Unknown
+ALPA.NS,Alpa Laboratories Limited,Unknown
+ALPHAGEO.NS,Alphageo (India) Limited,Unknown
+ALPSINDUS.NS,Alps Industries Limited,Unknown
+APIL.NS,Alstom Projects India Limited,Unknown
+AMAR.NS,Amar Remedies Limited,Unknown
+AMARAJABAT.NS,Amara Raja Energy & Mobility,Auto Ancillaries
+ARE&M.NS,Amara Raja Energy & Mobility Limited,Industrials
+AMARJOTHI.NS,Amarjothi Spinning Mills Limited,Unknown
+AMBER.NS,Amber Enterprises India,Electronics
+AMBIKCO.NS,Ambika Cotton Mills Limited,Consumer Cyclical
+AMBUJACEM.NS,Ambuja Cements,Cement
+AMDIND.NS,AMD Industries Limited,Unknown
+ASIL.NS,Amit Spinning Industries Limited,Unknown
+AMJLAND.NS,AMJ Land Holdings Limited,Real Estate
+AMLSTEEL.NS,AML Steel Limited,Unknown
+AMRUTANJAN.NS,Amrutanjan Health Care,FMCG
+AMTEKAUTO.NS,Amtek Auto Limited,Unknown
+AMTEKINDIA.NS,Amtek India Limited,Unknown
+ANANDRATHI.NS,Anand Rathi Wealth,Financial Services
+ANANTRAJ.NS,Anant Raj Limited,Unknown
+ANDHRABANK.NS,Andhra Bank,Unknown
+ANDHRACEMT.NS,Andhra Cements Limited,Unknown
+ANGIND.NS,ANG Industries Limited,Unknown
+ANGELONE.NS,Angel One,Financial Services
+ANIKINDS.NS,Anik Industries Limited,Unknown
+APCL.NS,Anjani Portland Cement Limited,Unknown
+ANKITMETAL.NS,Ankit Metal & Power Limited,Unknown
+ANKURDRUGS.NS,Ankur Drugs And Pharma Limited,Unknown
+ANMOL.NS,Anmol India Limited,Energy
+ANSALHSG.NS,Ansal Housing Limited,Unknown
+ANSALAPI.NS,Ansal Properties & Infrastructure Limited,Unknown
+ANTGRAPHIC.NS,Antarctica Limited,Unknown
+SELAN.NS,Antelopus Selan Energy Limited,Energy
+ANUPAM.NS,Anupam Rasayan India,Chemicals
+APARINDS.NS,Apar Industries,Capital Goods
+APCOTEXIND.NS,Apcotex Industries Limited,Unknown
+APEX.NS,Apex Frozen Foods Limited,Unknown
 APLAPOLLO.NS,APL Apollo Tubes,Metals
-RATNAMANI.NS,Ratnamani Metals & Tubes,Metals
-SUNFLAG.NS,Sunflag Iron & Steel,Metals
-MAHSEAMLES.NS,Maharashtra Seamless,Metals
-WELCORP.NS,Welspun Corp,Metals
-MANINDS.NS,Man Industries India,Metals
+APLAB.NS,Aplab Limited,Unknown
+APOLLOHOSP.NS,Apollo Hospitals,Healthcare
+APOLLO.NS,Apollo Micro Systems Limited,Unknown
+APOLLOPIPE.NS,Apollo Pipes Limited,Unknown
+APOLSINHOT.NS,Apollo Sindoori Hotels Limited,Unknown
+APOLLOTYRE.NS,Apollo Tyres Limited,Unknown
+APTECHT.NS,Aptech Limited,Unknown
+APTUS.NS,Aptus Value Housing Finance,Financial Services
+AQUA.NS,Aqua Logistics Limited,Unknown
+ARCHIDPLY.NS,Archidply Industries Limited,Unknown
+ARCHIES.NS,Archies Limited,Unknown
+ARCOTECH.NS,Arcotech Limited,Unknown
+ARIES.NS,Aries Agro Limited,Unknown
+ARIHANTCAP.NS,Arihant Capital Markets Limited,Financial Services
+ARIHANT.NS,Arihant Foundations & Housing Limited,Unknown
+ARIHANTSUP.NS,Arihant Superstructures Limited,Real Estate
+ARMANFIN.NS,Arman Financial Services Limited,Unknown
+AROGRANITE.NS,Aro Granite Industries Limited,Unknown
+ARROWGREEN.NS,Arrow Greentech Limited,Consumer Cyclical
+ARROWTEX.NS,Arrow Textiles Limited,Unknown
+ARSHIYA.NS,Arshiya Limited,Unknown
+ARSSINFRA.NS,ARSS Infrastructure Projects Limited,Unknown
+ARVINDFASN.NS,Arvind Fashions Limited,Unknown
+ARVIND.NS,Arvind Limited,Textiles
+ARL.NS,Arvind Remedies Limited,Unknown
+ARVSMART.NS,Arvind SmartSpaces Limited,Unknown
+ASAHIINDIA.NS,Asahi India Glass Limited,Unknown
+ASAHISONG.NS,Asahi Songwon Colors Limited,Unknown
+ASHAPURMIN.NS,Ashapura Minechem Limited,Unknown
+ASHCONIUL.NS,Ashco Niulab Industries Limited,Unknown
+ASHIANA.NS,Ashiana Housing Limited,Unknown
+ASHIMASYN.NS,Ashima Limited,Consumer Cyclical
+ASHOKLEY.NS,Ashok Leyland,Automobile
+ASHOKA.NS,Ashoka Buildcon,Infrastructure
+ASHOKAMET.NS,Ashoka Metcast Limited,Basic Materials
+ASIANELEC.NS,Asian Electronics Limited,Unknown
+ASIANTILES.NS,Asian Granito India Limited,Unknown
+AHLEAST.NS,Asian Hotels (East) Limited,Consumer Cyclical
+ASIANHOTNR.NS,Asian Hotels (North) Limited,Unknown
+AHLWEST.NS,Asian Hotels (West) Limited,Unknown
+ASIANPAINT.NS,Asian Paints,Chemicals
+ASPINWALL.NS,Aspinwall and Company Limited,Unknown
+ASSAMCO.NS,Assam Company India Limited,Unknown
+ASALCBR.NS,Associated Alcohols & Breweries Limited,Consumer Defensive
+ASTEC.NS,Astec LifeSciences Limited,Unknown
+ASTERDM.NS,Aster DM Healthcare Limited,Unknown
+ASTERSILI.NS,Aster Silicates Limited,Unknown
+ASTRAMICRO.NS,Astra Microwave Products,Defence
+ASTRAL.NS,Astral Limited,Building Materials
+ASTRAZENECA.NS,AstraZeneca Pharma India,Pharma
+ASTRAZEN.NS,AstraZeneca Pharma India Limited,Unknown
+ASTRON.NS,Astron Paper & Board Mill Limited,Unknown
+ATLANTA.NS,Atlanta� Limited,Unknown
+ATLASCYCLE.NS,Atlas Cycles (Haryana) Limited,Unknown
+ATNINTER.NS,ATN International Limited,Unknown
+ATULAUTO.NS,Atul Auto Limited,Unknown
+ATUL.NS,Atul Limited,Chemicals
+AUBANK.NS,AU Small Finance Bank,Financial Services
+AURIONPRO.NS,Aurionpro Solutions Limited,Unknown
+AUROPHARMA.NS,Aurobindo Pharma,Pharma
+AUSOMENT.NS,AuSom Enterprise Limited,Financial Services
+AIIL.NS,Authum Investment & Infrastructure Limited,Financial Services
+AUTOIND.NS,Autoline Industries Limited,Unknown
+AUTOLITIND.NS,Autolite (India) Limited,Unknown
+AUTOAXLES.NS,Automotive Axles Limited,Unknown
+ASAL.NS,Automotive Stampings and Assemblies Limited,Unknown
+AVADHSUGAR.NS,Avadh Sugar & Energy Limited,Unknown
+AVANTIFEED.NS,Avanti Feeds,FMCG
+AVANTI.NS,Avanti Feeds Limited,Unknown
+AVENTIS.NS,Aventis Pharma Limited,Unknown
+DMART.NS,Avenue Supermarts (DMart),Retail
+AVTNPL.NS,AVT Natural Products Limited,Unknown
+AXISBANK.NS,Axis Bank,Financial Services
+AXISCADES.NS,AXISCADES Engineering Technologies Limited,Unknown
+AYMSYNTEX.NS,AYM Syntex Limited,Unknown
+BAGFILMS.NS,B.A.G Films and Media Limited,Unknown
+BCP.NS,B.C. Power Controls Ltd,Unknown
+BLKASHYAP.NS,B.L. Kashyap and Sons Limited,Industrials
+BAJAJ-AUTO.NS,Bajaj Auto,Automobile
+BAJAJCON.NS,Bajaj Consumer Care,FMCG
+BAJAJCORP.NS,Bajaj Corp Limited,Unknown
+BAJAJELE.NS,Bajaj Electricals,Capital Goods
+BAJAJELEC.NS,Bajaj Electricals Limited,Unknown
+BAJFINANCE.NS,Bajaj Finance,Financial Services
+BAJAJFINSV.NS,Bajaj Finserv,Financial Services
+BAJAJHIND.NS,Bajaj Hindusthan Sugar Limited,Unknown
+BAJAJHLDNG.NS,Bajaj Holdings & Investment,Financial Services
+BAJAJHFL.NS,Bajaj Housing Finance,Financial Services
+BALPHARMA.NS,Bal Pharma Limited,Unknown
+BALCHEMIND.NS,Balaji Amines,Chemicals
+BALAMINES.NS,Balaji Amines Limited,Unknown
+BALAJITELE.NS,Balaji Telefilms Limited,Unknown
+BALAXI.NS,Balaxi Ventures Limited,Unknown
+BALKRISIND.NS,Balkrishna Industries,Automobile
+BALKRISHNA.NS,Balkrishna Paper Mills Limited,Unknown
+BALLARPUR.NS,Ballarpur Industries Limited,Unknown
+BALMLAWRIE.NS,Balmer Lawrie & Co. Ltd.,Industrials
+BALRAMCHIN.NS,Balrampur Chini Mills,FMCG
+BANARBEADS.NS,Banaras Beads Limited,Consumer Cyclical
+BANCOINDIA.NS,Banco Products (I) Limited,Unknown
+BANDHANBNK.NS,Bandhan Bank,Financial Services
+BANG.NS,Bang Overseas Limited,Unknown
+BANKBARODA.NS,Bank of Baroda,Financial Services
+BANKINDIA.NS,Bank of India Limited,Financial Services
+MAHABANK.NS,Bank of Maharashtra,Financial Services
+BASML.NS,Bannari Amman Spinning Mills Limited,Unknown
+BANARISUG.NS,Bannari Amman Sugars Limited,Unknown
+BANSWRAS.NS,Banswara Syntex Limited,Unknown
+BVCL.NS,Barak Valley Cements Limited,Unknown
+BARTRONICS.NS,Bartronics India Limited,Unknown
+BASF.NS,BASF India Limited,Unknown
+BATAINDIA.NS,Bata India Limited,Unknown
+BATLIBOI.NS,Batliboi Limited,Unknown
+BAYERCROP.NS,Bayer Cropscience Limited,Unknown
+BCLIND.NS,BCL Industries Limited,Consumer Defensive
+BEARDSELL.NS,Beardsell Limited,Unknown
+BEDMUTHA.NS,Bedmutha Industries Limited,Unknown
+BELLCERATL.NS,Bell Ceramics Limited,Unknown
+BEML.NS,BEML Limited,Defence
+BERGEPAINT.NS,Berger Paints India,Chemicals
+BECREL.NS,Best & Crompton Engg. Limited,Unknown
+BFINVEST.NS,BF Investment Limited,Financial Services
+BFUTILITIE.NS,BF Utilities Limited,Industrials
+BGRENERGY.NS,BGR Energy Systems Limited,Unknown
+BHAGERIA.NS,Bhageria Industries Limited,Unknown
+BHAGWATIHO.NS,Bhagwati Banquets and Hotels Limited,Unknown
+BHAGYANGR.NS,Bhagyanagar India Limited,Unknown
+BHAGYNAGAR.NS,Bhagyanagar India Limited,Unknown
+BHAGYAPROP.NS,Bhagyanagar Properties Limited,Unknown
+BHANDARI.NS,Bhandari Hosiery Exports Limited,Unknown
+BEPL.NS,Bhansali Engineering Polymers Limited,Basic Materials
+BBL.NS,Bharat Bijlee Limited,Unknown
+BDL.NS,Bharat Dynamics Limited,Unknown
+BEL.NS,Bharat Electronics,Defence
+BHARATFORG.NS,Bharat Forge,Capital Goods
+BHARATGEAR.NS,Bharat Gears Limited,Unknown
+BHEL.NS,Bharat Heavy Electricals,Capital Goods
+BPCL.NS,Bharat Petroleum Corporation,Energy
+BHARATRAS.NS,Bharat Rasayan Limited,Unknown
+BRNL.NS,Bharat Road Network Limited,Unknown
+BHARATWIRE.NS,Bharat Wire Ropes Limited,Unknown
+BHARTISHIP.NS,Bharati Shipyard Limited,Unknown
+BGLOBAL.NS,Bharatiya Global Infomedia Limited,Unknown
+BHARTIARTL.NS,Bharti Airtel,Telecom
+INFRATEL.NS,Bharti Infratel Limited,Unknown
+BIL.NS,Bhartiya International Limited,Unknown
+BHUSANSTL.NS,Bhushan Steel Limited,Unknown
+BIGBLOC.NS,Bigbloc Construction Limited,Unknown
+BIKAJI.NS,Bikaji Foods International,FMCG
+BILENERGY.NS,Bil Energy Systems Limited,Unknown
+BILPOWER.NS,Bilpower  Limited,Unknown
+BIMETAL.NS,Bimetal Bearings Limited,Unknown
+BINANICEM.NS,Binani Cement Limited,Unknown
+BINANIIND.NS,Binani Industries Limited,Unknown
+BIOCON.NS,Biocon Limited,Pharma
+BIOFILCHEM.NS,Biofil Chemicals & Pharmaceuticals Limited,Unknown
+BIRLACABLE.NS,Birla Cable Limited,Unknown
+BIRLACORPN.NS,Birla Corporation,Cement
+BIRLACOT.NS,Birla Cotsyn (India) Limited,Unknown
+BIRLAERIC.NS,Birla Ericsson Optical Limited,Unknown
+BIRLAPOWER.NS,Birla Power Solutions Limited,Unknown
+BSOFT.NS,Birlasoft,Information Technology
+BKMINDST.NS,Bkm Industries Limited,Unknown
+BLBLIMITED.NS,BLB Limited,Financial Services
+BLISSGVS.NS,Bliss GVS Pharma Limited,Healthcare
+BLS.NS,BLS International Services Limited,Unknown
+BLUEBLENDS.NS,Blue Blends (I) Limited,Unknown
+BLUECOAST.NS,Blue Coast Hotels Limited,Unknown
+BLUEDART.NS,Blue Dart Express,Logistics
+BLUESTINFO.NS,Blue Star Infotech Limited,Unknown
+BLUESTARCO.NS,Blue Star Limited,Capital Goods
+BOC.NS,BOC India Limited,Unknown
+BODALCHEM.NS,Bodal Chemicals Limited,Unknown
+BBTC.NS,Bombay Burmah Trading Corporation Limited,Unknown
+BOMDYEING.NS,Bombay Dyeing & Mfg Company Limited,Unknown
+BRFL.NS,Bombay Rayon Fashions Limited,Unknown
+BOROSIL.NS,Borosil Glass Works Limited,Unknown
+BOSCHLTD.NS,Bosch Limited,Auto Ancillaries
+BPL.NS,BPL Limited,Unknown
+FIRSTCRY.NS,Brainbees Solutions (FirstCry),Retail
+BRANDHOUSE.NS,Brandhouse Retails Limited,Unknown
+BRIGADE.NS,Brigade Enterprises,Real Estate
+BCG.NS,Brightcom Group Limited,Unknown
+BRITANNIA.NS,Britannia Industries,FMCG
+BROADCAST.NS,Broadcast Initiatives Limited,Unknown
+BROOKS.NS,Brooks Laboratories Limited,Unknown
+BSTRANSCOM.NS,BS TransComm Limited,Unknown
+BSE.NS,BSE Limited,Financial Services
+BSELINFRA.NS,BSEL Infrastructure Realty Limited,Unknown
+BSL.NS,BSL Limited,Unknown
+BURNPUR.NS,Burnpur Cement Limited,Unknown
+BUTTERFLY.NS,Butterfly Gandhimathi Appliances Limited,Unknown
+CANDC.NS,C & C Constructions Limited,Unknown
+CMAHENDRA.NS,C. Mahendra Exports Limited,Unknown
+CADILAHC.NS,Cadila Healthcare Limited,Unknown
+CAIRN.NS,Cairn India Limited,Unknown
+CALSOFT.NS,California Software Company Limited,Unknown
+CAMBRIDGE.NS,Cambridge Solutions Limited,Unknown
+CTE.NS,Cambridge Technology Enterprises Limited,Unknown
+CAMLINFINE.NS,Camlin Fine Sciences Limited,Unknown
+CAMLIN.NS,Camlin Limited,Unknown
+CANFINHOME.NS,Can Fin Homes,Financial Services
+CANBK.NS,Canara Bank,Financial Services
+CANTABIL.NS,Cantabil Retail India,Retail
+CAPACITEINF.NS,Capacit'e Infraprojects,Infrastructure
+CAPACITE.NS,Capacit�e Infraprojects Limited,Unknown
+CAPITALSFB.NS,Capital Small Finance Bank Limited,Financial Services
+CAPTRUST.NS,Capital Trust Limited,Unknown
+CAPLIPOINT.NS,Caplin Point Laboratories Limited,Unknown
+CGCL.NS,Capri Global Capital Limited,Unknown
+CARBORUNIV.NS,Carborundum Universal Limited,Unknown
+CARERATING.NS,CARE Ratings,Financial Services
+CPIL.NS,Career Point Infosystems Limited,Unknown
+CAREERP.NS,Career Point Limited,Unknown
+CAROLINFO.NS,Carol Info Services Limited,Unknown
+CARTRADE.NS,CarTrade Tech,Technology
+CASTEXTECH.NS,Castex Technologies Limited,Unknown
+CASTROLIND.NS,Castrol India,Energy
+CASTROL.NS,Castrol India Limited,Unknown
+CCL.NS,CCL Products India,FMCG
+MAPMYINDIA.NS,CE Info Systems (MapmyIndia),Technology
+CEATLTD.NS,CEAT Limited,Consumer Cyclical
+CELEBRITY.NS,Celebrity Fashions Limited,Unknown
+CELESTIAL.NS,Celestial Biolabs Limited,Unknown
+CENTRALBK.NS,Central Bank of India,Financial Services
+CDSL.NS,Central Depository Services,Financial Services
+CENTRUM.NS,Centrum Capital Limited,Unknown
+CENTUM.NS,Centum Electronics Limited,Unknown
+CENTENKA.NS,Century Enka Limited,Consumer Cyclical
+CENTEXT.NS,Century Extrusions Limited,Unknown
+CENTURYPLY.NS,Century Plyboards India,Building Materials
+CENTURYTEX.NS,Century Textiles & Industries,Textiles
+CERA.NS,Cera Sanitaryware,Building Materials
+CEREBRAINT.NS,Cerebra Integrated Technologies Limited,Unknown
+CESC.NS,CESC Limited,Utilities
+CESCVENT.NS,CESC Ventures Limited,Unknown
+CGPOWER.NS,CG Power and Industrial Solutions Limited,Unknown
+CHALET.NS,Chalet Hotels,Hospitality
+CLSEL.NS,Chaman Lal Setia Exports Ltd.,Consumer Defensive
+CHAMBLFERT.NS,Chambal Fertilizers & Chemicals Limited,Unknown
+CHEMBOND.NS,Chembond Material Technologies Limited,Basic Materials
+CHEMFAB.NS,Chemfab Alkalis Limited,Unknown
+CHEMFALKAL.NS,Chemfab Alkalis Limited,Unknown
+CHEMPLAST.NS,Chemplast Sanmar Limited,Unknown
+CHENNPETRO.NS,Chennai Petroleum Corporation Limited,Unknown
+CHESLINTEX.NS,Cheslind Textiles Limited,Unknown
+CHETTINAD.NS,Chettinad Cement Corporation Limited,Unknown
+CHOLAHLDNG.NS,Cholamandalam Financial Holdings Limited,Unknown
+CHOLAFIN.NS,Cholamandalam Investment & Finance,Financial Services
+CHROMATIC.NS,Chromatic India Limited,Unknown
+CIGNITITEC.NS,Cigniti Technologies Limited,Technology
+CNOVAPETRO.NS,CIL Nova Petrochemicals Limited,Unknown
+CIMMCO.NS,Cimmco Limited,Unknown
+CINELINE.NS,Cineline India Limited,Unknown
+CINEMAX.NS,Cinemax India Limited,Unknown
+CINEVISTA.NS,Cinevista Limited,Unknown
+CIPLA.NS,Cipla,Pharma
+CUB.NS,City Union Bank,Financial Services
+CLEDUCATE.NS,CL Educate Limited,Unknown
+CLNINDIA.NS,Clariant Chemicals (India) Limited,Unknown
+CLASSIC.NS,Classic Diamonds (India) Limited,Unknown
+CLEAN.NS,Clean Science and Technology,Chemicals
+CLUTCHAUTO.NS,Clutch Auto Limited,Unknown
+CMC.NS,CMC Limited,Unknown
+CMICABLES.NS,CMI Limited,Unknown
+CMSINFO.NS,CMS Info Systems Limited,Industrials
+COALINDIA.NS,Coal India,Mining
+COCHINSHIP.NS,Cochin Shipyard,Defence
+COFFEEDAY.NS,Coffee Day Enterprises Limited,Unknown
+COFORGE.NS,Coforge Limited,Information Technology
+COLPAL.NS,Colgate-Palmolive India,FMCG
+CEBBCO.NS,Commercial Engineers & Body Builders Co Limited,Unknown
+COMPINFO.NS,Compuage Infocom Limited,Unknown
+COMPUSOFT.NS,Compucom Software Limited,Unknown
+CAMS.NS,Computer Age Management Services,Financial Services
+CONFIPET.NS,Confidence Petroleum India Limited,Unknown
+CCCL.NS,Consolidated Construction Consortium Limited,Industrials
+CONSOFINVT.NS,Consolidated Finvest & Holdings Limited,Unknown
+CONCOR.NS,Container Corporation of India,Logistics
+CONTROLPR.NS,Control Print Limited,Industrials
+CORALFINAC.NS,Coral India Finance & Housing Limited,Unknown
+CORDSCABLE.NS,Cords Cable Industries Limited,Industrials
+COREPROTEC.NS,Core Projects and Technologies Limited,Unknown
+COROMANDEL.NS,Coromandel International,Agrochemicals
+CORPBANK.NS,Corporation Bank,Unknown
+COSMOFILMS.NS,Cosmo Films Limited,Unknown
+CCHHL.NS,Country Club Hospitality & Holidays Limited,Unknown
+COUNCODOS.NS,Country Condo�s Limited,Unknown
+CKFSL.NS,Cox & Kings Financial Service Limited,Unknown
+COX&KINGS.NS,Cox & Kings Limited,Unknown
+CRAFTSMAN.NS,Craftsman Automation,Capital Goods
+CREATIVEYE.NS,Creative Eye Limited,Unknown
+CREATIVE.NS,Creative Peripherals and Distribution Limited,Unknown
+CREDITACC.NS,CreditAccess Grameen,Financial Services
+MUFTI.NS,CREDO BRANDS MARKETING L,Consumer Cyclical
+CRESTANI.NS,Crest Animation Studios Limited,Unknown
+CREST.NS,Crest Ventures Limited,Unknown
+CREWBOS.NS,Crew B.O.S. Products Limited,Unknown
+CRISIL.NS,CRISIL Limited,Financial Services
+CROMPGREAV.NS,Crompton  Greaves Limited,Unknown
+CROMPTON.NS,Crompton Greaves Consumer Electricals,Capital Goods
+CRONIMET.NS,Cronimet Alloys India Limited,Unknown
+CUBEXTUB.NS,Cubex Tubings Limited,Unknown
+CUMMINSIND.NS,Cummins India,Capital Goods
+CUPID.NS,Cupid Limited,Unknown
+CURATECH.NS,Cura Technologies Limited,Unknown
+CYBERMEDIA.NS,Cyber Media (India) Limited,Unknown
+CYBERTECH.NS,CyberTech Systems and Software Limited,Technology
+CYIENT.NS,Cyient Limited,Information Technology
+DBREALTY.NS,D B Realty Limited,Unknown
+DLINKINDIA.NS,D-Link (India) Limited,Technology
+DBCORP.NS,D. B. Corp Limited,Communication Services
+DABUR.NS,Dabur India,FMCG
+DALBHARAT.NS,Dalmia Bharat Limited,Unknown
+DALMIASUG.NS,Dalmia Bharat Sugar and Industries Limited,Unknown
+DAMODARIND.NS,Damodar Industries Limited,Unknown
+DATAPATTNS.NS,Data Patterns India,Defence
+DATAMATICS.NS,Datamatics Global Services Limited,Technology
+DBSTOCKBRO.NS,DB (International) Stock Brokers Limited,Financial Services
+DCBBANK.NS,DCB Bank,Financial Services
+DCMFINSERV.NS,DCM Financial Services Limited,Unknown
+DCMNVL.NS,DCM Nouvelle Limited,Unknown
+DCMSHRIRAM.NS,DCM Shriram,Chemicals
+DCMSRMCONS.NS,DCM Shriram Consolidated Limited,Unknown
+DCM.NS,DCM� Limited,Unknown
+DCW.NS,DCW Limited,Unknown
+DENORA.NS,De Nora India Limited,Unknown
+DECCANCE.NS,Deccan Cements Limited,Unknown
+DCHL.NS,Deccan Chronicle Holdings Limited,Unknown
+DECOLIGHT.NS,Decolight Ceramics Limited,Unknown
+DEEPIND.NS,Deep Industries Limited,Unknown
+DEEPINDS.NS,Deep Industries Limited,Energy
+DEEPAKFERT.NS,Deepak Fertilisers & Petrochemicals,Chemicals
+DEEPAKNTR.NS,Deepak Nitrite,Chemicals
+DELHIVERY.NS,Delhivery,Logistics
+DELTACORP.NS,Delta Corp,Hospitality
+DELTAMAGNT.NS,Delta Magnets Limited,Unknown
+DEN.NS,Den Networks Limited,Unknown
+DENABANK.NS,Dena Bank,Unknown
+DENSO.NS,Denso India Limited,Unknown
+DCB.NS,Development Credit Bank Limited,Unknown
+DEVYANI.NS,Devyani International,Retail
+DEWANHOUS.NS,Dewan Housing Finance Corporation Limited,Unknown
+DHFL.NS,Dewan Housing Finance Corporation Limited,Unknown
+DFMFOODS.NS,DFM Foods Limited,Unknown
+DHAMPURSUG.NS,Dhampur Sugar Mills Limited,Unknown
+DHANBANK.NS,Dhanlaxmi Bank Limited,Unknown
+DHANUKA.NS,Dhanuka Agritech Limited,Basic Materials
+DHANUS.NS,Dhanus Technologies Limited,Unknown
+DHARSUGAR.NS,Dharani Sugars & Chemicals Limited,Unknown
+DHUNINV.NS,Dhunseri Investments Limited,Unknown
+DPTL.NS,Dhunseri Petrochem & Tea Limited,Unknown
+DTIL.NS,Dhunseri Tea & Industries Limited,Unknown
+DVL.NS,Dhunseri Ventures Limited,Unknown
+DIAPOWER.NS,Diamond Power Infra Ltd,Unknown
+DICIND.NS,DIC India Limited,Unknown
+DGCONTENT.NS,Digicontent Limited,Communication Services
+DIGISPICE.NS,DiGiSPICE Technologies Limited,Unknown
+DIGJAM.NS,Digjam Limited,Unknown
+DIGJAMLTD.NS,Digjam Limited,Unknown
+DNAMEDIA.NS,Diligent Media Corporation Limited,Unknown
+DILIPBLDCON.NS,Dilip Buildcon,Infrastructure
+DBL.NS,Dilip Buildcon Limited,Industrials
+DISHTV.NS,Dish TV India Limited,Unknown
+DCAL.NS,Dishman Carbogen Amcis Limited,Unknown
+DISHMAN.NS,Dishman Pharmaceuticals and Chemicals Limited,Unknown
+DIVISLAB.NS,Divi's Laboratories,Pharma
+DIXON.NS,Dixon Technologies India,Electronics
+DLF.NS,DLF Limited,Real Estate
+DODLA.NS,Dodla Dairy,FMCG
+DOLAT.NS,Dolat Investments Limited,Unknown
+DOLLAR.NS,Dollar Industries,Textiles
+DOLPHINOFF.NS,Dolphin Offshore Enterprises (India) Limited,Unknown
+DOMS.NS,DOMS Industries,Consumer Discretionary
+DONEAR.NS,Donear Industries Limited,Unknown
+DPSCLTD.NS,DPSC Limited,Unknown
+DQE.NS,DQ Entertainment (International) Limited,Unknown
+LALPATHLAB.NS,Dr. Lal PathLabs,Healthcare
+DRREDDY.NS,Dr. Reddy's Laboratories,Pharma
+DREDGECORP.NS,Dredging Corporation of India Limited,Unknown
+DSKULKARNI.NS,DS Kulkarni Developers Limited,Unknown
+DUCON.NS,Ducon Infratechnologies Limited,Unknown
+DUNCANSIND.NS,Duncans Industries Limited,Unknown
+DWARKESH.NS,Dwarikesh Sugar Industries Limited,Unknown
+DSSL.NS,Dynacons Systems & Solutions Limited,Technology
+DYNAMATECH.NS,Dynamatic Technologies Limited,Unknown
+DYNPRO.NS,Dynemic Products Limited,Unknown
+EASTSILK.NS,Eastern Silk Industries Limited,Unknown
+EASUNREYRL.NS,Easun Reyrolle Limited,Unknown
+EASEMYTRIP.NS,Easy Trip Planners,Technology
+ECEIND.NS,ECE Industries Limited,Unknown
+ECLERX.NS,eClerx Services,Information Technology
+EDELWEISS.NS,Edelweiss Financial Services Limited,Financial Services
+EDSERV.NS,Edserv Softsystems Limited,Unknown
+EDUCOMP.NS,Educomp Solutions Limited,Unknown
+EICHERMOT.NS,Eicher Motors,Automobile
+EIDPARRY.NS,EID Parry India Limited,Unknown
+EIHAHOTELS.NS,EIH Associated Hotels Limited,Unknown
+EIHOTEL.NS,EIH Limited (Oberoi Hotels),Hospitality
+EIMCOELECO.NS,Eimco Elecon (India) Limited,Industrials
+ELFORGE.NS,EL Forge Limited,Unknown
+ELDEHSG.NS,Eldeco Housing and Industries Limited,Real Estate
+ELDERPHARM.NS,Elder Pharmaceuticals Limited,Unknown
+ELECON.NS,Elecon Engineering Company Limited,Unknown
+ELECTCAST.NS,Electrosteel Castings Limited,Industrials
+ESL.NS,Electrosteel Steels Limited,Unknown
+ELECTHERM.NS,Electrotherm (India) Limited,Unknown
+ELGIEQUIP.NS,Elgi Equipments,Capital Goods
+ELGIRUBCO.NS,Elgi Rubber Company Limited,Unknown
+ELNET.NS,Elnet Technologies Limited,Unknown
+EMAMILTD.NS,Emami Limited,FMCG
+EMAMIPAP.NS,Emami Paper Mills Limited,Unknown
+EMAMIREAL.NS,Emami Realty Limited,Unknown
+EMCO.NS,Emco Limited,Unknown
+EMKAY.NS,Emkay Global Financial Services Limited,Financial Services
+EMMBI.NS,Emmbi Industries Limited,Unknown
+EDL.NS,Empee Distilleries Limited,Unknown
+EMPEESUG.NS,Empee Sugars and Chemicals Limited,Unknown
+ENDURANCE.NS,Endurance Technologies,Auto Ancillaries
+ENERGYDEV.NS,Energy Development Company Limited,Unknown
+ENGINERSIN.NS,Engineers India Limited,Unknown
+ENTEGRA.NS,Entegra Limited,Unknown
+ENIL.NS,Entertainment Network (India) Limited,Unknown
+EON.NS,Eon Electric Limited,Unknown
+EPIGRAL.NS,Epigral Limited,Basic Materials
+EQUITAS.NS,Equitas Holdings Limited,Unknown
+EQUITASBNK.NS,Equitas Small Finance Bank,Financial Services
+ERAINFRA.NS,Era Infra Engineering Limited,Unknown
+ERIS.NS,Eris Lifesciences Limited,Unknown
+EROSMEDIA.NS,Eros International Media Limited,Unknown
+ESAB.NS,ESAB India,Capital Goods
+ESABINDIA.NS,Esab India Limited,Unknown
+ESCORTS.NS,Escorts Kubota,Automobile
+ESSDEE.NS,Ess Dee Aluminium Limited,Unknown
+ESSAROIL.NS,Essar Oil Limited,Unknown
+ESSARSHPNG.NS,Essar Shipping Limited,Unknown
+ESSARSHIP.NS,Essar Shipping Ports & Logistics Limited,Unknown
+ESSELPACK.NS,Essel Propack Limited,Unknown
+ESTER.NS,Ester Industries,Chemicals
+EUROCERA.NS,Euro Ceramics Limited,Unknown
+EUROMULTI.NS,Euro Multivision Limited,Unknown
+EUROTEXIND.NS,Eurotex Industries and Exports Limited,Unknown
+EVEREADY.NS,Eveready Industries India,Consumer Discretionary
+EVERESTIND.NS,Everest Industries Limited,Unknown
+EKC.NS,Everest Kanto Cylinder,Capital Goods
+EVERONN.NS,Everonn Education Limited,Unknown
+EVINIX.NS,Evinix Accessories Limited,Unknown
+EXCELCROP.NS,Excel Crop Care Limited,Unknown
+EXCELINDUS.NS,Excel Industries Limited,Unknown
+EXCELINFO.NS,Excel Infoways Limited,Unknown
+EXCEL.NS,Excel Realty N Infra Limited,Unknown
+EXICOM.NS,Exicom Tele-Systems,EV Charging
+EXIDEIND.NS,Exide Industries,Auto Ancillaries
+EXPLEOSOL.NS,Expleo Solutions Limited,Unknown
+FAGBEARING.NS,FAG Bearings India Limited,Unknown
+FAIRCHEM.NS,Fairchem Speciality Limited,Unknown
+FAME.NS,Fame India Limited,Unknown
+FARMAXIND.NS,Farmax India Limited,Unknown
+FCSSOFT.NS,FCS Software Solutions Limited,Unknown
+FDC.NS,FDC Limited,Healthcare
+FEDFINA.NS,Fedbank Financial Services Limited,Financial Services
+FEDDERLOYD.NS,Fedders Lloyd Corporation Limited,Unknown
+FEDERALBNK.NS,Federal Bank,Financial Services
+FMGOETZE.NS,Federal-Mogul Goetze (India) Limited.,Unknown
+FERMENTA.NS,Fermenta Biotech,Pharma
+FACT.NS,Fertilizers and Chemicals Travancore Limited,Unknown
+FIBERWEB.NS,Fiberweb (India) Limited,Consumer Cyclical
+FIEMIND.NS,Fiem Industries Limited,Unknown
+FILATEX.NS,Filatex India Limited,Unknown
+FINANTECH.NS,Financial Technologies (India) Limited,Unknown
+FINEORG.NS,Fine Organic Industries,Chemicals
+FCL.NS,Fineotex Chemical Limited,Unknown
+FINCABLES.NS,Finolex Cables,Capital Goods
+FINOLEX.NS,Finolex Industries,Plastics
+FINPIPE.NS,Finolex Industries Limited,Unknown
+FIRSTLEASE.NS,First Leasing Company of India Limited,Unknown
+FIRSTWIN.NS,First Winner Industries Limited,Unknown
+FIRSTSOURCE.NS,FirstSource Solutions,Information Technology
+FSL.NS,Firstsource Solutions Limited,Unknown
+FIVESTAR.NS,Five-Star Business Finance Limited,Financial Services
+FLEXITUFF.NS,Flexituff Ventures International Limited,Unknown
+FORCEMOT.NS,Force Motors,Automobile
+FORTIS.NS,Fortis Healthcare,Healthcare
+FOSECOIND.NS,Foseco India Limited,Unknown
+FOURSOFT.NS,Four Soft Limited,Unknown
+FTCPOF5YDV.NS,Franklin Templeton Capital Protection Oriented Fund,Unknown
+FTCPOF5YGR.NS,Franklin Templeton Capital Protection Oriented Fund,Unknown
+FTCSF5YGRO.NS,Franklin Templeton Mutual Fund-Capital Safety Fund-5Y (Growth Option),Unknown
+FTCSF5YDIV.NS,Franklin Templeton Mutual Fund-Capital Safety Fund-5Y Dividend Option,Unknown
+FKONCO.NS,Fresenius Kabi Oncology Limited,Unknown
+NYKAA.NS,FSN E-Commerce Ventures (Nykaa),Technology
+FCH.NS,Future Capital Holdings Limited,Unknown
+FCONSUMER.NS,Future Consumer Limited,Unknown
+FEL.NS,Future Enterprises Limited,Unknown
+FELDVR.NS,Future Enterprises Limited,Unknown
+FLFL.NS,Future Lifestyle Fashions Limited,Unknown
+FMNL.NS,Future Market Networks Limited,Unknown
+FRETAIL.NS,Future Retail Limited,Unknown
+FSC.NS,Future Supply Chain Solutions Limited,Unknown
+GMBREW.NS,G.M. Breweries Limited,Consumer Defensive
+GABRIEL.NS,Gabriel India,Auto Ancillaries
+GAIL.NS,GAIL India,Energy
+GALAXYSURF.NS,Galaxy Surfactants,Chemicals
+GALLANTT.NS,Gallantt Ispat Limited,Basic Materials
+GALLISPAT.NS,Gallantt Ispat Limited,Unknown
+GAMMONIND.NS,Gammon India Limited,Unknown
+GAMMNINFRA.NS,Gammon Infrastructure Projects Limited,Unknown
+GANDHITUBE.NS,Gandhi Special Tubes Limited,Industrials
+GANESHHOUC.NS,Ganesh Housing Limited,Real Estate
+GANECOS.NS,Ganesha Ecosphere Limited,Unknown
+GANGESSECU.NS,Ganges Securities Limited,Unknown
+GANGOTRI.NS,Gangotri Textiles Limited,Unknown
+GARDENREACH.NS,Garden Reach Shipbuilders,Defence
+GRSE.NS,Garden Reach Shipbuilders & Engineers Limited,Unknown
+GARDENSILK.NS,Garden Silk Mills Limited,Unknown
+GARWALLROP.NS,Garware  Wall Ropes Limited,Unknown
+GARWOFFS.NS,Garware Offshore Services Limited,Unknown
+GARWARETECH.NS,Garware Technical Fibres,Textiles
+GARFIBRES.NS,Garware Technical Fibres Limited,Unknown
+GATEWAY.NS,Gateway Distriparks Limited,Industrials
+GDL.NS,Gateway Distriparks Limited,Unknown
+GATI.NS,Gati Limited,Logistics
+GAYAHWS.NS,Gayatri Highways Limited,Unknown
+GAYAPROJ.NS,Gayatri Projects Limited,Unknown
+GEPIL.NS,GE Power India Limited,Unknown
+GET&D.NS,GE T&D India Limited,Unknown
+GEECEE.NS,GeeCee Ventures Limited,Unknown
+GEINDSYS.NS,GEI Industrial Systems Limited,Unknown
+GEMINI.NS,Gemini Communication Limited,Unknown
+GICRE.NS,General Insurance Corporation of India,Unknown
+GENCON.NS,Generic Engineering Construction and Projects Limited,Industrials
+GENESYS.NS,Genesys International Corporation Limited,Unknown
+GENUSPAPER.NS,Genus Paper & Boards Limited,Unknown
+GENUSPOWER.NS,Genus Power Infrastructures Limited,Unknown
+GEODESIC.NS,Geodesic Limited,Unknown
+GEOJITBNPP.NS,Geojit BNP Paribas Financial Services Limited,Unknown
+GEOJITFSL.NS,Geojit Financial Services,Financial Services
+GEOMETRIC.NS,Geometric Limited,Unknown
+GFLLIMITED.NS,GFL Limited,Unknown
+GHCL.NS,GHCL Limited,Unknown
+GISOLUTION.NS,GI Engineering Solutions Limited,Unknown
+GICHSGFIN.NS,GIC Housing Finance Limited,Unknown
+GILLANDERS.NS,Gillanders Arbuthnot & Company Limited,Unknown
+GILLETTE.NS,Gillette India,FMCG
+GINNIFILA.NS,Ginni Filaments Limited,Unknown
+GITANJALI.NS,Gitanjali Gems Limited,Unknown
+GKB.NS,GKB Ophthalmics Limited,Unknown
+GKWLIMITED.NS,GKW Limited,Unknown
+GLAND.NS,Gland Pharma,Pharma
+GSKCONS.NS,GlaxoSmithKline Consumer Healthcare Limited,Unknown
+GLAXO.NS,GlaxoSmithKline Pharmaceuticals Limited,Unknown
+GLENMARK.NS,Glenmark Pharmaceuticals,Pharma
+GLOBOFFS.NS,Global Offshore Services Limited,Unknown
+GLOBALVECT.NS,Global Vectra Helicorp Limited,Unknown
+GLOBE.NS,Globe Textiles (India) Limited,Consumer Cyclical
+GLOBUSSPR.NS,Globus Spirits,FMCG
+GLODYNE.NS,Glodyne Technoserve Limited,Unknown
+GLORY.NS,Glory Polyfilms Limited,Unknown
+GMMPFAUDLR.NS,GMM Pfaudler Limited,Unknown
+GMRINFRA.NS,GMR Airports Infrastructure,Infrastructure
+GMRP&UI.NS,GMR Power And Urban Infra Limited,Energy
+GNA.NS,GNA Axles Limited,Unknown
+GOCOLORS.NS,Go Fashion India,Retail
+GOACARBON.NS,Goa Carbon Limited,Unknown
+GOCLCORP.NS,GOCL Corporation Limited,Unknown
+GPIL.NS,Godawari Power & Ispat Limited,Basic Materials
+GODFRYPHLP.NS,Godfrey Phillips India,FMCG
+GODREJAGRO.NS,Godrej Agrovet,FMCG
+GODREJCP.NS,Godrej Consumer Products,FMCG
+GODREJIND.NS,Godrej Industries,Diversified
+GODREJPROP.NS,Godrej Properties,Real Estate
+GOENKA.NS,Goenka Diamond and Jewels Limited,Unknown
+GOKEX.NS,Gokaldas Exports Limited,Unknown
+GOKULAGRO.NS,Gokul Agro Resources Limited,Unknown
+GOKUL.NS,Gokul Refoils and Solvent Limited,Unknown
+GOLDENTOBC.NS,Golden Tobacco Limited,Consumer Defensive
+GOLDIAM.NS,Goldiam International Limited,Unknown
+GOLDINFRA.NS,Goldstone Infratech Limited,Unknown
+GOLDTECH.NS,Goldstone Technologies Limited,Unknown
+GOODLUCK.NS,Goodluck India Limited,Unknown
+GULFPETRO.NS,GP Petroleums Limited,Unknown
+GPTINFRA.NS,GPT Infraprojects,Infrastructure
+GRINFRA.NS,GR Infraprojects,Infrastructure
+GRABALALK.NS,Grabal Alok Impex Limited,Unknown
+GRANULES.NS,Granules India,Pharma
+GRAPHITE.NS,Graphite India Limited,Unknown
+GRASIM.NS,Grasim Industries,Diversified
+GRAVITA.NS,Gravita India Limited,Unknown
+GTOFFSHORE.NS,Great Offshore Limited,Unknown
+GREAVESCOT.NS,Greaves Cotton,Capital Goods
+GREENLAM.NS,Greenlam Industries Limited,Unknown
+GREENPANEL.NS,Greenpanel Industries,Building Materials
+GREENPLY.NS,Greenply Industries,Building Materials
+GRINDWELL.NS,Grindwell Norton,Capital Goods
+GRPLTD.NS,GRP Limited,Unknown
+GRUH.NS,Gruh Finance Limited,Unknown
+GSLNOVA.NS,GSL Nova Petrochemicals Limited,Unknown
+GSSAMERICA.NS,GSS America Infotech Limited,Unknown
+GSS.NS,GSS Infotech Limited,Unknown
+GTLINFRA.NS,GTL Infrastructure Limited,Unknown
+GTL.NS,GTL Limited,Unknown
+GTNIND.NS,GTN Industries Limited,Unknown
+GTNTEX.NS,GTN Textiles Limited,Unknown
+GTPL.NS,GTPL Hathway Limited,Communication Services
+GUFICBIO.NS,Gufic Biosciences Limited,Unknown
+GUJALKALI.NS,Gujarat Alkalies and Chemicals,Chemicals
+GAEL.NS,Gujarat Ambuja Exports Limited,Consumer Defensive
+GUJAPOLLO.NS,Gujarat Apollo Industries Limited,Unknown
+FLUOROCHEM.NS,Gujarat Fluorochemicals,Chemicals
+GUJFLUORO.NS,Gujarat Fluorochemicals Limited,Unknown
+GUJGASLTD.NS,Gujarat Gas,Utilities
+GUJRATGAS.NS,Gujarat Gas Company Limited,Unknown
+GIPCL.NS,Gujarat Industries Power Company Limited,Unknown
+GLFL.NS,Gujarat Lease Financing Limited,Unknown
+GMDCLTD.NS,Gujarat Mineral Development Corporation Limited,Unknown
+GNFC.NS,Gujarat Narmada Valley Fertilizers,Chemicals
+GUJNRECOKE.NS,Gujarat NRE Coke Limited,Unknown
+GUJNREDVR.NS,Gujarat NRE Coke Limited,Unknown
+GPPL.NS,Gujarat Pipavav Port,Infrastructure
+GUJRAFFIA.NS,Gujarat Raffia Industries Limited,Unknown
+GSCLCEMENT.NS,Gujarat Sidhee Cement Limited,Unknown
+GUJSIDHCEM.NS,Gujarat Sidhee Cements Limited,Unknown
+GSFC.NS,Gujarat State Fertilizers & Chemicals,Chemicals
+GUJSTATFIN.NS,Gujarat State Financial Corporation,Unknown
+GSPL.NS,Gujarat State Petronet Limited,Utilities
+GULFOILCOR.NS,Gulf Oil Corporation Limited,Unknown
+GULFOILLUB.NS,Gulf Oil Lubricants India Limited,Basic Materials
+GULPOLY.NS,Gulshan Polyols Limited,Unknown
+GVKPIL.NS,GVK Power & Infrastructure Limited,Unknown
+GAL.NS,Gyscoal Alloys Limited,Unknown
+HGINFRA.NS,H.G. Infra Engineering,Infrastructure
+HALONIX.NS,Halonix Limited,Unknown
+HANUNG.NS,Hanung Toys and Textiles Limited,Unknown
+HAPPSTMNDS.NS,Happiest Minds Technologies,Information Technology
+HARIOMPIPE.NS,Hariom Pipe Industries Limited,Basic Materials
+HARITASEAT.NS,Harita Seating Systems Limited,Unknown
+HARRMALAYA.NS,Harrisons� Malayalam Limited,Unknown
+HATHWAY.NS,Hathway Cable & Datacom Limited,Unknown
+HATSUN.NS,Hatsun Agro Product,FMCG
+HAVELLS.NS,Havells India,Capital Goods
+HBSL.NS,HB Stockholdings Limited,Unknown
+HBSTOCK.NS,HB Stockholdings Limited,Unknown
+HBLPOWER.NS,HBL Power Systems Limited,Unknown
+HCL-INSYS.NS,HCL Infosystems Limited,Unknown
+HCLTECH.NS,HCL Technologies,Information Technology
+HDFCAMC.NS,HDFC Asset Management Company,Financial Services
+HDFCBANK.NS,HDFC Bank,Financial Services
+HDFCLIFE.NS,HDFC Life Insurance,Financial Services
+HCG.NS,Healthcare Global Enterprises Limited,Unknown
+HEG.NS,HEG Limited,Unknown
+HEIDELBERG.NS,Heidelberg Materials India,Cement
+HELIOSMATH.NS,Helios And Matheson Information Technology Limited,Unknown
+HERCULES.NS,Hercules Hoists Limited,Unknown
+HERITAGE.NS,Heritage Foods,FMCG
+HERITGFOOD.NS,Heritage Foods Limited,Consumer Defensive
+HEROHONDA.NS,Hero Honda Motors Limited,Unknown
+HEROMOTOCO.NS,Hero MotoCorp,Automobile
+HESTERBIO.NS,Hester Biosciences Limited,Unknown
+HEXATRADEX.NS,Hexa Tradex Limited,Unknown
+HEXAWARE.NS,Hexaware Technologies Limited,Unknown
+HFCL.NS,HFCL Limited,Telecom
+HITECH.NS,Hi-Tech Pipes Limited,Unknown
+HIKAL.NS,Hikal Limited,Pharma
+HIL.NS,HIL Limited,Unknown
+HILTON.NS,Hilton Metal Forging Limited,Unknown
+HCIL.NS,Himadri Chemicals and Industries Limited,Unknown
+HSCL.NS,Himadri Speciality Chemical,Chemicals
+HIMATSEIDE.NS,Himatsingka Seide,Textiles
+HIRECT.NS,Hind Rectifiers Limited,Unknown
+HINDSYNTEX.NS,Hind Syntex Limited,Unknown
+HINDALCO.NS,Hindalco Industries,Metals
+HINDUJAFO.NS,Hinduja Foundries Limited,Unknown
+HGS.NS,Hinduja Global Solutions Limited,Unknown
+HGSL.NS,Hinduja Global Solutions Limited,Unknown
+HINDUJAVEN.NS,Hinduja Ventures Limited,Unknown
+HAL.NS,Hindustan Aeronautics Limited,Defence
+HINDCOMPOS.NS,Hindustan Composites Limited,Unknown
+HCC.NS,Hindustan Construction Company Limited,Unknown
+HINDCOPPER.NS,Hindustan Copper,Metals
+HINDDORROL.NS,Hindustan Dorr-Oliver Limited,Unknown
+HNDFDS.NS,Hindustan Foods Limited,Unknown
+HMVL.NS,Hindustan Media Ventures,Media
+HINDMOTORS.NS,Hindustan Motors Limited,Unknown
+HINDOILEXP.NS,Hindustan Oil Exploration Company Limited,Unknown
+HINDPETRO.NS,Hindustan Petroleum Corporation,Energy
+HINDUNILVR.NS,Hindustan Unilever,FMCG
+HINDZINC.NS,Hindustan Zinc,Metals
+HINDNATGLS.NS,Hindusthan National Glass & Industries Limited,Unknown
+HINDWAREAP.NS,Hindware Home Innovation,Building Materials
+HISARMETAL.NS,Hisar Metal Industries Limited,Unknown
+HITACHIHOM.NS,Hitachi Home and Life Solutions (India) Limited,Unknown
+HITECHCORP.NS,Hitech Corporation Limited,Unknown
+HITECHPLAS.NS,Hitech Plast Limited,Unknown
+HMAAGRO.NS,HMA Agro Industries Limited,Consumer Defensive
+HMT.NS,HMT Limited,Unknown
+HOMEFIRST.NS,Home First Finance Company,Financial Services
+HONDAPOWER.NS,Honda Siel Power Products Limited,Unknown
+HONAUT.NS,Honeywell Automation India,Capital Goods
+HOTELEELA.NS,Hotel Leela Venture Limited,Unknown
+HOTELRUGBY.NS,Hotel Rugby Limited,Unknown
+HOPFL.NS,House of Pearl Fashions Limited,Unknown
+HUDCO.NS,Housing and Urban Development Corporation Limited,Financial Services
+HDIL.NS,Housing Development and Infrastructure Limited,Unknown
+HDFC.NS,Housing Development Finance Corporation Limited,Unknown
+HOVS.NS,HOV Services Limited,Unknown
+HPL.NS,HPL Electric & Power Limited,Unknown
+HSIL.NS,HSIL Limited,Building Materials
+HTMEDIA.NS,HT Media Limited,Unknown
+HUBTOWN.NS,Hubtown Limited,Unknown
+HUHTAMAKI.NS,Huhtamaki PPL,Packaging
+PAPERPROD.NS,Huhtamaki PPL Limited,Unknown
+HYBRIDFIN.NS,Hybrid Financial Services Limited,Financial Services
+HYDRBADIND.NS,Hyderabad Industries Limited,Unknown
+IBN18.NS,ibn18 Broadcast Limited,Unknown
+ICICIBANK.NS,ICICI Bank,Financial Services
+ICICIGI.NS,ICICI Lombard General Insurance,Financial Services
+ICICIPRULI.NS,ICICI Prudential Life Insurance,Financial Services
+ICICISEC.NS,ICICI Securities,Financial Services
+ISEC.NS,ICICI Securities Limited,Unknown
+ICRA.NS,ICRA Limited,Financial Services
+ICSA.NS,ICSA (India) Limited,Unknown
+IDBI.NS,IDBI Bank Limited,Financial Services
+IDEAFORGE.NS,ideaForge Technology,Technology
+IDFCFIRSTB.NS,IDFC First Bank,Financial Services
+IDFC.NS,IDFC Limited,Unknown
+IFBAGRO.NS,IFB Agro Industries Limited,Unknown
+IFBIND.NS,IFB Industries Limited,Unknown
+IFCI.NS,IFCI Limited,Unknown
+IFGLEXPOR.NS,IFGL Refractories Limited,Unknown
+IFGLREFRAC.NS,IFGL Refractories Limited,Unknown
+IGPL.NS,IG Petrochemicals Limited,Unknown
+IGARASHI.NS,Igarashi Motors India Limited,Unknown
+IIFL.NS,IIFL Finance,Financial Services
+IIFLSEC.NS,IIFL Securities Limited,Unknown
+IIFLWAM.NS,IIFL Wealth Management,Financial Services
+IL&FSENGG.NS,IL&FS Engineering and Construction Company Limited,Unknown
+IVC.NS,IL&FS Investment Managers Limited,Unknown
+IL&FSTRANS.NS,IL&FS Transportation Networks Limited,Unknown
+INDLMETER.NS,IMP Powers Limited,Unknown
+IMPEXFERRO.NS,Impex Ferro Tech Limited,Unknown
+INDSWFTLAB.NS,Ind-Swift Laboratories,Pharma
+INDSWFTLTD.NS,Ind-Swift Limited,Unknown
+INDBANK.NS,Indbank Merchant Banking Services Limited,Financial Services
+INDIACEM.NS,India Cements,Cement
+INDIAGLYC.NS,India Glycols,Chemicals
+INDIAGLYCO.NS,India Glycols Limited,Basic Materials
+INDIAINFO.NS,India Infoline Limited,Unknown
+IMPAL.NS,India Motor Parts & Accessories Limited,Consumer Cyclical
+INDNIPPON.NS,India Nippon Electricals Limited,Unknown
+INDIASHLTR.NS,India Shelter Finance Corporation Limited,Financial Services
+ITDC.NS,India Tourism Development Corporation Limited,Unknown
+INDIABULLS.NS,Indiabulls Financial Services Limited,Unknown
+IBULHSGFIN.NS,Indiabulls Housing Finance Limited,Unknown
+IBULISL.NS,Indiabulls Integrated Services Limited,Unknown
+IBPOW.NS,Indiabulls Power Limited,Unknown
+IBREALEST.NS,Indiabulls Real Estate,Real Estate
+IBSEC.NS,Indiabulls Securities Limited,Unknown
+IBVENTURES.NS,Indiabulls Ventures Limited,Unknown
+INDIAMART.NS,IndiaMART InterMESH,Technology
+INDIANB.NS,Indian Bank,Financial Services
+INDIANCARD.NS,Indian Card Clothing Company Limited,Unknown
+IEX.NS,Indian Energy Exchange Limited,Unknown
+INDHOTEL.NS,Indian Hotels Company (Taj Hotels),Hospitality
+INDIANHUME.NS,Indian Hume Pipe Company Limited,Unknown
+IMFA.NS,Indian Metals and Ferro Alloys Limited,Basic Materials
+IOC.NS,Indian Oil Corporation,Energy
+IOB.NS,Indian Overseas Bank,Unknown
+IRFC.NS,Indian Railway Finance Corporation,Financial Services
+INDTERRAIN.NS,Indian Terrain Fashions Limited,Unknown
+INDOASIFU.NS,Indo Asian Fusegear Limited,Unknown
+ICIL.NS,Indo Count Industries Limited,Consumer Cyclical
+INDORAMA.NS,Indo Rama Synthetics (India) Limited,Unknown
+INDOTECH.NS,Indo Tech Transformers Limited,Unknown
+INDOTHAI.NS,Indo Thai Securities Limited,Unknown
+NIPPOBATRY.NS,Indo-National Limited,Unknown
+INDOCO.NS,Indoco Remedies Limited,Unknown
+INDOSOLAR.NS,Indosolar Limited,Unknown
+INDOSTAR.NS,IndoStar Capital Finance,Financial Services
+INDOWIND.NS,Indowind Energy Limited,Unknown
+IGL.NS,Indraprastha Gas Limited,Utilities
+INDRAMEDCO.NS,Indraprastha Medical Corporation Limited,Healthcare
+INDUSFILA.NS,Indus Fila Limited,Unknown
+INDUSTOWER.NS,Indus Towers,Telecom
+INDUSINDBK.NS,IndusInd Bank,Financial Services
+IITL.NS,Industrial Investment Trust Limited,Unknown
+INEABS.NS,INEOS ABS (India) Limited,Unknown
+INEOSSTYRO.NS,INEOS Styrolution India Limited,Unknown
+INFIBEAM.NS,Infibeam Avenues,Technology
+INFINITE.NS,Infinite Computer Solutions (India) Limited,Unknown
+NAUKRI.NS,Info Edge India,Technology
+INFODRIVE.NS,Info-Drive Software Limited,Unknown
+INFOBEAN.NS,InfoBeans Technologies Limited,Technology
+INFOMEDIA.NS,Infomedia 18 Limited,Unknown
+INFY.NS,Infosys,Information Technology
+INFOSYSTCH.NS,Infosys Technologies Limited,Unknown
+INFOTECENT.NS,Infotech Enterprises Limited,Unknown
+INGVYSYABK.NS,ING Vysya Bank Limited,Unknown
+INGERRAND.NS,Ingersoll Rand (India) Limited,Unknown
+INOXLEISUR.NS,INOX Leisure Limited,Unknown
+INOXWIND.NS,INOX Wind,Renewable Energy
+INSECTICID.NS,Insecticides (India) Limited,Unknown
+INSPIRISYS.NS,Inspirisys Solutions Limited,Unknown
+ESSENTIA.NS,Integra Essentia Limited,Consumer Defensive
+INTEGRA.NS,Integra Garments and Textiles Limited,Unknown
+INTELLECT.NS,Intellect Design Arena,Information Technology
+INTENTECH.NS,Intense Technologies Limited,Technology
+INDIGO.NS,InterGlobe Aviation (IndiGo),Aviation
+SUBCAPCITY.NS,International Constructions Limited,Unknown
+IPAPPM.NS,International Paper APPM Limited,Unknown
+ISFT.NS,Intrasoft Technologies Limited,Unknown
+INVENTURE.NS,Inventure Growth & Securities Limited,Unknown
+IOLCP.NS,IOL Chemicals and Pharmaceuticals Limited,Unknown
+IOLN.NS,IOL Netcom Limited,Unknown
+IPRINGLTD.NS,IP Rings Limited,Unknown
+IPCALAB.NS,IPCA Laboratories,Pharma
+IRB.NS,IRB Infrastructure Developers,Infrastructure
+IRCON.NS,IRCON International,Infrastructure
+IRCTC.NS,IRCTC,Technology
+ISGEC.NS,ISGEC Heavy Engineering,Capital Goods
+ISMTLTD.NS,ISMT Limited,Unknown
+ISPATIND.NS,Ispat Industries Limited,Unknown
+ITC.NS,ITC Limited,FMCG
+ITDCEM.NS,ITD Cementation India Limited,Industrials
+ITI.NS,ITI Limited,Unknown
+IVP.NS,IVP Limited,Unknown
+IVRCLAH.NS,IVRCL Assets & Holdings Limited,Unknown
+IVRCLINFRA.NS,IVRCL Limited,Unknown
+IZMO.NS,IZMO Limited,Unknown
+JKIL.NS,J. Kumar Infraprojects Limited,Industrials
+JBCHEPHARM.NS,J.B. Chemicals & Pharmaceuticals,Pharma
+JAGRAN.NS,Jagran Prakashan,Media
+JAGSNPHARM.NS,Jagsonpal Pharmaceuticals Limited,Unknown
+JAIBALAJI.NS,Jai Balaji Industries Limited,Unknown
+JAICORPLTD.NS,Jai Corp Limited,Unknown
+JAIHINDPRO.NS,Jaihind Projects Limited,Unknown
+JISLDVREQS.NS,Jain Irrigation Systems Limited,Unknown
+JISLJALEQS.NS,Jain Irrigation Systems Limited,Unknown
+JAINSTUDIO.NS,Jain Studios Limited,Unknown
+JPASSOCIAT.NS,Jaiprakash Associates,Infrastructure
+JPPOWER.NS,Jaiprakash Power Ventures,Energy
+JAMNAAUTO.NS,Jamna Auto Industries Limited,Unknown
+JSFB.NS,Jana Small Finance Bank Limited,Financial Services
+JASH.NS,Jash Engineering Limited,Unknown
+JAYBARMARU.NS,Jay Bharat Maruti Limited,Unknown
+JAYAGROGN.NS,Jayant Agro-Organics Limited,Basic Materials
+JAYNECOIND.NS,Jayaswal Neco Industries Limited,Unknown
+JPINFRATEC.NS,Jaypee Infratech Limited,Unknown
+JAYSREETEA.NS,Jayshree Tea & Industries Limited,Unknown
+JBFIND.NS,JBF Industries Limited,Unknown
+JBMA.NS,JBM Auto Limited,Unknown
+JCTEL.NS,JCT Electronics Limited,Unknown
+JDORGOCHEM.NS,JD Orgochem Limited,Unknown
+JENSONICOL.NS,Jenson & Nicholson (India) Limited,Unknown
+JETAIRWAYS.NS,Jet Airways (India) Limited,Unknown
+JHS.NS,JHS Svendgaard Laboratories Limited,Unknown
+JIKIND.NS,JIK Industries Limited,Unknown
+JINDCOT.NS,Jindal Cotex Limited,Unknown
+JINDRILL.NS,Jindal Drilling & Industries Limited,Energy
+JINDALPHOT.NS,Jindal Photo Limited,Unknown
+JINDALPOLY.NS,Jindal Poly Films Limited,Unknown
+JPOLYINVST.NS,Jindal Poly Investment and Finance Company Limited,Unknown
+JINDALSAW.NS,Jindal Saw Limited,Basic Materials
+JINDALSWHL.NS,Jindal South West Holdings Limited,Unknown
+JSLHISAR.NS,Jindal Stainless (Hisar) Limited,Unknown
+JSL.NS,Jindal Stainless Limited,Unknown
 JSPL.NS,Jindal Steel & Power,Metals
 JINDALSTEL.NS,Jindal Steel & Power (alt),Metals
-LAXMIMACH.NS,Lakshmi Machine Works,Capital Goods
-BHEL.NS,Bharat Heavy Electricals,Capital Goods
-THERMAX.NS,Thermax Limited,Capital Goods
-CUMMINSIND.NS,Cummins India,Capital Goods
-ELGIEQUIP.NS,Elgi Equipments,Capital Goods
-KIRLOSBROS.NS,Kirloskar Brothers,Capital Goods
-BHARATFORG.NS,Bharat Forge,Capital Goods
-GRINDWELL.NS,Grindwell Norton,Capital Goods
-ABB.NS,ABB India,Capital Goods
-AIAENG.NS,AIA Engineering,Capital Goods
-PRAJ.NS,Praj Industries,Capital Goods
-APARINDS.NS,Apar Industries,Capital Goods
-ISGEC.NS,ISGEC Heavy Engineering,Capital Goods
-ESAB.NS,ESAB India,Capital Goods
-GREAVESCOT.NS,Greaves Cotton,Capital Goods
-SYMPHONY.NS,Symphony Limited,Capital Goods
-TEXRAIL.NS,Texmaco Rail & Engineering,Capital Goods
-EKC.NS,Everest Kanto Cylinder,Capital Goods
-WENDT.NS,Wendt India,Capital Goods
-POLYCAB.NS,Polycab India,Capital Goods
-KEI.NS,KEI Industries,Capital Goods
-FINCABLES.NS,Finolex Cables,Capital Goods
-VGUARD.NS,V-Guard Industries,Capital Goods
-CROMPTON.NS,Crompton Greaves Consumer Electricals,Capital Goods
-BAJAJELE.NS,Bajaj Electricals,Capital Goods
-ORIENTELEC.NS,Orient Electric,Capital Goods
-BLUESTARCO.NS,Blue Star Limited,Capital Goods
-VOLTAS.NS,Voltas Limited,Capital Goods
-SURYA.NS,Surya Roshni,Capital Goods
-SHAKTIPUMP.NS,Shakti Pumps India,Capital Goods
-HONAUT.NS,Honeywell Automation India,Capital Goods
-3MINDIA.NS,3M India,Diversified
-GRINFRA.NS,GR Infraprojects,Infrastructure
-KNRCON.NS,KNR Constructions,Infrastructure
-AHLUCONT.NS,Ahluwalia Contracts,Infrastructure
-IRB.NS,IRB Infrastructure Developers,Infrastructure
-HGINFRA.NS,H.G. Infra Engineering,Infrastructure
-PNCINFRA.NS,PNC Infratech,Infrastructure
-ASHOKA.NS,Ashoka Buildcon,Infrastructure
-DILIPBLDCON.NS,Dilip Buildcon,Infrastructure
-SADBHAVENG.NS,Sadbhav Engineering,Infrastructure
-CAPACITEINF.NS,Capacit'e Infraprojects,Infrastructure
-RVNL.NS,Rail Vikas Nigam Limited,Infrastructure
-IRCON.NS,IRCON International,Infrastructure
-RITES.NS,RITES Limited,Infrastructure
-NBCC.NS,NBCC India,Infrastructure
-JPASSOCIAT.NS,Jaiprakash Associates,Infrastructure
-CONCOR.NS,Container Corporation of India,Logistics
-GPPL.NS,Gujarat Pipavav Port,Infrastructure
-GMRINFRA.NS,GMR Airports Infrastructure,Infrastructure
-PATELENG.NS,Patel Engineering,Infrastructure
-GPTINFRA.NS,GPT Infraprojects,Infrastructure
-BLUEDART.NS,Blue Dart Express,Logistics
-TCIEXPRES.NS,TCI Express,Logistics
-VRL.NS,VRL Logistics,Logistics
-GATI.NS,Gati Limited,Logistics
-TCI.NS,Transport Corporation of India,Logistics
-ALLCARGO.NS,Allcargo Logistics,Logistics
-MAHLOG.NS,Mahindra Logistics,Logistics
-GODREJPROP.NS,Godrej Properties,Real Estate
-PRESTIGE.NS,Prestige Estates Projects,Real Estate
-BRIGADE.NS,Brigade Enterprises,Real Estate
-SOBHA.NS,Sobha Limited,Real Estate
-KOLTEPATIL.NS,Kolte-Patil Developers,Real Estate
-SUNTECK.NS,Sunteck Realty,Real Estate
-MAHLIFE.NS,Mahindra Lifespace Developers,Real Estate
-IBREALEST.NS,Indiabulls Real Estate,Real Estate
-GAIL.NS,GAIL India,Energy
-PETRONET.NS,Petronet LNG,Energy
-CASTROLIND.NS,Castrol India,Energy
-HINDPETRO.NS,Hindustan Petroleum Corporation,Energy
-MRPL.NS,Mangalore Refinery & Petrochemicals,Energy
-RPOWER.NS,Reliance Power,Energy
-JPPOWER.NS,Jaiprakash Power Ventures,Energy
-NHPC.NS,NHPC Limited,Utilities
-SJVN.NS,SJVN Limited,Utilities
-CESC.NS,CESC Limited,Utilities
-TORNTPOWER.NS,Torrent Power,Utilities
-ADANIENSOL.NS,Adani Energy Solutions,Utilities
-KALPATPOWR.NS,Kalpataru Power Transmission,Utilities
-NLCINDIA.NS,NLC India,Utilities
-INOXWIND.NS,INOX Wind,Renewable Energy
-SUZLON.NS,Suzlon Energy,Renewable Energy
-WAAREEENER.NS,Waaree Energies,Renewable Energy
-KPIGREEN.NS,KPI Green Energy,Renewable Energy
-HFCL.NS,HFCL Limited,Telecom
-STLTECH.NS,STL (Sterlite Technologies),Telecom
-MTNL.NS,Mahanagar Telephone Nigam,Telecom
-ZEEL.NS,Zee Entertainment Enterprises,Media
-SUNTV.NS,Sun TV Network,Media
-PVRINOX.NS,PVR INOX Limited,Media
-SAREGAMA.NS,Saregama India,Media
-NETWORK18.NS,Network18 Media & Investments,Media
-TV18BRDCST.NS,TV18 Broadcast,Media
-JAGRAN.NS,Jagran Prakashan,Media
-HMVL.NS,Hindustan Media Ventures,Media
-TVTODAY.NS,TV Today Network,Media
-DELTACORP.NS,Delta Corp,Hospitality
-EIHOTEL.NS,EIH Limited (Oberoi Hotels),Hospitality
-LEMONTRE.NS,Lemon Tree Hotels,Hospitality
-CHALET.NS,Chalet Hotels,Hospitality
-TAJGVK.NS,Taj GVK Hotels & Resorts,Hospitality
-WONDERLA.NS,Wonderla Holidays,Hospitality
-JUBLFOOD.NS,Jubilant FoodWorks,Retail
-DEVYANI.NS,Devyani International,Retail
-WESTLIFE.NS,Westlife Foodworld,Retail
-SAPPHIRE.NS,Sapphire Foods India,Retail
-BURGERKING.NS,Restaurant Brands Asia (Burger King India),Retail
-FIRSTCRY.NS,Brainbees Solutions (FirstCry),Retail
-GOCOLORS.NS,Go Fashion India,Retail
-VMART.NS,V-Mart Retail,Retail
-METRO.NS,Metro Brands,Retail
-SHOPERSTOP.NS,Shoppers Stop,Retail
-ABFRL.NS,Aditya Birla Fashion and Retail,Retail
-MANYAVAR.NS,Vedant Fashions (Manyavar),Retail
-KALYANKJIL.NS,Kalyan Jewellers India,Retail
-THANGAMAYL.NS,Thangamayil Jewellery,Retail
-SENCO.NS,Senco Gold,Retail
-RAJESHEXPO.NS,Rajesh Exports,Retail
-VIPIND.NS,VIP Industries,Consumer Discretionary
-SAFARI.NS,Safari Industries India,Consumer Discretionary
-DOMS.NS,DOMS Industries,Consumer Discretionary
-LAOPALA.NS,La Opala RG,Consumer Discretionary
-WHIRLPOOL.NS,Whirlpool of India,Consumer Discretionary
-STOVEKRAFT.NS,Stove Kraft,Consumer Discretionary
-EVEREADY.NS,Eveready Industries India,Consumer Discretionary
-VAIBHAVGBL.NS,Vaibhav Global,Retail
-CANTABIL.NS,Cantabil Retail India,Retail
-EMAMILTD.NS,Emami Limited,FMCG
-JYOTHYLAB.NS,Jyothy Labs,FMCG
-ZYDUSWELL.NS,Zydus Wellness,FMCG
-GODREJAGRO.NS,Godrej Agrovet,FMCG
-TATACOFFEE.NS,Tata Coffee,FMCG
-CCL.NS,CCL Products India,FMCG
-KRBL.NS,KRBL Limited (India Gate Rice),FMCG
-LTFOODS.NS,LT Foods (Daawat),FMCG
-AVANTIFEED.NS,Avanti Feeds,FMCG
-HATSUN.NS,Hatsun Agro Product,FMCG
-DODLA.NS,Dodla Dairy,FMCG
-PARAG.NS,Parag Milk Foods,FMCG
-HERITAGE.NS,Heritage Foods,FMCG
-PGHH.NS,Procter & Gamble Hygiene & Health Care,FMCG
-GILLETTE.NS,Gillette India,FMCG
-MCDOWELL-N.NS,United Spirits (McDowell's),FMCG
-UBL.NS,United Breweries,FMCG
-RADICO.NS,Radico Khaitan,FMCG
-GLOBUSSPR.NS,Globus Spirits,FMCG
-SULA.NS,Sula Vineyards,FMCG
-BALRAMCHIN.NS,Balrampur Chini Mills,FMCG
-RENUKA.NS,Shree Renuka Sugars,FMCG
-TRIVENI.NS,Triveni Engineering & Industries,FMCG
-BAJAJCON.NS,Bajaj Consumer Care,FMCG
-BIKAJI.NS,Bikaji Foods International,FMCG
-VSTIND.NS,VST Industries,FMCG
-GODFRYPHLP.NS,Godfrey Phillips India,FMCG
-AMRUTANJAN.NS,Amrutanjan Health Care,FMCG
-WELSPUNIND.NS,Welspun India,Textiles
-VARDHMAN.NS,Vardhman Textiles,Textiles
-RAYMOND.NS,Raymond Limited,Textiles
-ARVIND.NS,Arvind Limited,Textiles
-TRIDENT.NS,Trident Limited,Textiles
-KPR.NS,KPR Mill,Textiles
-SIYARAM.NS,Siyaram Silk Mills,Textiles
-CENTURYTEX.NS,Century Textiles & Industries,Textiles
-HIMATSEIDE.NS,Himatsingka Seide,Textiles
-GARWARETECH.NS,Garware Technical Fibres,Textiles
-RUPA.NS,Rupa & Company,Textiles
-DOLLAR.NS,Dollar Industries,Textiles
-SUTLEJTEX.NS,Sutlej Textiles & Industries,Textiles
-BEL.NS,Bharat Electronics,Defence
-HAL.NS,Hindustan Aeronautics Limited,Defence
-BEML.NS,BEML Limited,Defence
-COCHINSHIP.NS,Cochin Shipyard,Defence
-MAZAGON.NS,Mazagon Dock Shipbuilders,Defence
-GARDENREACH.NS,Garden Reach Shipbuilders,Defence
-MIDHANI.NS,Mishra Dhatu Nigam,Defence
-PARAS.NS,Paras Defence and Space Technologies,Defence
-ZENTEC.NS,Zen Technologies,Defence
-DATAPATTNS.NS,Data Patterns India,Defence
-ASTRAMICRO.NS,Astra Microwave Products,Defence
-GODREJIND.NS,Godrej Industries,Diversified
-PIRAMALENT.NS,Piramal Enterprises,Diversified
-KESORAM.NS,Kesoram Industries,Diversified
+JINDWORLD.NS,Jindal Worldwide Limited,Unknown
+JITFINFRA.NS,JITF Infralogistics Limited,Unknown
+JIYAECO.NS,Jiya Eco-Products Limited,Unknown
+JKCEMENT.NS,JK Cement,Cement
+JKLAKSHMI.NS,JK Lakshmi Cement,Cement
 JKPAPER.NS,JK Paper,Paper
-TNPL.NS,Tamil Nadu Newsprint and Papers,Paper
-ORIENTPAPER.NS,Orient Paper and Industries,Paper
-SATIA.NS,Satia Industries,Paper
-UFLEX.NS,UFLEX Limited,Packaging
-HUHTAMAKI.NS,Huhtamaki PPL,Packaging
-TIMETECHNO.NS,Time Technoplast,Packaging
+JKTYRE.NS,JK Tyre & Industries Limited,Unknown
+JMFINANCIL.NS,JM Financial Limited,Financial Services
+JMCPROJECT.NS,JMC Projects (India)� Limited,Unknown
+JMTAUTOLTD.NS,JMT Auto Limited,Unknown
+JOCIL.NS,Jocil Limited,Unknown
+JCHAC.NS,Johnson Controls � Hitachi Air Conditioning India Limited,Unknown
+JSWENERGY.NS,JSW Energy,Utilities
+JSWHL.NS,JSW Holdings Limited,Unknown
+JSWSTEEL.NS,JSW Steel,Metals
+JTEKTINDIA.NS,Jtekt India Limited,Unknown
+JTLIND.NS,JTL Industries Limited,Basic Materials
+JUBLFOOD.NS,Jubilant FoodWorks,Retail
+JUBILANT.NS,Jubilant Industries,Chemicals
+JUBLINDS.NS,Jubilant Industries Limited,Unknown
+JUBLPHARMA.NS,Jubilant Pharmova,Pharma
+JMA.NS,Jullundur Motor Agency (Delhi) Limited,Unknown
+JUMPNET.NS,Jump Networks Limited,Unknown
+JUPITER.NS,Jupiter Bioscience Limited,Unknown
+JUSTDIAL.NS,Just Dial Limited,Communication Services
+JVLAGRO.NS,JVL Agro Industries Limited,Unknown
+JYOTHYLAB.NS,Jyothy Labs,FMCG
+JYOTISTRUC.NS,Jyoti Structures Limited,Unknown
+KSOILS.NS,K S Oils Limited,Unknown
+KSERAPRO.NS,K Sera Sera Productions Limited,Unknown
+KMSUGAR.NS,K.M.Sugar Mills Limited,Unknown
+KPRMILL.NS,K.P.R. Mill Limited,Unknown
+KABRAEXTRU.NS,Kabra Extrusion Technik Limited,Unknown
+KAJARIACER.NS,Kajaria Ceramics,Building Materials
+KAKATCEM.NS,Kakatiya Cement Sugar & Industries Limited,Unknown
+KALECONSUL.NS,Kale Consultants Limited,Unknown
+KALINDEE.NS,Kalindee Rail Nirman (Engineers) Limited,Unknown
+KALPATPOWR.NS,Kalpataru Power Transmission,Utilities
+KALYANKJIL.NS,Kalyan Jewellers India,Retail
+KALYANI.NS,Kalyani Commercials Limited,Unknown
+KALYANIFRG.NS,Kalyani Forge Limited,Unknown
+KICL.NS,Kalyani Investment Company Limited,Unknown
+KSL.NS,Kalyani Steels Limited,Basic Materials
+KAMATHOTEL.NS,Kamat Hotels (India) Limited,Consumer Cyclical
+KIL.NS,Kamdhenu Ispat Limited,Unknown
+KAMDHENU.NS,Kamdhenu Limited,Unknown
+KANANIIND.NS,Kanani Industries Limited,Unknown
+KANDAGIRI.NS,Kandagiri Spinning Mills Limited,Unknown
+KANORICHEM.NS,Kanoria Chemicals & Industries Limited,Unknown
+KANSAINER.NS,Kansai Nerolac Paints Limited,Unknown
+KARDA.NS,Karda Constructions Limited,Unknown
+KARMAENG.NS,Karma Energy Limited,Unknown
+KARURKCP.NS,Karur K.C.P. Packkagings Limited,Unknown
+KARURVYSYA.NS,Karur Vysya Bank,Financial Services
+KGL.NS,Karuturi Global Limited,Unknown
+KAUSHALYA.NS,Kaushalya Infrastructure Development Corporation Limited,Unknown
+KSCL.NS,Kaveri Seed Company Limited,Unknown
+KAVVERITEL.NS,Kavveri Telecom Products Limited,Unknown
+KAYA.NS,Kaya Limited,Unknown
+KAYNES.NS,Kaynes Technology India,Electronics
+KCPSUGIND.NS,KCP Sugar and Industries Corporation Limited,Unknown
+KDDL.NS,KDDL Limited,Unknown
+KOPDRUGS.NS,KDL Biotech Limited,Unknown
+KEC.NS,KEC International Limited,Unknown
+KEI.NS,KEI Industries,Capital Goods
+KELLTONTEC.NS,Kellton Tech Solutions Limited,Unknown
+KEMROCK.NS,Kemrock Industries and Exports Limited,Unknown
+KENNAMET.NS,Kennametal India Limited,Unknown
+KERNEX.NS,Kernex Microsystems (India) Limited,Unknown
+KESARENT.NS,Kesar Enterprises Limited,Unknown
+KTIL.NS,Kesar Terminals & Infrastructure Limited,Unknown
+KESORAM.NS,Kesoram Industries,Diversified
+KESORAMIND.NS,Kesoram Industries Limited,Unknown
+KKCL.NS,Kewal Kiran Clothing Limited,Consumer Cyclical
+KEYFINSERV.NS,Keynote Financial Services Limited,Unknown
+KFINTECH.NS,KFin Technologies,Financial Services
+KHADIM.NS,Khadim India Limited,Unknown
+KHAITANLTD.NS,Khaitan (India) Limited,Consumer Cyclical
+KHAITANELE.NS,Khaitan Electricals Limited,Unknown
+KHANDSE.NS,Khandwala Securities Limited,Unknown
+KILITCH.NS,Kilitch Drugs (India) Limited,Unknown
+KINETICMOT.NS,Kinetic Motor Company Limited,Unknown
+KINGFA.NS,Kingfa Science & Technology (India) Limited,Basic Materials
+KFA.NS,Kingfisher Airlines Limited,Unknown
+KIOCL.NS,KIOCL Limited,Unknown
+KIRIDYES.NS,Kiri Dyes and Chemicals Limited,Unknown
+KIRIINDUS.NS,Kiri Industries Limited,Basic Materials
+KIRLOSBROS.NS,Kirloskar Brothers,Capital Goods
+KBIL.NS,Kirloskar Brothers Investments Limited,Unknown
+KECL.NS,Kirloskar Electric Company Limited,Unknown
+KIRLOSIND.NS,Kirloskar Industries Limited,Unknown
+KIRLOSENG.NS,Kirloskar Oil Engines Limited,Unknown
+KITEX.NS,Kitex Garments Limited,Unknown
+KITPLYIND.NS,Kitply Industries Limited,Unknown
+KLGSYSTEL.NS,KLG Systel Limited,Unknown
+KLRF.NS,KLRF Limited,Unknown
+KNRCON.NS,KNR Constructions,Infrastructure
+KOHINOOR.NS,Kohinoor Foods Limited,Unknown
+KOKUYOCMLN.NS,Kokuyo Camlin Limited,Unknown
+KOLTEPATIL.NS,Kolte-Patil Developers,Real Estate
+KOPRAN.NS,Kopran Limited,Healthcare
+KOTAKBANK.NS,Kotak Mahindra Bank,Financial Services
+KOTHARIPET.NS,Kothari Petrochemicals Limited,Unknown
+KOTHARIPRO.NS,Kothari Products Limited,Unknown
+KOTARISUG.NS,Kothari Sugars And Chemicals Limited,Unknown
+KOUTONS.NS,Koutons Retail India Limited,Unknown
+KPIGREEN.NS,KPI Green Energy,Renewable Energy
+KPIT.NS,KPIT Cummins Infosystems Limited,Unknown
+KPITTECH.NS,KPIT Technologies,Information Technology
+KPR.NS,KPR Mill,Textiles
+KRBL.NS,KRBL Limited (India Gate Rice),FMCG
+KREBSBIO.NS,Krebs Biochemicals and Industries Limited,Unknown
+KRIDHANINF.NS,Kridhan Infra Limited,Unknown
+KRISHANA.NS,Krishana Phoschem Limited,Unknown
+KRISHNAENG.NS,Krishna Engineering Works Limited,Unknown
+KIMS.NS,Krishna Institute of Medical Sciences,Healthcare
+KSB.NS,Ksb Limited,Unknown
+KSBPUMPS.NS,KSB Pumps Limited,Unknown
+KSE.NS,KSE Limited,Unknown
+KSK.NS,KSK Energy Ventures Limited,Unknown
+KSERASERA.NS,KSS Limited,Unknown
+KUANTUM.NS,Kuantum Papers Limited,Unknown
+KWALITY.NS,kwality limited,Unknown
+L&TFH.NS,L&T Finance Holdings Limited,Unknown
+LTF.NS,L&T Finance Limited,Financial Services
+LTTS.NS,L&T Technology Services,Information Technology
+LGBBROSLTD.NS,L.G. Balakrishnan & Bros Limited,Consumer Cyclical
+LAOPALA.NS,La Opala RG,Consumer Discretionary
+LAKSHMIEFL.NS,Lakshmi Energy and Foods Limited,Unknown
+LFIC.NS,Lakshmi Finance & Industrial Corporation Limited,Unknown
+LAXMIMACH.NS,Lakshmi Machine Works,Capital Goods
+LAKPRE.NS,Lakshmi Precision Screws Limited,Unknown
+LAKSHVILAS.NS,Lakshmi Vilas Bank Limited,Unknown
+LAMBODHARA.NS,Lambodhara Textiles Limited,Unknown
+LITL.NS,Lanco Infratech Limited,Unknown
+LANCORHOL.NS,Lancor Holdings Limited,Real Estate
+LPDC.NS,Landmark Property Development Company Limited,Unknown
+LT.NS,Larsen & Toubro,Capital Goods
+LTI.NS,Larsen & Toubro Infotech Limited,Unknown
+LASA.NS,Lasa Supergenerics Limited,Unknown
+LATENTVIEW.NS,LatentView Analytics,Information Technology
+LAURUS.NS,Laurus Labs,Pharma
+LAURUSLABS.NS,Laurus Labs Limited,Unknown
+LXCHEM.NS,Laxmi Organic Industries,Chemicals
+LEMONTRE.NS,Lemon Tree Hotels,Hospitality
+LEMONTREE.NS,Lemon Tree Hotels Limited,Unknown
+LGBFORGE.NS,LGB Forge Limited,Unknown
+LIBAS.NS,Libas Designs Limited,Unknown
+LIBERTSHOE.NS,Liberty Shoes Limited,Unknown
+LICHSGFIN.NS,LIC Housing Finance,Financial Services
+LICI.NS,Life Insurance Corporation of India,Financial Services
+LINC.NS,Linc Limited,Industrials
+LINCPEN.NS,Linc Pen & Plastics Limited,Unknown
+LINCOLN.NS,Lincoln Pharmaceuticals,Pharma
+LINDEINDIA.NS,Linde India Limited,Unknown
+LLOYDELENG.NS,Lloyd Electric & Engineering Limited,Unknown
+LLOYDFIN.NS,Lloyds Finance Limited,Unknown
+LLOYDSTEEL.NS,Lloyds Steel Industries Limited,Unknown
+LSIL.NS,Lloyds Steels Industries Limited,Unknown
+LML.NS,LML Limited,Unknown
+LOGIXMICRO.NS,Logix Microsystems Limited,Unknown
+LOKESHMACH.NS,Lokesh Machines Limited,Unknown
+LOTUSEYE.NS,Lotus Eye Hospital and Institute Limited,Unknown
+LOVABLE.NS,Lovable Lingerie Limited,Unknown
+LTFOODS.NS,LT Foods (Daawat),FMCG
+DAAWAT.NS,LT Foods Limited,Unknown
+LTIM.NS,LTIMindtree,Information Technology
+LUMAXIND.NS,Lumax Auto Technologies,Auto Ancillaries
+LUMAXTECH.NS,Lumax Auto Technologies Limited,Consumer Cyclical
+LUMAXAUTO.NS,Lumax Automotive Systems Limited,Unknown
+LUPIN.NS,Lupin Limited,Pharma
+LUXIND.NS,Lux Industries Limited,Unknown
+LYKALABS.NS,Lyka Labs Limited,Unknown
+LYPSAGEMS.NS,Lypsa Gems & Jewellery Limited,Unknown
+MMFL.NS,M M Forgings Limited,Industrials
+MAANALU.NS,Maan Aluminium Limited,Unknown
+LODHA.NS,Macrotech Developers (Lodha),Real Estate
+MADHAV.NS,Madhav Marbles and Granites Limited,Unknown
+MADHUCON.NS,Madhucon Projects Limited,Unknown
+MBAPL.NS,Madhya Bharat Agro Products Limited,Unknown
+MADRASCEM.NS,Madras Cements Limited,Unknown
+MADRASFERT.NS,Madras Fertilizers Limited,Unknown
+MAGADSUGAR.NS,Magadh Sugar & Energy Limited,Unknown
+MAGMA.NS,Magma Fincorp Limited,Unknown
+MAGNUM.NS,Magnum Ventures Limited,Unknown
+MAHAPEXLTD.NS,Maha Rashtra Apex Corporation Limited,Unknown
+MAHASTEEL.NS,Mahamaya Steel Industries Limited,Unknown
+MGL.NS,Mahanagar Gas Limited,Utilities
+MTNL.NS,Mahanagar Telephone Nigam,Telecom
+MAHSCOOTER.NS,Maharashtra Scooters Limited,Unknown
+MAHSEAMLES.NS,Maharashtra Seamless,Metals
+MAHESHWARI.NS,Maheshwari Logistics Limited,Unknown
+M&M.NS,Mahindra & Mahindra,Automobile
+M&MFIN.NS,Mahindra & Mahindra Financial Services Limited,Financial Services
+MAHINDCIE.NS,Mahindra CIE Automotive,Auto Ancillaries
+MAHINDFORG.NS,Mahindra Forgings Limited,Unknown
+MHRIL.NS,Mahindra Holidays & Resorts India Limited,Unknown
+MAHLIFE.NS,Mahindra Lifespace Developers,Real Estate
+MAHLOG.NS,Mahindra Logistics,Logistics
+MAHINDUGIN.NS,Mahindra Ugine Steel Company Limited,Unknown
+MAITHANALL.NS,Maithan Alloys Limited,Unknown
+MAJESCO.NS,Majesco Limited,Unknown
+MALUPAPER.NS,Malu Paper Mills Limited,Unknown
+MALWACOTT.NS,Malwa Cotton Spg. Mills Limited,Unknown
+MANALU.NS,Man Aluminium Limited,Unknown
+MANINDS.NS,Man Industries India,Metals
+MANINFRA.NS,Man Infraconstruction Limited,Unknown
+MANAKALUCO.NS,Manaksia Aluminium Company Limited,Unknown
+MANAKCOAT.NS,Manaksia Coated Metals & Industries Limited,Unknown
+MANAKSIA.NS,Manaksia Limited,Unknown
+MANAKSTEEL.NS,Manaksia Steels Limited,Unknown
+MANALIPETC.NS,Manali Petrochemicals Limited,Unknown
+MANAPPURAM.NS,Manappuram Finance,Financial Services
+MANBA.NS,MANBA FINANCE LIMITED,Financial Services
+MANDHANA.NS,Mandhana Industries Limited,Unknown
+MANCREDIT.NS,Mangal Credit and Fincorp Limited,Financial Services
+MANGLMCEM.NS,Mangalam Cement Limited,Unknown
+MANGALAM.NS,Mangalam Drugs And Organics Limited,Unknown
+MGEL.NS,Mangalam Global Enterprise Limited,Consumer Defensive
+MANGTIMBER.NS,Mangalam Timber Products Limited,Unknown
+MANGCHEFER.NS,Mangalore Chemicals & Fertilizers Limited,Unknown
+MRPL.NS,Mangalore Refinery & Petrochemicals,Energy
+MANJEERA.NS,Manjeera Constructions Limited,Unknown
+MANJUSHREE.NS,Manjushree Technopack Limited,Unknown
+MANPASAND.NS,Manpasand Beverages Limited,Unknown
+MANUGRAPH.NS,Manugraph India Limited,Unknown
+MARALOVER.NS,Maral Overseas Limited,Unknown
+MARATHON.NS,Marathon Nextgen Realty Limited,Unknown
+MARG.NS,Marg Limited,Unknown
+MARICO.NS,Marico Limited,FMCG
+MARKSANS.NS,Marksans Pharma Limited,Unknown
+MARUTI.NS,Maruti Suzuki India,Automobile
+MASFIN.NS,MAS Financial Services Limited,Financial Services
+MASKINVEST.NS,Mask Investments Limited,Unknown
+MASTEK.NS,Mastek Limited,Information Technology
+MATRIMONY.NS,Matrimony.com Limited,Communication Services
+MAWANASUG.NS,Mawana Sugars Limited,Unknown
+MFSL.NS,Max Financial Services,Financial Services
+MAXHEALTH.NS,Max Healthcare Institute,Healthcare
+MAXINDIA.NS,Max India,Healthcare
+MAX.NS,Max India Limited,Unknown
+MAXVIL.NS,Max Ventures and Industries Limited,Unknown
+MAXWELL.NS,Maxwell Industries Limited,Unknown
+MAYTASINFR.NS,Maytas Infra Limited,Unknown
+MAYURUNIQ.NS,Mayur Uniquoters Ltd,Unknown
+MAZAGON.NS,Mazagon Dock Shipbuilders,Defence
+MAZDA.NS,Mazda Limited,Unknown
+MBLINFRA.NS,MBL Infrastructures Limited,Unknown
+MCDHOLDING.NS,McDowell Holdings Limited,Unknown
+MCLEODRUSS.NS,Mcleod Russel India Limited,Unknown
+MBECL.NS,Mcnally Bharat Engineering Company Limited,Unknown
+MEGASOFT.NS,Megasoft Limited,Unknown
+MEGH.NS,Meghmani Organics Limited,Unknown
+MELSTAR.NS,Melstar Information Technologies Limited,Unknown
+MENONBE.NS,Menon Bearings Limited,Consumer Cyclical
+MEP.NS,MEP Infrastructure Developers Limited,Unknown
+MERCATOR.NS,Mercator Limited,Unknown
+MLL.NS,Mercator Lines Limited,Unknown
+MERCK.NS,Merck Limited,Unknown
+METALFORGE.NS,Metalyst Forgings Limited,Unknown
+METKORE.NS,Metkore Alloys & Industries Limited,Unknown
+METRO.NS,Metro Brands,Retail
+METROPOLIS.NS,Metropolis Healthcare,Healthcare
+MIC.NS,MIC Electronics Limited,Unknown
+MICROTECH.NS,Micro Technologies (India) Limited,Unknown
+MICROSEC.NS,Microsec Financial Services Limited,Unknown
+MID-DAY.NS,Mid-Day Multimedia Limited,Unknown
+MINDACORP.NS,Minda Corporation Limited,Unknown
+MINDAIND.NS,Minda Industries Limited,Unknown
+MINDTECK.NS,Mindteck (India) Limited,Unknown
+MINDTREE.NS,MindTree Limited,Unknown
+MIRCELECTR.NS,MIRC Electronics Limited,Unknown
+MIRZAINT.NS,Mirza International Limited,Unknown
+MIDHANI.NS,Mishra Dhatu Nigam,Defence
+MMTC.NS,MMTC Limited,Unknown
+MODIRUBBER.NS,Modi Rubber Limited,Unknown
+MOHITIND.NS,Mohit Industries Limited,Unknown
+MOHOTAIND.NS,Mohota Industries Limited,Unknown
+MOIL.NS,MOIL Limited,Mining
 MOLD-TEK.NS,Mold-Tek Packaging,Packaging
-SPICEJET.NS,SpiceJet,Aviation
-TEAMLEASE.NS,TeamLease Services,Services
+MOLDTKPAC.NS,Mold-Tek Packaging Limited,Unknown
+MOLDTECH.NS,Mold-Tek Technologies Limited,Unknown
+MMFSL.NS,Money Matters Financial Services Limited,Unknown
+AIONJSW.NS,Monnet Ispat & Energy Limited,Unknown
+MONNETISPA.NS,Monnet Ispat Limited,Unknown
+MONSANTO.NS,Monsanto India Limited,Unknown
+MONTECARLO.NS,Monte Carlo Fashions Limited,Unknown
+MORARJEE.NS,Morarjee Textiles Limited,Unknown
+MORARJETEX.NS,Morarjee Textiles Limited,Unknown
+MOREPEN.NS,Morepen Laboratories,Pharma
+MOREPENLAB.NS,Morepen Laboratories Limited,Healthcare
+MOSERBAER.NS,Moser-Baer (I) Limited,Unknown
+MOTILALOFS.NS,Motilal Oswal Financial Services,Financial Services
+MPHASIS.NS,Mphasis Limited,Information Technology
+MPSLTD.NS,MPS Limited,Information Technology
+MRF.NS,MRF Limited,Unknown
+MRO-TEK.NS,MRO-TEK Realty Limited,Unknown
+MSPL.NS,MSP Steel & Power Limited,Unknown
+MSTCLTD.NS,Mstc Limited,Unknown
+MTEDUCARE.NS,MT Educare Limited,Unknown
+MUDRA.NS,Mudra Lifestyle Limited,Unknown
+MUKANDENGG.NS,Mukand Engineers Limited,Unknown
+MUKANDLTD.NS,Mukand Limited,Unknown
+MUKTAARTS.NS,Mukta Arts Limited,Unknown
+MCX.NS,Multi Commodity Exchange of India Limited,Unknown
+MUNDRAPORT.NS,Mundra Port and Special Economic Zone Limited,Unknown
+MUNJALAU.NS,Munjal Auto Industries Limited,Unknown
+MUNJALSHOW.NS,Munjal Showa Limited,Unknown
+MURLIIND.NS,Murli Industries Limited,Unknown
+MURUDCERA.NS,Murudeshwar Ceramics Limited,Unknown
+RADIOCITY.NS,Music Broadcast Limited,Unknown
+MUTHOOTCAP.NS,Muthoot Capital Services Limited,Unknown
+MUTHOOTFIN.NS,Muthoot Finance,Financial Services
+MUTHOOTMF.NS,MUTHOOT MICROFIN LIMITED,Financial Services
+MVLIND.NS,MVL Industries Limited,Unknown
+MVL.NS,MVL Limited,Unknown
+NRAIL.NS,N R Agarwal Industries Limited,Unknown
+NBIFIN.NS,N. B. I. Industrial Finance Company Limited,Unknown
+NACLIND.NS,NACL Industries Limited,Unknown
+NDGL.NS,Naga Dhunseri Group Limited,Unknown
+NAGARCONST.NS,Nagarjuna Construction Company Limited,Unknown
+NAGARFERT.NS,Nagarjuna Fertilizer & Chemicals Limited,Unknown
+NAGAFERT.NS,Nagarjuna Fertilizers and Chemicals Limited,Unknown
+NAGAROIL.NS,Nagarjuna Oil Refinery Limited,Unknown
+NAGREEKCAP.NS,Nagreeka Capital & Infrastructure Limited,Unknown
+NAGREEKEXP.NS,Nagreeka Exports Limited,Unknown
+NAHARCAP.NS,Nahar Capital and Financial Services Limited,Unknown
+NAHARINDUS.NS,Nahar Industrial Enterprises Limited,Unknown
+NAHARINVST.NS,Nahar Investments and Holding Limited,Unknown
+NAHARPOLY.NS,Nahar Poly Films Limited,Consumer Cyclical
+NAHARSPING.NS,Nahar Spinning Mills Limited,Unknown
+NSIL.NS,Nalwa Sons Investments Limited,Unknown
+NDL.NS,Nandan Denim Limited,Consumer Cyclical
+NANDAN.NS,Nandan Exim Limited,Unknown
+NARAYANA.NS,Narayana Hrudayalaya,Healthcare
+NH.NS,Narayana Hrudayalaya Ltd.,Unknown
+NATCOPHARM.NS,Natco Pharma,Pharma
+NATHBIOGEN.NS,Nath Bio-Genes (India) Limited,Basic Materials
+NATIONALUM.NS,National Aluminium Company,Metals
+NFL.NS,National Fertilizers Limited,Unknown
+NOL.NS,National Oxygen Limited,Unknown
+NATNLSTEEL.NS,National Steel And Agro Industries Limited,Unknown
+NBVENTURES.NS,Nava Bharat Ventures Limited,Unknown
+NAVINFLUOR.NS,Navin Fluorine International,Chemicals
+NAVKARCORP.NS,Navkar Corporation Limited,Unknown
+NAVNETEDUL.NS,Navneet Education Limited,Communication Services
+NAVNETPUBL.NS,Navneet Publications India Limited,Unknown
+NAZARA.NS,Nazara Technologies,Technology
+NBCC.NS,NBCC India,Infrastructure
+NCC.NS,NCC Limited,Industrials
+NCLIND.NS,NCL Industries Limited,Unknown
+NECLIFE.NS,Nectar Lifesciences Limited,Unknown
+NELCAST.NS,Nelcast Limited,Unknown
+NELCO.NS,NELCO Limited,Unknown
+NEOGEN.NS,Neogen Chemicals Limited,Unknown
+NEPCMICON.NS,NEPC India Limited,Unknown
+NESCO.NS,Nesco Limited,Industrials
+NESTLEIND.NS,Nestle India,FMCG
+NET4INDIA.NS,Net 4 India Limited,Unknown
+NETWORK18.NS,Network18 Media & Investments,Media
+NTL.NS,Neueon Towers Limited,Unknown
+NEULAND.NS,Neuland Laboratories,Pharma
+NEULANDLAB.NS,Neuland Laboratories Limited,Unknown
+NDTV.NS,New Delhi Television Limited,Unknown
+NIACL.NS,New India Assurance,Financial Services
+NEWGEN.NS,Newgen Software Technologies,Information Technology
+NEXTMEDIA.NS,Next Mediaworks Limited,Unknown
+NEYVELILIG.NS,Neyveli Lignite Corporation Limited,Unknown
+NHPC.NS,NHPC Limited,Utilities
+NICCO.NS,Nicco Corporation Limited,Unknown
+NIITMTS.NS,NIIT Learning Systems Limited,Consumer Defensive
+NIIT.NS,NIIT Limited,Information Technology
+NIITLTD.NS,NIIT Limited,Unknown
+NIITTECH.NS,NIIT Technologies Limited,Unknown
+NILAINFRA.NS,Nila Infrastructures Limited,Real Estate
+NILASPACES.NS,Nila Spaces Limited,Unknown
+NILKAMAL.NS,Nilkamal Limited,Consumer Cyclical
+NIRAJISPAT.NS,Niraj Ispat Industries Limited,Unknown
+NIRMA.NS,Nirma Limited,Unknown
+NISSAN.NS,Nissan Copper Limited,Unknown
+NITCO.NS,Nitco Limited,Unknown
+NITESHEST.NS,Nitesh Estates Limited,Unknown
+NITINFIRE.NS,Nitin Fire Protection Industries Limited,Unknown
+NITINSPIN.NS,Nitin Spinners Limited,Consumer Cyclical
+NKIND.NS,NK Industries Limited,Unknown
+NLCINDIA.NS,NLC India,Utilities
+NMDC.NS,NMDC Limited,Mining
+NOCIL.NS,NOCIL Limited,Unknown
+NOIDATOLL.NS,Noida Toll Bridge Company Limited,Unknown
+NORBTEAEXP.NS,Norben Tea & Exports Limited,Unknown
+NECCLTD.NS,North Eastern Carrying Corporation Limited,Industrials
+NORTHARC.NS,Northern Arc Capital Limited,Financial Services
+NOVARTIS.NS,Novartis India,Pharma
+NOVOPANIND.NS,Novopan Industries Limited,Unknown
+NRBBEARING.NS,NRB Bearings Limited,Consumer Cyclical
+NIBL.NS,NRB Industrial Bearings Limited,Unknown
+NRC.NS,NRC Limited,Unknown
+NTPC.NS,NTPC Limited,Utilities
+NUTEK.NS,Nu Tek India Limited,Unknown
+NUCHEM.NS,Nuchem Limited,Unknown
+NUCLEUS.NS,Nucleus Software Exports Limited,Unknown
+NUMERICPW.NS,Numeric Power Systems Limited,Unknown
+NUVAMA.NS,Nuvama Wealth Management,Financial Services
+NUVOCO.NS,Nuvoco Vistas Corporation,Cement
+NXTDIGITAL.NS,NXTDIGITAL LIMITED,Unknown
+OBEROIRLTY.NS,Oberoi Realty,Real Estate
+OCL.NS,OCL India Limited,Unknown
+OISL.NS,OCL Iron and Steel Limited,Unknown
+ONGC.NS,Oil & Natural Gas Corporation,Energy
+OILCOUNTUB.NS,Oil Country Tubular Limited,Unknown
+OIL.NS,Oil India Limited,Energy
+OLAELECTRIC.NS,Ola Electric Mobility,Automobile
+OLECTRA.NS,Olectra Greentech Limited,Unknown
+OMMETALS.NS,OM Metals Infraprojects Limited,Unknown
+OMAXAUTO.NS,Omax Autos Limited,Consumer Cyclical
+OMAXE.NS,Omaxe Limited,Unknown
+OMKARCHEM.NS,Omkar Speciality Chemicals Limited,Unknown
+OMNITECH.NS,Omnitech Infosolutions Limited,Unknown
+ONEPOINT.NS,One Point One Solutions Limited,Unknown
+PAYTM.NS,One97 Communications (Paytm),Technology
+ONELIFECAP.NS,Onelife Capital Advisors Limited,Unknown
+ONMOBILE.NS,OnMobile Global Limited,Unknown
+ONWARDTEC.NS,Onward Technologies Limited,Unknown
+OPTIEMUS.NS,Optiemus Infracom,Technology
+OPTOCIRCUI.NS,Opto Circuits (India) Limited,Unknown
+OFSS.NS,Oracle Financial Services Software,Information Technology
+ORBITCORP.NS,Orbit Corporation Limited,Unknown
+ORBTEXP.NS,Orbit Exports Limited,Consumer Cyclical
+ORCHIDCHEM.NS,Orchid Chemicals & Pharmaceuticals Limited,Unknown
+ORICONENT.NS,Oricon Enterprises Limited,Unknown
+ORIENTABRA.NS,Orient Abrasives Limited,Unknown
+ORIENTBELL.NS,Orient Bell,Building Materials
+ORIENTCEM.NS,Orient Cement Limited,Unknown
+ORIENTCERA.NS,Orient Ceramics and Industries Limited,Unknown
+ORIENTELEC.NS,Orient Electric,Capital Goods
+GREENPOWER.NS,Orient Green Power Company Limited,Unknown
+ORIENTPPR.NS,Orient Paper & Industries Limited,Unknown
+ORIENTPAPER.NS,Orient Paper and Industries,Paper
+ORIENTLTD.NS,Orient Press Limited,Unknown
+ORIENTREF.NS,Orient Refractories Limited,Unknown
+OAL.NS,Oriental Aromatics Limited,Unknown
+ORIENTBANK.NS,Oriental Bank of Commerce,Unknown
+OCCL.NS,Oriental Carbon & Chemicals Limited,Unknown
+ORIENTHOT.NS,Oriental Hotels Limited,Unknown
+ORIENTALTL.NS,Oriental Trimex Limited,Unknown
+ORTEL.NS,Ortel Communications Limited,Unknown
+ORTINLABSS.NS,Ortin Laboratories Limited,Unknown
+OSWALAGRO.NS,Oswal Agro Mills Limited,Unknown
+BINDALAGRO.NS,Oswal Chemicals & Fertilizers Limited,Unknown
+PAEL.NS,PAE Limited,Unknown
+PAGEIND.NS,Page Industries,Textiles
+PAISALO.NS,Paisalo Digital Limited,Financial Services
+PALASHSECU.NS,Palash Securities Limited,Unknown
+PALREDTEC.NS,Palred Technologies Limited,Unknown
+PANACEABIO.NS,Panacea Biotec Limited,Unknown
+PANAMAPET.NS,Panama Petrochem Limited,Unknown
+PANCARBON.NS,Panasonic Carbon India Company Limited,Unknown
+PANASONIC.NS,Panasonic Home Appliances India Company Limited,Unknown
+PANORAMUNI.NS,Panoramic Universal Limited,Unknown
+PANTALOONR.NS,Pantaloon Retail (India) Limited,Unknown
+PRETAILDVR.NS,Pantaloon Retail (India) Limited,Unknown
+PARABDRUGS.NS,Parabolic Drugs Limited,Unknown
+PARADEEP.NS,Paradeep Phosphates,Chemicals
+PARAG.NS,Parag Milk Foods,FMCG
+PARAGMILK.NS,Parag Milk Foods Limited,Consumer Defensive
+PARACABLES.NS,Paramount Communications Limited,Technology
+PARAS.NS,Paras Defence and Space Technologies,Defence
+PARAL.NS,Parekh Aluminex Limited,Unknown
+PAREKHPLAT.NS,Parekh Platinum Limited,Unknown
+PDPL.NS,Parenteral Drugs (India) Limited,Unknown
+PARRYSUGAR.NS,Parrys Sugar Industries Limited,Unknown
+PARSVNATH.NS,Parsvnath Developers Limited,Unknown
+PATELENG.NS,Patel Engineering,Infrastructure
+PATINTLOG.NS,Patel Integrated Logistics Limited,Industrials
+PATNI.NS,Patni Computer Systems Limited,Unknown
+PATSPINLTD.NS,Patspin India Limited,Unknown
+PAUSHAK.NS,Paushak Limited,Chemicals
+POLICYBZR.NS,PB Fintech (PolicyBazaar),Technology
+PBAINFRA.NS,PBA Infrastructure Limited,Unknown
+PCJEWELLER.NS,PC Jeweller,Retail
+PCBL.NS,PCBL Limited (Phillips Carbon Black),Chemicals
+PDSMFL.NS,PDS Multinational Fashions Limited,Unknown
+PEACOCKIND.NS,Peacock Industries Limited,Unknown
+PEPL.NS,Pearl Engineering Polymers Limited,Unknown
+PGIL.NS,Pearl Global Industries Limited,Unknown
+PEARLPOLY.NS,Pearl Polymers Limited,Unknown
+PENINLAND.NS,Peninsula Land Limited,Unknown
+PENIND.NS,Pennar Industries Limited,Unknown
+PERSISTENT.NS,Persistent Systems,Information Technology
+PETRONENGG.NS,Petron Engineering Construction Limited,Unknown
+PETRONET.NS,Petronet LNG,Energy
+PFIZER.NS,Pfizer Limited,Pharma
+PGEL.NS,PG Electroplast Limited,Unknown
+PHILIPCARB.NS,Phillips Carbon Black Limited,Unknown
+PIIND.NS,PI Industries,Agrochemicals
+PIDILITIND.NS,Pidilite Industries,Chemicals
+PILITA.NS,PIL ITALICA LIFESTYLE LIMITED,Unknown
+PILANI.NS,Pilani Investment & Industries,Financial Services
+PILANIINVS.NS,Pilani Investment and Industries Corporation Limited,Unknown
+PIONDIST.NS,Pioneer Distilleries Limited,Unknown
+PIONEEREMB.NS,Pioneer Embroideries Limited,Unknown
+PIPAVAVYD.NS,Pipavav Shipyard Limited,Unknown
+PIRAMALENT.NS,Piramal Enterprises,Diversified
+PEL.NS,Piramal Enterprises Limited,Unknown
+PIRGLASS.NS,Piramal Glass Limited,Unknown
+PIRHEALTH.NS,Piramal Healthcare Limited,Unknown
+PIRLIFE.NS,Piramal Life Sciences Limited,Unknown
+PIRAMALPH.NS,Piramal Pharma,Pharma
+PIRPHYTO.NS,Piramal Phytocare Limited,Unknown
+PITTIENG.NS,Pitti Engineering Limited,Unknown
+PITTILAM.NS,Pitti Laminations Limited,Unknown
+PLASTIBLEN.NS,Plastiblends India Limited,Basic Materials
+PLETHICO.NS,Plethico Pharmaceuticals Limited,Unknown
+PNBGILTS.NS,PNB Gilts Ltd.,Financial Services
+PNBHOUSING.NS,PNB Housing Finance,Financial Services
+PNCINFRA.NS,PNC Infratech,Infrastructure
+POCHIRAJU.NS,Pochiraju Industries Limited,Unknown
+PODDARHOUS.NS,Poddar Housing and Development Limited,Unknown
+PODDARMENT.NS,Poddar Pigments Limited,Basic Materials
+POKARNA.NS,Pokarna Limited,Unknown
+POLARIND.NS,Polar Industries Limited,Unknown
+POLARIS.NS,Polaris Software Lab Limited,Unknown
+POLYMED.NS,Poly Medicure,Healthcare
+POLYCAB.NS,Polycab India,Capital Goods
+POLYPLEX.NS,Polyplex Corporation Limited,Unknown
+PONDYOXIDE.NS,Pondy Oxides & Chemicals Limited,Unknown
+PONNIERODE.NS,Ponni Sugars (Erode) Limited,Unknown
+POWERFIN.NS,Power Finance Corporation,Financial Services
+PFC.NS,Power Finance Corporation Limited,Financial Services
+POWERGRID.NS,Power Grid Corporation,Utilities
+POWERMECH.NS,Power Mech Projects Limited,Unknown
+PPAP.NS,PPAP Automotive Limited,Unknown
+PRABHAT.NS,Prabhat Dairy Limited,Unknown
+PRADIP.NS,Pradip Overseas Limited,Unknown
+PRAJ.NS,Praj Industries,Capital Goods
+PRAJIND.NS,Praj Industries Limited,Unknown
+PRAENG.NS,Prajay Engineers Syndicate Limited,Unknown
+PRAKASH.NS,Prakash Industries Limited,Unknown
+PPL.NS,Prakash Pipes Limited,Unknown
+PRAKASHSTL.NS,Prakash Steelage Limited,Unknown
+DIAMONDYD.NS,Prataap Snacks Limited,Unknown
+PRATIBHA.NS,Pratibha Industries Limited,Unknown
+PRAXIS.NS,Praxis Home Retail Limited,Unknown
+PRECAM.NS,Precision Camshafts Limited,Unknown
+PRECWIRE.NS,Precision Wires India Limited,Unknown
+PRECOT.NS,Precot Meridian Limited,Unknown
+PREMEXPLN.NS,Premier Explosives Limited,Unknown
+PREMIER.NS,Premier Limited,Unknown
+PREMIERPOL.NS,Premier Polyfilm Ltd.,Basic Materials
+PRESSMN.NS,Pressman Advertising Limited,Unknown
+PRESTIGE.NS,Prestige Estates Projects,Real Estate
+PRICOL.NS,Pricol Limited,Auto Ancillaries
+PRICOLLTD.NS,Pricol Limited,Unknown
+PFOCUS.NS,Prime Focus Limited,Unknown
+PRIMESECU.NS,Prime Securities Limited,Financial Services
+PRISMCEM.NS,Prism Cement Limited,Unknown
+PRSMJOHNSN.NS,Prism Johnson Limited,Unknown
+PRITHVI.NS,Prithvi Information Solutions Limited,Unknown
+PRITHVISOF.NS,Prithvi Softech Limited,Unknown
+PNC.NS,Pritish Nandy Communications Limited,Unknown
+PGHL.NS,Procter & Gamble Health Limited,Unknown
+PGHH.NS,Procter & Gamble Hygiene & Health Care,FMCG
+PROSEED.NS,Proseed India Limited,Unknown
+PROVOGE.NS,Provogue (India) Limited,Unknown
+PROVOGUE.NS,Provogue (India) Limited,Unknown
+PROZONINTU.NS,Prozone Intu Properties Limited,Unknown
+PSL.NS,PSL Limited,Unknown
+PSPPROJECT.NS,PSP Projects Limited,Industrials
+PFS.NS,PTC India Financial Services Limited,Financial Services
+PTC.NS,PTC India Limited,Unknown
+PTL.NS,PTL Enterprises Limited,Unknown
+PDUMJEIND.NS,Pudumjee Industries Limited,Unknown
+PDMJEPAPER.NS,Pudumjee Paper Products Limited,Basic Materials
+PDUMJEPULP.NS,Pudumjee Pulp & Paper Mills Limited,Unknown
+PUNJLLOYD.NS,Punj Lloyd Limited,Unknown
+PSB.NS,Punjab & Sind Bank,Unknown
+PUNJABCHEM.NS,Punjab Chemicals & Crop Protection Limited,Unknown
+PNB.NS,Punjab National Bank,Financial Services
+PURVA.NS,Puravankara Limited,Unknown
+PVP.NS,PVP Ventures Limited,Unknown
+PVRINOX.NS,PVR INOX Limited,Media
+PVR.NS,PVR Limited,Unknown
 QUESS.NS,Quess Corp,Services
+QUICKHEAL.NS,Quick Heal Technologies,Technology
+QUINTEGRA.NS,Quintegra Solutions Limited,Unknown
+RSSOFTWARE.NS,R S Software (India) Limited,Technology
+RSYSTEMS.NS,R Systems International Limited,Unknown
+RPPINFRA.NS,R.P.P. Infra Projects Limited,Unknown
+RADAAN.NS,Radaan Mediaworks India Limited,Unknown
+RMCL.NS,Radha Madhav Corporation Limited,Unknown
+RADHIKAJWE.NS,Radhika Jeweltech Limited,Consumer Cyclical
+RADICO.NS,Radico Khaitan,FMCG
+RVNL.NS,Rail Vikas Nigam Limited,Infrastructure
+RAILTEL.NS,RailTel Corporation,Technology
+RAINCOM.NS,Rain Commodities  Limited,Unknown
+RAIN.NS,Rain Industries Limited,Unknown
+RAINBOW.NS,Rainbow Children's Medicare,Healthcare
+RAINBOWPAP.NS,Rainbow Papers Limited,Unknown
+RAJOIL.NS,Raj Oil Mills Limited,Unknown
+RAJRAYON.NS,Raj Rayon Industries Limited,Unknown
+RAJTV.NS,Raj Television Network Limited,Unknown
+RAJPALAYAM.NS,Rajapalayam Mills Limited,Unknown
+ARENTERP.NS,Rajdarshan Industries Limited,Basic Materials
+RAJESHEXPO.NS,Rajesh Exports,Retail
+RAJSREESUG.NS,Rajshree Sugars & Chemicals Limited,Unknown
+RAJVIR.NS,Rajvir Industries Limited,Unknown
+RALLIS.NS,Rallis India Limited,Unknown
+RAMASTEEL.NS,Rama Steel Tubes Limited,Unknown
+RAMCOIND.NS,Ramco Industries Limited,Industrials
+RAMCOSYS.NS,Ramco Systems,Information Technology
+RKFORGE.NS,Ramkrishna Forgings Limited,Unknown
+RAMKY.NS,Ramky Infrastructure Limited,Unknown
+RAMSARUP.NS,Ramsarup Industries Limited,Unknown
+RANASUG.NS,Rana Sugars Limited,Unknown
+RANBAXY.NS,Ranbaxy Laboratories Limited,Unknown
+RML.NS,Rane (Madras) Limited,Unknown
+RBL.NS,Rane Brake Lining Limited,Unknown
+RANEENGINE.NS,Rane Engine Valve Limited,Unknown
+RANEHOLDIN.NS,Rane Holdings Limited,Unknown
+RPTECH.NS,Rashi Peripherals Limited,Technology
+RCF.NS,Rashtriya Chemicals & Fertilizers,Chemicals
+RATEGAIN.NS,RateGain Travel Technologies,Technology
+RATNAMANI.NS,Ratnamani Metals & Tubes,Metals
+RATNAVEER.NS,Ratnaveer Precision Engineering Limited,Basic Materials
+RTNINFRA.NS,RattanIndia Infrastructure Limited,Unknown
+RTNPOWER.NS,RattanIndia Power Limited,Unknown
+RKDL.NS,Ravi Kumar Distilleries Limited,Unknown
+RAYMONDLSL.NS,Raymond Lifestyle Limited,Consumer Cyclical
+RAYMOND.NS,Raymond Limited,Textiles
+RBLBANK.NS,RBL Bank,Financial Services
+RECLTD.NS,REC Limited,Financial Services
+REDINGTON.NS,Redington Limited,Technology
+REFEX.NS,Refex Industries Limited,Unknown
+REGENCERAM.NS,Regency Ceramics Limited,Unknown
+REIAGROLTD.NS,Rei Agro Limited,Unknown
+REISIXTEN.NS,REI Six Ten Retail Limited,Unknown
+RELAXO.NS,Relaxo Footwears Limited,Unknown
+RBN.NS,Reliance Broadcast Network Limited,Unknown
+RELCAPITAL.NS,Reliance Capital Limited,Unknown
+RCOM.NS,Reliance Communications Limited,Unknown
+RHFL.NS,Reliance Home Finance Limited,Unknown
+RIIL.NS,Reliance Industrial Infrastructure Limited,Unknown
+RELIANCE.NS,Reliance Industries,Energy
+RELINFRA.NS,Reliance Infrastructure Limited,Unknown
+RELMEDIA.NS,Reliance MediaWorks Limited,Unknown
+RNAVAL.NS,Reliance Naval and Engineering Limited,Unknown
+RNAM.NS,Reliance Nippon Life Asset Management Limited,Unknown
+RPOWER.NS,Reliance Power,Energy
+RELIGARE.NS,Religare Enterprises Limited,Unknown
+REMSONSIND.NS,Remsons Industries Limited,Unknown
+RGL.NS,Renaissance Global Limited,Unknown
+RJL.NS,Renaissance Jewellery Limited,Unknown
+REPCO.NS,Repco Home Finance,Financial Services
+REPCOHOME.NS,Repco Home Finance Limited,Unknown
+REPRO.NS,Repro India Limited,Unknown
+RESPONIND.NS,Responsive Industries Limited,Unknown
+BURGERKING.NS,Restaurant Brands Asia (Burger King India),Retail
+RESURGERE.NS,Resurgere Mines & Minerals India Limited,Unknown
+REVATHI.NS,Revathi Equipment Limited,Unknown
+RICOAUTO.NS,Rico Auto Industries Limited,Unknown
+RITES.NS,RITES Limited,Infrastructure
+ROHITFERRO.NS,Rohit Ferro-Tech Limited,Unknown
+ROLLT.NS,Rollatainers Limited,Unknown
+ROLTA.NS,Rolta India Limited,Unknown
+ROMAN.NS,Roman Tarmat Limited,Unknown
+ROSSARI.NS,Rossari Biotech,Chemicals
+ROSSELLIND.NS,Rossell India Limited,Industrials
+ROUTE.NS,Route Mobile,Technology
+ROHLTD.NS,Royal Orchid Hotels Limited,Unknown
+RPGLIFE.NS,RPG Life Sciences,Pharma
+RSWM.NS,RSWM Limited,Unknown
+RUBFILA.NS,Rubfila International Limited,Basic Materials
+RUCHINFRA.NS,Ruchi Infrastructure Limited,Unknown
+RUCHISOYA.NS,Ruchi Soya Industries Limited,Unknown
+RUCHIRA.NS,Ruchira Papers Limited,Unknown
+RUPA.NS,Rupa & Company,Textiles
+RUSHIL.NS,Rushil Décor Limited,Consumer Cyclical
+SCHAND.NS,S Chand And Company Limited,Communication Services
+SHK.NS,S H Kelkar and Company Limited,Unknown
+SKUMARSYNF.NS,S. Kumars Nationwide Limited,Unknown
+SPAL.NS,S. P. Apparels Limited,Unknown
+SALSTEEL.NS,S.A.L. Steel Limited,Unknown
+SEINVEST.NS,S.E. Investments Limited,Unknown
+SEPOWER.NS,S.E. Power Limited,Unknown
+SABEVENTS.NS,Sab Events & Governance Now Media Limited,Unknown
+SABERORGAN.NS,Sabero Organics Gujarat Limited,Unknown
+SADBHAVENG.NS,Sadbhav Engineering,Infrastructure
+SADBHAV.NS,Sadbhav Engineering Limited,Unknown
+SADBHIN.NS,Sadbhav Infrastructure Project Limited,Unknown
+SAFARI.NS,Safari Industries India,Consumer Discretionary
+SAGCEM.NS,Sagar Cements Limited,Unknown
+SAGARDEEP.NS,Sagardeep Alloys Limited,Unknown
+KALAMANDIR.NS,Sai Silks (Kalamandir) Limited,Consumer Cyclical
+SAKAR.NS,Sakar Healthcare Limited,Unknown
+SAKSOFT.NS,Saksoft Limited,Unknown
+SAKHTISUG.NS,Sakthi Sugars Limited,Unknown
+SAKUMA.NS,Sakuma Exports Limited,Unknown
+SALASAR.NS,Salasar Techno Engineering Limited,Unknown
+SALONA.NS,Salona Cotspin Limited,Unknown
+SALORAINTL.NS,Salora International Limited,Unknown
+SALZERELEC.NS,Salzer Electronics Limited,Unknown
+SAMBANDAM.NS,Sambandam Spinning Mills Limited,Unknown
+SAMBHAAV.NS,Sambhaav Media Limited,Unknown
+MOTHERSUMI.NS,Samvardhana Motherson International,Auto Ancillaries
+MOTHERSON.NS,Samvardhana Motherson International Limited,Consumer Cyclical
+SANCO.NS,Sanco Industries Limited,Unknown
+SANDHAR.NS,Sandhar Technologies Limited,Consumer Cyclical
+SANGAMIND.NS,Sangam (India) Limited,Unknown
+SANGHIIND.NS,Sanghi Industries Limited,Unknown
+SANGHIPOLY.NS,Sanghi Polyesters Limited,Unknown
+SANGHVIFOR.NS,Sanghvi Forging and Engineering Limited,Unknown
+SANGHVIMOV.NS,Sanghvi Movers Limited,Unknown
+SANGINITA.NS,Sanginita Chemicals Limited,Unknown
+SANOFI.NS,Sanofi India,Pharma
+SANWARIA.NS,Sanwaria Consumer Limited,Unknown
+SAPPHIRE.NS,Sapphire Foods India,Retail
+SARDAEN.NS,Sarda Energy & Minerals Limited,Unknown
+SAREGAMA.NS,Saregama India,Media
+SARLAPOLY.NS,Sarla Performance Fibers Limited,Consumer Cyclical
+SARVESHWAR.NS,Sarveshwar Foods Limited,Consumer Defensive
+SASKEN.NS,Sasken Technologies Limited,Unknown
+SASTASUNDR.NS,Sastasundar Ventures Limited,Unknown
+SATHAISPAT.NS,Sathavahana Ispat Limited,Unknown
+SATIA.NS,Satia Industries,Paper
+SATIN.NS,Satin Creditcare Network Limited,Unknown
+SATYAMCOMP.NS,Satyam Computer Services Limited,Unknown
+SAVERA.NS,Savera Industries Limited,Unknown
+SOTL.NS,Savita Oil Technologies Limited,Unknown
+SBFC.NS,SBFC Finance,Financial Services
+SBICARD.NS,SBI Cards and Payment Services Limited,Financial Services
+SBILIFE.NS,SBI Life Insurance,Financial Services
+SCHAEFFLER.NS,Schaeffler India,Auto Ancillaries
+SCHNEIDER.NS,Schneider Electric Infrastructure Limited,Unknown
+SEAMECLTD.NS,Seamec Limited,Industrials
+SELMCL.NS,SEL Manufacturing Company Limited,Unknown
+SENCO.NS,Senco Gold,Retail
+SEQUENT.NS,SeQuent Scientific,Pharma
+SESAGOA.NS,Sesa Goa Limited,Unknown
+SESHAPAPER.NS,Seshasayee Paper and Boards Limited,Unknown
+SETCO.NS,Setco Automotive Limited,Unknown
+SETUINFRA.NS,Setubandhan Infrastructure Limited,Unknown
+SEYAIND.NS,Seya Industries Limited,Unknown
+SEZAL.NS,Sezal Glass Limited,Unknown
+SEZALGLASS.NS,Sezal Glass Limited,Unknown
+SHAHALLOYS.NS,Shah Alloys Limited,Unknown
+SHAH.NS,Shah Metacorp Limited,Basic Materials
+SHAKTIPUMP.NS,Shakti Pumps India,Capital Goods
+SHALBY.NS,Shalby Limited,Healthcare
+SHALPAINTS.NS,Shalimar Paints Limited,Unknown
+SHANKARA.NS,Shankara Building Products Limited,Unknown
+SHANTIGEAR.NS,Shanthi Gears Limited,Unknown
+SHARDACROP.NS,Sharda Cropchem Limited,Unknown
+SHARDAMOTR.NS,Sharda Motor Industries Limited,Unknown
+SHAREINDIA.NS,Share India Securities Limited,Financial Services
+SHARRESLTD.NS,Sharyans Resources Limited,Unknown
+SHASUNPHAR.NS,Shasun Pharmaceuticals Limited,Unknown
+SFL.NS,Sheela Foam Limited,Unknown
+SPYL.NS,Shekhawati Poly-Yarn Limited,Unknown
+SHEMAROO.NS,Shemaroo Entertainment Limited,Unknown
+SHILPAMED.NS,Shilpa Medicare,Pharma
+SHIRPUR-G.NS,Shirpur Gold Refinery Limited,Unknown
+SHIV-VANI.NS,Shiv-Vani Oil & Gas Exploration Services Limited,Unknown
+SHIVAMILLS.NS,Shiva Mills Limited,Unknown
+SHIVATEX.NS,Shiva Texyarn Limited,Unknown
+SHIVTEX.NS,Shiva Texyarn Limited,Unknown
+SHIVAMAUTO.NS,Shivam Autotech Limited,Unknown
+SHOPERSTOP.NS,Shoppers Stop,Retail
+SHREEASHTA.NS,Shree Ashtavinayak Cine Vision Limited,Unknown
+SHREECEM.NS,Shree Cement,Cement
+SHREDIGCEM.NS,Shree Digvijay Cement Co.Ltd,Unknown
+SGJHL.NS,Shree Ganesh Jewellery House Limited,Unknown
+SHPRE.NS,Shree Precoated Steels Limited,Unknown
+SHREEPUSHK.NS,Shree Pushkar Chemicals & Fertilisers Limited,Unknown
+SHREERAMA.NS,Shree Rama Multi-Tech Limited,Unknown
+RAMANEWS.NS,Shree Rama Newsprint Limited,Unknown
+RENUKA.NS,Shree Renuka Sugars,FMCG
+SHRENIK.NS,Shrenik Limited,Unknown
+SHRENUJ.NS,Shrenuj & Company Limited,Unknown
+SHREYANIND.NS,Shreyans Industries Limited,Unknown
+SHREYAS.NS,Shreyas Shipping & Logistics Limited,Unknown
+SHLAKSHMI.NS,Shri Lakshmi Cotsyn Limited,Unknown
+SHRIRAMCIT.NS,Shriram City Union Finance Limited,Unknown
+SHRIRAMEPC.NS,Shriram EPC Limited,Unknown
+SHRIRAMFIN.NS,Shriram Finance,Financial Services
+SHRIPISTON.NS,Shriram Pistons & Rings Limited,Consumer Cyclical
+SRTRANSFIN.NS,Shriram Transport Finance,Financial Services
+SHYAMCENT.NS,Shyam Century Ferrous Limited,Unknown
+SHYAMMETL.NS,Shyam Metalics and Energy Limited,Basic Materials
+SHYAMTEL.NS,Shyam Telecom Limited,Unknown
+SICAGEN.NS,Sicagen India Limited,Unknown
+SICAL.NS,Sical Logistics Limited,Unknown
+SIEMENS.NS,Siemens India,Capital Goods
+SIGIND.NS,Signet Industries Limited,Unknown
+SILINV.NS,SIL Investments Limited,Unknown
+SIMBHALS.NS,Simbhaoli Sugars Limited,Unknown
+SIMBHSUGAR.NS,Simbhaoli Sugars Limited,Unknown
+SIMPLEXINF.NS,Simplex Infrastructures Limited,Unknown
+SIMPLEX.NS,Simplex Projects Limited,Unknown
+SINTEX.NS,Sintex Industries Limited,Unknown
+SPTL.NS,Sintex Plastics Technology Limited,Unknown
+SIRCA.NS,Sirca Paints India Limited,Unknown
 SIS.NS,SIS Limited,Services
+SITASHREE.NS,Sita Shree Food Products Limited,Unknown
+SITINET.NS,Siti Networks Limited,Unknown
+SIYARAM.NS,Siyaram Silk Mills,Textiles
+SIYSIL.NS,Siyaram Silk Mills Limited,Unknown
+SJVN.NS,SJVN Limited,Utilities
+SKFINDIA.NS,SKF India Limited,Unknown
+SKIL.NS,SKIL Infrastructure Limited,Unknown
+SKIPPER.NS,Skipper Limited,Unknown
+SKMEGGPROD.NS,SKM Egg Products Export (India) Limited,Unknown
+SKSMICRO.NS,SKS Microfinance Limited,Unknown
+SMARTLINK.NS,Smartlink Holdings Limited,Technology
+SMCGLOBAL.NS,SMC Global Securities Limited,Financial Services
+SMLISUZU.NS,SML Isuzu Limited,Unknown
+SMSLIFE.NS,SMS Lifesciences India Limited,Unknown
+SMSPHARMA.NS,SMS Pharmaceuticals Limited,Unknown
+SNOWMAN.NS,Snowman Logistics Limited,Unknown
+SOBHA.NS,Sobha Limited,Real Estate
+SOLARINDS.NS,Solar Industries India Limited,Unknown
+SOLARA.NS,Solara Active Pharma Sciences,Pharma
+SDBL.NS,Som Distilleries & Breweries Limited,Unknown
+SOMATEX.NS,Soma Textiles & Industries Limited,Unknown
+SOMANYCER.NS,Somany Ceramics,Building Materials
+SOMANYCERA.NS,Somany Ceramics Limited,Unknown
+SOMICONVEY.NS,Somi Conveyor Beltings Limited,Unknown
+SONASTEER.NS,Sona Koyo Steering Systems Limited,Unknown
+SONATA.NS,Sonata Software,Information Technology
+SONATSOFTW.NS,Sonata Software Limited,Unknown
+SORILINFRA.NS,SORIL Infra Resources Limited,Unknown
+SOUTHBNK.NS,South Indian Bank,Financial Services
+SOUTHWEST.NS,South West Pinnacle Exploration Limited,Unknown
+SOUISPAT.NS,Southern Ispat And Energy Limited,Unknown
+SPIC.NS,Southern Petrochemicals Industries Corporation� Limited,Unknown
+SPCENET.NS,Spacenet Enterprises India Limited,Unknown
+SPANCO.NS,Spanco Limited,Unknown
+SPANDANA.NS,Spandana Sphoorty Financial,Financial Services
+SPECIALITY.NS,Speciality Restaurants Limited,Unknown
+SPECTACLE.NS,Spectacle Infotek Limited,Unknown
+SPENCERS.NS,Spencer�s Retail Limited,Unknown
+SPENTEX.NS,Spentex Industries Limited,Unknown
+SPICEMOBIL.NS,Spice Mobility Limited,Unknown
+SPICEJET.NS,SpiceJet,Aviation
+SPLIL.NS,SPL Industries Limited,Unknown
+SMPL.NS,Splendid Metal Products Limited,Unknown
+SPMLINFRA.NS,SPML Infra Limited,Unknown
+SPORTKING.NS,Sportking India Limited,Consumer Cyclical
+SRHHYPOLTD.NS,Sree Rayalaseema Hi-Strength Hypo Limited,Unknown
+SREEL.NS,Sreeleathers Limited,Unknown
+SREINFRA.NS,SREI Infrastructure Finance Limited,Unknown
+SRF.NS,SRF Limited,Chemicals
+SRGHFL.NS,SRG Housing Finance Limited,Financial Services
+SRGINFOTEC.NS,SRG Infotec (India) Limited,Unknown
+SRHHLINDST.NS,SRHHL Industries Limited,Unknown
+SABTN.NS,Sri Adhikari Brothers Television Network Limited,Unknown
+SRICHAMUND.NS,Sri Chamundeswari Sugars Limited,Unknown
+HAVISHA.NS,Sri Havisha Hospitality and Infrastructure Limited,Unknown
+SRIPIPES.NS,Srikalahasthi Pipes Limited,Unknown
+SCAPDVR.NS,Stampede Capital Limited,Unknown
+STAMPEDE.NS,Stampede Capital Limited,Unknown
+SIL.NS,Standard Industries Limited,Unknown
+STARCEMENT.NS,Star Cement Limited,Unknown
+STARHEALTH.NS,Star Health Insurance,Financial Services
+STARPAPER.NS,Star Paper Mills Limited,Unknown
+SBBJ.NS,State Bank of Bikaner and Jaipur,Unknown
+SBIN.NS,State Bank of India,Financial Services
+MYSOREBANK.NS,State Bank of Mysore,Unknown
+SBT.NS,State Bank of Travancore,Unknown
+SAIL.NS,Steel Authority of India,Metals
+STEELCITY.NS,Steel City Securities Limited,Unknown
+STEELXIND.NS,STEEL EXCHANGE INDIA LIMITED,Unknown
+SSWL.NS,Steel Strips Wheels Limited,Consumer Cyclical
+STEL.NS,Stel Holdings Limited,Unknown
+SWSOLAR.NS,Sterling And Wilson Solar Limited,Unknown
+STERLINBIO.NS,Sterling Biotech Limited,Unknown
+STERTOOLS.NS,Sterling Tools Limited,Unknown
+STER.NS,Sterlite Industries ( India ) Limited,Unknown
+STRTECH.NS,Sterlite Technologies Limited,Unknown
+STINDIA.NS,STI India Limited,Unknown
+STLTECH.NS,STL (Sterlite Technologies),Telecom
+SGL.NS,STL Global Limited,Unknown
+STOREONE.NS,Store One Retail India Limited,Unknown
+STOVEKRAFT.NS,Stove Kraft,Consumer Discretionary
+STAR.NS,Strides Pharma Science Limited,Unknown
+STYLAMIND.NS,Stylam Industries Limited,Consumer Cyclical
+STYRENIX.NS,Styrenix Performance Materials Limited,Basic Materials
+SURAJDIAMN.NS,Su-Raj Diamonds and Jewellery Limited,Unknown
+SUBEX.NS,Subex Limited,Unknown
+SUBEXLTD.NS,Subex Limited,Information Technology
+SUBROS.NS,Subros Limited,Unknown
+SUDARSCHEM.NS,Sudarshan Chemical Industries,Chemicals
+SUJANAUNI.NS,Sujana Universal Industries Limited,Unknown
+SULA.NS,Sula Vineyards,FMCG
+SUMEETINDS.NS,Sumeet Industries Limited,Unknown
+SUMIT.NS,Sumit Woods Limited,Unknown
+SUMMITSEC.NS,Summit Securities Limited,Unknown
+SPARC.NS,Sun Pharma Advanced Research Company Limited,Unknown
+SUNPHARMA.NS,Sun Pharmaceutical Industries,Pharma
+SUNTV.NS,Sun TV Network,Media
+SUNDRMBRAK.NS,Sundaram Brake Linings Limited,Unknown
+SUNCLAYLTD.NS,Sundaram Clayton Limited,Unknown
+SUNCLAYTON.NS,Sundaram Clayton Limited,Unknown
+SUNDARMFIN.NS,Sundaram Finance,Financial Services
+SUNDARMHLD.NS,Sundaram Finance Holdings Limited,Financial Services
+SUNDARAM.NS,Sundaram Multi Pap Limited,Unknown
+SUNDRMFAST.NS,Sundram Fasteners Limited,Unknown
+SUNFLAG.NS,Sunflag Iron & Steel,Metals
+SUNILHITEC.NS,Sunil Hitech Engineers Limited,Unknown
+SUNTECK.NS,Sunteck Realty,Real Estate
+SUPER.NS,Super Sales India Limited,Unknown
+SUPERSPIN.NS,Super Spinning Mills Limited,Unknown
+SUPERHOUSE.NS,Superhouse Limited,Unknown
+SUPRAJIT.NS,Suprajit Engineering,Auto Ancillaries
+SUPREMEIND.NS,Supreme Industries,Plastics
+SUPREMEINF.NS,Supreme Infrastructure India Limited,Unknown
+SUPPETRO.NS,Supreme Petrochem Limited,Unknown
+SUPRIYA.NS,Supriya Lifescience,Pharma
+SURANACORP.NS,Surana Corporation Limited,Unknown
+SURANAIND.NS,Surana Industries Limited,Unknown
+SURANASOL.NS,Surana Solar Limited,Unknown
+SURANAT&P.NS,Surana Telecom and Power Limited,Unknown
+SURANAVEL.NS,Surana Ventures Limited,Unknown
+SURYAPHARM.NS,Surya Pharmaceutical Limited,Unknown
+SURYA.NS,Surya Roshni,Capital Goods
+SURYAROSNI.NS,Surya Roshni Limited,Unknown
+SURYAJYOTI.NS,Suryajyoti Spinning Mills Limited,Unknown
+SURYALAXMI.NS,Suryalakshmi Cotton Mills Limited,Unknown
+SURYODAY.NS,Suryoday Small Finance Bank Limited,Financial Services
+SUTLEJTEX.NS,Sutlej Textiles & Industries,Textiles
+SUVEN.NS,Suven Pharmaceuticals,Pharma
+SUZLON.NS,Suzlon Energy,Renewable Energy
+SWANENERGY.NS,Swan Energy Limited,Unknown
+SWARAJENG.NS,Swaraj Engines Limited,Consumer Cyclical
+SWELECTES.NS,Swelect Energy Systems Limited,Unknown
+SWIGGY.NS,Swiggy (Bundl Technologies),Technology
+SYMPHONY.NS,Symphony Limited,Capital Goods
+SYNCOM.NS,Syncom Healthcare Limited,Unknown
+SYNDIBANK.NS,Syndicate Bank,Unknown
+SYNGENE.NS,Syngene International,Healthcare
+SYRMA.NS,Syrma SGS Technology,Electronics
+TTL.NS,T T Limited,Unknown
+TAINWALCHM.NS,Tainwala Chemical and Plastic (I) Limited,Unknown
+TAJGVK.NS,Taj GVK Hotels & Resorts,Hospitality
+TAKE.NS,Take Solutions Limited,Unknown
+TALBROAUTO.NS,Talbros Automotive Components Limited,Unknown
+TALWALKARS.NS,Talwalkars Better Value Fitness Limited,Unknown
+TALWGYM.NS,Talwalkars Healthclubs Limited,Unknown
+TNPL.NS,Tamil Nadu Newsprint and Papers,Paper
+TMB.NS,Tamilnad Mercantile Bank Limited,Financial Services
+TNPETRO.NS,Tamilnadu PetroProducts Limited,Unknown
+TNTELE.NS,Tamilnadu Telecommunication Limited,Unknown
+TANFACIND.NS,Tanfac Industries Limited,Unknown
+TANLA.NS,Tanla Platforms,Information Technology
+TANTIACONS.NS,Tantia Constructions Limited,Unknown
+TARAPUR.NS,Tarapur Transformers Limited,Unknown
+TARMAT.NS,Tarmat Limited,Unknown
+TASTYBITE.NS,Tasty Bite Eatables Limited,Unknown
+TATACHEM.NS,Tata Chemicals,Chemicals
+TATACOFFEE.NS,Tata Coffee,FMCG
+TATACOMM.NS,Tata Communications,Telecom
+TCS.NS,Tata Consultancy Services,Information Technology
+TATACONSUM.NS,Tata Consumer Products,FMCG
+TATAELXSI.NS,Tata Elxsi,Information Technology
+TATAGLOBAL.NS,Tata Global Beverages Limited,Unknown
+TATAINVEST.NS,Tata Investment Corporation,Financial Services
+TATAMETALI.NS,Tata Metaliks Limited,Unknown
+TATAMOTORS.NS,Tata Motors,Automobile
+TATAMTRDVR.NS,Tata Motors Limited,Unknown
+TATAPOWER.NS,Tata Power Company,Utilities
+TATASPONGE.NS,Tata Sponge Iron Limited,Unknown
+TATASTEEL.NS,Tata Steel,Metals
+TATASTLBSL.NS,Tata Steel Bsl Limited,Unknown
+TATASTLLP.NS,Tata Steel Long Products Limited,Unknown
+TATATECH.NS,Tata Technologies,Information Technology
+TTML.NS,Tata Teleservices (Maharashtra) Limited,Unknown
+TATVA.NS,Tatva Chintan Pharma Chem,Chemicals
+TCIDEVELOP.NS,TCI Developers Limited,Unknown
+TCIEXPRES.NS,TCI Express,Logistics
+TCIEXP.NS,TCI Express Limited,Unknown
+TCIFINANCE.NS,TCI Finance Limited,Unknown
+TCNSBRANDS.NS,TCNS Clothing Co. Limited,Unknown
+TCPLPACK.NS,TCPL Packaging Limited,Consumer Cyclical
+TDPOWERSYS.NS,TD Power Systems Limited,Unknown
+TEAMLEASE.NS,TeamLease Services,Services
+TECHM.NS,Tech Mahindra,Information Technology
+TECHIN.NS,Techindia Nirman Limited,Unknown
+TECHNO.NS,Techno Electric & Engineering Company Limited,Unknown
+TECHNOE.NS,Techno Electric & Engineering Company Limited,Unknown
+TIIL.NS,Technocraft Industries (India) Limited,Unknown
+TECHNOFAB.NS,Technofab Engineering Limited,Unknown
+TECPRO.NS,Tecpro Systems Limited,Unknown
+TEJASNET.NS,Tejas Networks Limited,Unknown
+TELEDATAIT.NS,Teledata Technology Solutions Limited,Unknown
+TV-18.NS,Television Eighteen India Limited,Unknown
+TERASOFT.NS,Tera Software Limited,Unknown
+TEXINFRA.NS,Texmaco Infrastructure & Holdings Limited,Unknown
+TEXMACOLTD.NS,Texmaco Limited,Unknown
+TEXRAIL.NS,Texmaco Rail & Engineering,Capital Goods
+TEXMOPIPES.NS,Texmo Pipes and Products Limited,Unknown
+TGBHOTELS.NS,TGB Banquets And Hotels Limited,Unknown
+THANGAMAYL.NS,Thangamayil Jewellery,Retail
+APPAPER.NS,The Andhra Pradesh Paper Mills Limited,Unknown
+ANDHRSUGAR.NS,The Andhra Sugars Limited,Unknown
+ANUP.NS,The Anup Engineering Limited,Unknown
+BYKE.NS,The Byke Hospitality Ltd,Unknown
+GESHIP.NS,The Great Eastern Shipping Company Limited,Industrials
+GROBTEA.NS,The Grob Tea Company Limited,Unknown
+HITECHGEAR.NS,The Hi-Tech Gears Limited,Unknown
+THEINVEST.NS,The Investment Trust of India Limited,Financial Services
+J&KBANK.NS,The Jammu and Kashmir Bank Limited,Financial Services
+KTKBANK.NS,The Karnataka Bank Limited,Financial Services
+KCP.NS,The KCP Limited,Basic Materials
+LAKSHMIMIL.NS,The Lakshmi Mills Company Limited,Unknown
+TMRVL.NS,The Mandhana Retail Ventures Limited,Unknown
+MOTOGENFIN.NS,The Motor & General Finance Limited,Unknown
+ORISSAMINE.NS,The Orissa Minerals Development Company Limited,Unknown
+OUDHSUG.NS,The Oudh Sugar Mills Limited,Unknown
+PERIATEA.NS,The Peria Karamalai Tea & Produce Company Limited,Unknown
+PKTEA.NS,The Peria Karamalai Tea & Produce Company Limited,Unknown
+PHOENIXLTD.NS,The Phoenix Mills,Real Estate
+RAMCOCEM.NS,The Ramco Cements,Cement
+RUBYMILLS.NS,The Ruby Mills Limited,Unknown
+SANDESH.NS,The Sandesh Limited,Unknown
+SCI.NS,The Shipping Corporation of India Limited,Industrials
+SIRPAPER.NS,The Sirpur Paper Mills Limited,Unknown
+SOUTHBANK.NS,The South Indian Bank Limited,Financial Services
+STCINDIA.NS,The State Trading Corporation of India Limited,Unknown
+SUKHJITS.NS,The Sukhjit Starch & Chemicals Limited,Basic Materials
+TINPLATE.NS,The Tinplate Company of India Limited,Unknown
+UGARSUGAR.NS,The Ugar Sugar Works Limited,Unknown
+UNITEDTEA.NS,The United Nilgiri Tea Estates Company Limited,Unknown
+WIPL.NS,The Western India Plywoods Limited,Unknown
+THEMISMED.NS,Themis Medicare Limited,Unknown
+THERMAX.NS,Thermax Limited,Capital Goods
+THINKSOFT.NS,Thinksoft Global Services Limited,Unknown
+THIRUSUGAR.NS,Thiru Arooran Sugars Limited,Unknown
+TIRUMALCHM.NS,Thirumalai Chemicals Limited,Unknown
+THOMASCOOK.NS,Thomas Cook� (India)� Limited,Unknown
+THOMASCOTT.NS,Thomas Scott (India) Limited,Unknown
+THYROCARE.NS,Thyrocare Technologies,Healthcare
+TIDEWATER.NS,Tide Water Oil Company (India) Limited,Unknown
+TIJARIA.NS,Tijaria Polypipes Limited,Unknown
+TIL.NS,TIL Limited,Industrials
+TI.NS,Tilaknagar Industries Limited,Unknown
+TIMETECHNO.NS,Time Technoplast,Packaging
+TIMESGTY.NS,Times Guaranty Limited,Unknown
+TIMKEN.NS,Timken India Limited,Unknown
+TIPSINDLTD.NS,TIPS Industries Limited,Unknown
+TWL.NS,Titagarh Wagons Limited,Unknown
+TITAN.NS,Titan Company,Consumer Discretionary
+TODAYS.NS,Todays Writing Products Limited,Unknown
+TOKYOPLAST.NS,Tokyo Plast International Limited,Unknown
+TORNTPHARM.NS,Torrent Pharmaceuticals,Pharma
+TORNTPOWER.NS,Torrent Power,Utilities
+TFCILTD.NS,Tourism Finance Corporation of India Limited,Financial Services
+TPLPLASTEH.NS,TPL Plastech Limited,Unknown
+TRIL.NS,Transformers And Rectifiers (India) Limited,Unknown
+TCI.NS,Transport Corporation of India,Logistics
+TFL.NS,Transwarranty Finance Limited,Unknown
+TREEHOUSE.NS,Tree House Education & Accessories Limited,Unknown
+TREJHARA.NS,TREJHARA SOLUTIONS LIMITED,Unknown
+TRENT.NS,Trent Limited,Retail
+TRF.NS,TRF Limited,Unknown
+TBZ.NS,Tribhovandas Bhimji Zaveri Limited,Unknown
+TRICOM.NS,Tricom India Limited,Unknown
+TRIDENT.NS,Trident Limited,Textiles
+TRIGYN.NS,Trigyn Technologies Limited,Unknown
+TRIVENI.NS,Triveni Engineering & Industries,FMCG
+TRITURBINE.NS,Triveni Turbine Limited,Unknown
+TRU.NS,TruCap Finance Limited,Financial Services
+TTKHEALTH.NS,TTK Healthcare Limited,Unknown
+TTKHLTCARE.NS,TTK Healthcare Limited,Healthcare
+TTKPRESTIG.NS,TTK Prestige Limited,Unknown
+TIINDIA.NS,Tube Investments of India Limited,Unknown
+TUBEINVEST.NS,Tube Investments of India Limited,Unknown
+TULIP.NS,Tulip Telecom Limited,Unknown
+TULSI.NS,Tulsi Extrusions Limited,Unknown
+TULSYAN.NS,Tulsyan Nec Limited,Unknown
+TVTODAY.NS,TV Today Network,Media
+TVVISION.NS,TV Vision Limited,Unknown
+TV18BRDCST.NS,TV18 Broadcast,Media
+TVSELECT.NS,TVS Electronics Limited,Unknown
+TVSMOTOR.NS,TVS Motor Company,Automobile
+TVSSRICHAK.NS,TVS Srichakra Limited,Unknown
+TWILITAKA.NS,Twilight Litaka Pharma Limited,Unknown
+UBENGG.NS,UB Engineering Limited,Unknown
+UCALFUEL.NS,Ucal Fuel Systems Limited,Unknown
+UCOBANK.NS,UCO Bank,Financial Services
+UFLEX.NS,UFLEX Limited,Packaging
+UFO.NS,UFO Moviez India Limited,Unknown
+UGROCAP.NS,Ugro Capital,Financial Services
+UJAAS.NS,Ujaas Energy Limited,Unknown
+UJJIVAN.NS,Ujjivan Financial Services Limited,Unknown
+UJJIVANSFB.NS,Ujjivan Small Finance Bank,Financial Services
+ULTRACEMCO.NS,UltraTech Cement,Cement
+UMANGDAIRY.NS,Umang Dairies Limited,Unknown
+UNICHEMLAB.NS,Unichem Laboratories Limited,Unknown
+UNIONBANK.NS,Union Bank of India,Financial Services
+UNIPARTS.NS,Uniparts India,Auto Ancillaries
+UNIENTER.NS,Uniphos Enterprises Limited,Unknown
+UNIPLY.NS,Uniply Industries Limited,Unknown
+UNITECH.NS,Unitech Limited,Unknown
+UNITEDBNK.NS,United Bank of India,Unknown
+UBL.NS,United Breweries,FMCG
+UBHOLDINGS.NS,United Breweries (Holdings) Limited,Unknown
+UNIPHOS.NS,United Phosphorus Limited,Unknown
+MCDOWELL-N.NS,United Spirits (McDowell's),FMCG
+UNITY.NS,Unity Infraprojects Limited,Unknown
+UNIVCABLES.NS,Universal Cables Limited,Industrials
+MINDA.NS,Uno Minda,Auto Ancillaries
+UDS.NS,Updater Services Limited,Industrials
+UPL.NS,UPL Limited,Agrochemicals
+UPERGANGES.NS,Upper Ganges Sugar & Industries Limited,Unknown
+URJA.NS,Urja Global Limited,Unknown
+UMESLTD.NS,Usha Martin Education & Solutions Limited,Unknown
+USHAMART.NS,Usha Martin Limited,Basic Materials
+USHERAGRO.NS,Usher Agro Limited,Unknown
+UTIAMC.NS,UTI Asset Management Company Limited,Financial Services
+UTKARSHBNK.NS,Utkarsh Small Finance Bank Limited,Financial Services
+UTTAMSTL.NS,Uttam Galva Steels Limited,Unknown
+UTTAMSUGAR.NS,Uttam Sugar Mills Limited,Unknown
+UVSL.NS,Uttam Value Steels Limited,Unknown
+UTVSOF.NS,UTV Software Communications Limited,Unknown
+VGUARD.NS,V-Guard Industries,Capital Goods
+VMART.NS,V-Mart Retail,Retail
+VSTTILLERS.NS,V.S.T Tillers Tractors Limited,Unknown
+V2RETAIL.NS,V2 Retail Limited,Unknown
+WABAG.NS,VA Tech Wabag Limited,Unknown
+VADILALIND.NS,Vadilal Industries Limited,Unknown
+VAIBHAVGEM.NS,Vaibhav Gems Limited,Unknown
+VAIBHAVGBL.NS,Vaibhav Global,Retail
+VAKRANGEE.NS,Vakrangee Limited,Unknown
+VAKRANSOFT.NS,Vakrangee Softwares Limited,Unknown
+VALECHAENG.NS,Valecha Engineering Limited,Unknown
+VALUEIND.NS,Value Industries Limited,Unknown
+VARDHACRLC.NS,Vardhman Acrylics Limited,Unknown
+VHL.NS,Vardhman Holdings Limited,Unknown
+VARDMNPOLY.NS,Vardhman Polytex Limited,Unknown
+VSSL.NS,Vardhman Special Steels Limited,Basic Materials
+VARDHMAN.NS,Vardhman Textiles,Textiles
+VTL.NS,Vardhman Textiles Limited,Consumer Cyclical
+VARROC.NS,Varroc Engineering,Auto Ancillaries
+VBL.NS,Varun Beverages Limited,Unknown
+VARUN.NS,Varun Industries Limited,Unknown
+VARUNSHIP.NS,Varun Shipping Company Limited,Unknown
+VASCONEQ.NS,Vascon Engineers Limited,Industrials
+VASWANI.NS,Vaswani Industries Limited,Unknown
+MANYAVAR.NS,Vedant Fashions (Manyavar),Retail
+VEDL.NS,Vedanta Limited,Metals
+VENKEYS.NS,Venky�s (India) Limited,Unknown
+VENUSREM.NS,Venus Remedies Limited,Healthcare
+VESUVIUS.NS,Vesuvius India Limited,Unknown
+VETO.NS,Veto Switchgears And Cables Limited,Unknown
+VICEROY.NS,Viceroy Hotels Limited,Unknown
+VIDEOIND.NS,Videocon Industries Limited,Unknown
+VIDHIING.NS,Vidhi Specialty Food Ingredients Limited,Unknown
+VIJSHAN.NS,Vijay Shanthi Builders Limited,Unknown
+VIJAYABANK.NS,Vijaya Bank,Unknown
+VIJAYTEX.NS,Vijayeswari Textiles Limited,Unknown
+VIJIFIN.NS,Viji Finance Limited,Unknown
+VIKASECO.NS,Vikas EcoTech Limited,Unknown
+VIKASMCORP.NS,Vikas Multicorp Limited,Unknown
+VIKASPROP.NS,Vikas Proppant & Granite Limited,Unknown
+VIKASWSP.NS,Vikas WSP Limited,Unknown
+VIKASHMET.NS,Vikash Metal & Power Limited,Unknown
+VIMALOIL.NS,Vimal Oil & Foods Limited,Unknown
+VIMTALABS.NS,Vimta Labs Limited,Unknown
+VINATIORGA.NS,Vinati Organics,Chemicals
+VINDHYATEL.NS,Vindhya Telelinks Limited,Industrials
+VINYLINDIA.NS,Vinyl Chemicals (India) Limited,Unknown
+VIPCLOTHNG.NS,VIP Clothing Limited,Unknown
+VIPIND.NS,VIP Industries,Consumer Discretionary
+VIPUL.NS,Vipul Limited,Unknown
+VIPULLTD.NS,Vipul Limited,Real Estate
+VISASTEEL.NS,Visa Steel Limited,Unknown
+VIVIDHA.NS,Visagar Polytex Limited,Unknown
+VISAKAIND.NS,Visaka Industries Limited,Unknown
+VISESHINFO.NS,Visesh Infotecnics Limited,Unknown
+VISHAL.NS,Vishal Fabrics Limited,Unknown
+VISHALRET.NS,Vishal Retail Limited,Unknown
+VISHNU.NS,Vishnu Chemicals Limited,Unknown
+VPRPL.NS,Vishnu Prakash R Punglia Limited,Industrials
+VISHWARAJ.NS,Vishwaraj Sugar Industries Limited,Unknown
+VISUINTL.NS,Visu International Limited,Unknown
+VIVIMEDLAB.NS,Vivimed Labs Limited,Unknown
+VLSFINANCE.NS,VLS Finance Limited,Unknown
+IDEA.NS,Vodafone Idea Limited,Unknown
+VOLTAMP.NS,Voltamp Transformers Limited,Industrials
+VOLTAS.NS,Voltas Limited,Capital Goods
+VRL.NS,VRL Logistics,Logistics
+VRLLOG.NS,VRL Logistics Limited,Unknown
+VSTIND.NS,VST Industries,FMCG
+WSI.NS,W.S. Industries (India) Limited,Industrials
+WAAREEENER.NS,Waaree Energies,Renewable Energy
+WABCOINDIA.NS,WABCO India,Auto Ancillaries
+WABCO-TVS.NS,WABCO-TVS (INDIA) Limited,Unknown
+WALCHANNAG.NS,Walchandnagar Industries Limited,Unknown
+WANBURY.NS,Wanbury Limited,Unknown
+WATERBASE.NS,Waterbase Limited,Unknown
+WEBELSOLAR.NS,Websol Energy System Limited,Unknown
+WEIZFOREX.NS,Weizmann Forex Limited,Unknown
+WEIZMANIND.NS,Weizmann Limited,Unknown
+WELCORP.NS,Welspun Corp,Metals
+WELENT.NS,Welspun Enterprises Limited,Industrials
+WELSPUNIND.NS,Welspun India,Textiles
+WELINV.NS,Welspun Investments and Commercials Limited,Unknown
+WELSPUNLIV.NS,Welspun Living Limited,Consumer Cyclical
+WELPROJ.NS,Welspun Projects Limited,Unknown
+WENDT.NS,Wendt India,Capital Goods
+WSTCSTPAPR.NS,West Coast Paper Mills Limited,Unknown
+WESTLIFE.NS,Westlife Foodworld,Retail
+WHEELS.NS,Wheels India Limited,Unknown
+WHIRLPOOL.NS,Whirlpool of India,Consumer Discretionary
+WILLAMAGOR.NS,Williamson Magor & Company Limited,Unknown
+WINDLAS.NS,Windlas Biotech,Pharma
+WINDMACHIN.NS,Windsor Machines Limited,Unknown
+WINDSOR.NS,Windsor Machines Limited,Unknown
+WINSOME.NS,Winsome Yarns Limited,Unknown
+WINSOMYARN.NS,Winsome Yarns Limited,Unknown
+WIPRO.NS,Wipro,Information Technology
+WWIL.NS,Wire and Wireless (India) Limited,Unknown
+WOCKPHARMA.NS,Wockhardt,Pharma
+WONDERLA.NS,Wonderla Holidays,Hospitality
+WYETH.NS,Wyeth Limited,Unknown
+XCHANGING.NS,Xchanging Solutions Limited,Unknown
+XELPMOC.NS,Xelpmoc Design And Tech Limited,Unknown
+XLENERGY.NS,XL Energy Limited,Unknown
+XPROINDIA.NS,Xpro India Limited,Unknown
+YATHARTH.NS,Yatharth Hospital & Trauma Care,Healthcare
+YESBANK.NS,Yes Bank,Financial Services
+ZANDUREALT.NS,Zandu Realty Limited,Unknown
+ZEEL.NS,Zee Entertainment Enterprises,Media
+ZEELEARN.NS,Zee Learn Limited,Unknown
+ZEEMEDIA.NS,Zee Media Corporation Limited,Unknown
+ZEENEWS.NS,Zee News Limited,Unknown
+ZENTEC.NS,Zen Technologies,Defence
+ZENITHBIR.NS,Zenith Birla (India) Limited,Unknown
+ZENITHCOMP.NS,Zenith Computers Limited,Unknown
+ZENITHEXPO.NS,Zenith Exports Limited,Unknown
+ZENITHINFO.NS,Zenith Infotech Limited,Unknown
+ZENSAR.NS,Zensar Technologies,Information Technology
+ZENSARTECH.NS,Zensar Technologies Limited,Technology
+ZICOM.NS,Zicom Electronic Security Systems Limited,Unknown
+ZODIACLOTH.NS,Zodiac Clothing Company Limited,Unknown
+ZODJRDMKJ.NS,Zodiac JRD- MKJ Limited,Unknown
+ZOMATO.NS,Zomato Limited,Technology
+ZOTA.NS,Zota Health Care LImited,Unknown
+ZUARI.NS,Zuari Agro Chemicals Limited,Unknown
+ZUARIGLOB.NS,Zuari Global Limited,Unknown
+ZUARIAGRO.NS,Zuari Industries Limited,Unknown
+ZYDUSLIFE.NS,Zydus Lifesciences,Pharma
+ZYDUSWELL.NS,Zydus Wellness,FMCG
+ZYLOG.NS,Zylog Systems Limited,Unknown
