@@ -74,7 +74,7 @@ PROVIDED_LOGO_URL = os.getenv(
     "KAIROFORGE_LOGO_URL",
     "https://github.com/user-attachments/assets/31e5cbee-9a99-4fe1-89dd-bf7e4d1dd30b",
 )
-CORE_MODE_LABELS = ("Landing", "Screener", "Stock Analysis", "Portfolio Builder")
+PAGE_MODES = ("Landing", "Screener", "Stock Analysis", "Portfolio Builder")
 
 
 def resolve_logo_src() -> str:
@@ -302,7 +302,7 @@ def page_landing():
 
     c1, c2, c3 = st.columns([1.1, 2.8, 1.1])
     with c2:
-        st.markdown("<div class='kf-landing-search-title'>Search Stock at Center</div>", unsafe_allow_html=True)
+        st.markdown("<div class='kf-landing-search-title'>Search Stocks</div>", unsafe_allow_html=True)
         with st.form("landing_stock_search"):
             _jump_label = st.selectbox(
                 "Search by company or ticker",
@@ -340,7 +340,7 @@ def page_landing():
 
     cc1, cc2, cc3 = st.columns(3)
     cc1.metric("Stocks Covered", f"{len(_stocks_df):,}+")
-    cc2.metric("Research Modes", str(len(CORE_MODE_LABELS)))
+    cc2.metric("Research Modes", str(len(PAGE_MODES)))
     cc3.metric("Data Refresh", "Hourly")
     _render_footer()
 
