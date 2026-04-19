@@ -359,6 +359,20 @@ html, body, [class*="css"] {
     color: #e2e8f0 !important;
     border-radius: 8px !important;
 }
+/* Multiselect tag pills */
+.stMultiSelect span[data-baseweb="tag"] {
+    background: rgba(0,212,170,0.15) !important;
+    border: 1px solid rgba(0,212,170,0.3) !important;
+    border-radius: 6px !important;
+    color: #00d4aa !important;
+    font-size: 0.75rem !important;
+}
+/* Dropdown listbox */
+ul[data-testid="stSelectboxVirtualDropdown"],
+ul[role="listbox"] {
+    background: #12121a !important;
+    border: 1px solid #2d2d42 !important;
+}
 .stButton > button {
     background: linear-gradient(135deg, #00d4aa 0%, #0891b2 100%) !important;
     color: #0a0a0f !important;

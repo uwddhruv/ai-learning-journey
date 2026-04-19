@@ -30,7 +30,7 @@ from typing import List, Dict
 
 from modules.data_layer import (
     fetch_stock_data, fetch_price_history, fetch_market_news, fetch_ticker_news,
-    fmt_large, fmt_pct, fmt_price
+    fmt_large, fmt_pct, fmt_price, load_india_stocks,
 )
 from modules.valuation_engine import calculate_dcf, calculate_graham, get_relative_valuation
 from modules.scoring_engine import compute_score, signal_from_score
@@ -39,13 +39,24 @@ from modules.styles import inject_styles
 # ── INJECT STYLES ─────────────────────────────────────────────────────────────
 st.markdown(inject_styles(), unsafe_allow_html=True)
 
-# ── CONSTANTS ─────────────────────────────────────────────────────────────────
+# ── STOCK UNIVERSE ─────────────────────────────────────────────────────────────
+_stocks_df = load_india_stocks()
+# Build display labels: "Company Name (TICKER)"
+_TICKER_TO_LABEL = {
+    row["ticker"]: f"{row['company']}  ({row['ticker']})"
+    for _, row in _stocks_df.iterrows()
+}
+_LABEL_TO_TICKER = {v: k for k, v in _TICKER_TO_LABEL.items()}
+_ALL_LABELS      = sorted(_TICKER_TO_LABEL.values())
+
+# Default screener watchlist — top 30 Nifty 50 names
 DEFAULT_TICKERS = [
     "RELIANCE.NS", "TCS.NS",        "HDFCBANK.NS",  "ICICIBANK.NS",  "INFY.NS",
     "HINDUNILVR.NS","ITC.NS",        "SBIN.NS",       "BHARTIARTL.NS", "KOTAKBANK.NS",
     "LT.NS",        "AXISBANK.NS",   "BAJFINANCE.NS", "ASIANPAINT.NS", "MARUTI.NS",
     "TITAN.NS",     "NESTLEIND.NS",  "WIPRO.NS",      "TECHM.NS",      "HCLTECH.NS",
-    "POWERGRID.NS",
+    "POWERGRID.NS", "NTPC.NS",       "ONGC.NS",       "SUNPHARMA.NS",  "BAJAJFINSV.NS",
+    "TATAMOTORS.NS","HDFCLIFE.NS",   "ADANIPORTS.NS", "DIVISLAB.NS",   "ULTRACEMCO.NS",
 ]
 
 PLOTLY_DARK = dict(
@@ -72,45 +83,58 @@ with st.sidebar:
     # ── LOGO ──────────────────────────────────────────────────────────────
     _logo_path = os.path.join(os.path.dirname(__file__), "assets", "logo.png")
     if os.path.exists(_logo_path):
-        with open(_logo_path, "rb") as _f:
-            _logo_b64 = base64.b64encode(_f.read()).decode()
-        st.markdown(
-            f"""
-            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem;">
-                <img src="data:image/png;base64,{_logo_b64}"
-                     width="48" height="48"
-                     style="border-radius:50%;flex-shrink:0;" alt="KAIROFORGE logo"/>
-                <div>
-                    <div class="kf-header-logo" style="font-size:1.1rem;">KAIROFORGE</div>
-                    <div class="kf-header-sub">Equity Intelligence Terminal</div>
+        try:
+            with open(_logo_path, "rb") as _f:
+                _logo_b64 = base64.b64encode(_f.read()).decode()
+            st.markdown(
+                f"""
+                <div style="display:flex;align-items:center;gap:.75rem;
+                            padding:.5rem 0 .75rem 0;margin-bottom:.25rem;">
+                    <img src="data:image/png;base64,{_logo_b64}"
+                         width="52" height="52"
+                         style="border-radius:12px;flex-shrink:0;
+                                box-shadow:0 2px 8px rgba(0,212,170,0.25);"
+                         alt="KAIROFORGE logo"/>
+                    <div>
+                        <div class="kf-header-logo" style="font-size:1.15rem;
+                             line-height:1.2;">KAIROFORGE</div>
+                        <div class="kf-header-sub" style="font-size:0.7rem;">
+                            Equity Intelligence Terminal
+                        </div>
+                    </div>
                 </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-    else:
-        st.markdown(
-            """
-            <div class="kf-header" style="border-bottom:none;margin-bottom:0.5rem;">
-                <div>
+                """,
+                unsafe_allow_html=True,
+            )
+        except Exception:
+            st.markdown(
+                """
+                <div style="padding:.5rem 0 .75rem 0;margin-bottom:.25rem;">
                     <div class="kf-header-logo">⚡ KAIROFORGE</div>
                     <div class="kf-header-sub">Equity Intelligence Terminal</div>
                 </div>
+                """,
+                unsafe_allow_html=True,
+            )
+    else:
+        st.markdown(
+            """
+            <div style="padding:.5rem 0 .75rem 0;margin-bottom:.25rem;">
+                <div class="kf-header-logo">⚡ KAIROFORGE</div>
+                <div class="kf-header-sub">Equity Intelligence Terminal</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-    st.markdown("<hr style='border-color:#1e1e2e;margin:1rem 0;'>", unsafe_allow_html=True)
+    st.markdown("<hr style='border-color:#1e1e2e;margin:.75rem 0;'>", unsafe_allow_html=True)
 
     nav_choice = st.radio(
         "Navigate",
         ["📊  Screener", "🔍  Stock Analysis", "💼  Portfolio Builder"],
-        index=["📊  Screener", "🔍  Stock Analysis", "💼  Portfolio Builder"].index(
-            "📊  Screener" if st.session_state.page == "Screener"
-            else "🔍  Stock Analysis" if st.session_state.page == "Analysis"
-            else "💼  Portfolio Builder"
-        ),
+        index=0 if st.session_state.page == "Screener"
+              else 1 if st.session_state.page == "Analysis"
+              else 2,
         label_visibility="hidden",
     )
     st.session_state.page = (
@@ -119,18 +143,41 @@ with st.sidebar:
         "Portfolio"
     )
 
-    st.markdown("<hr style='border-color:#1e1e2e;margin:1rem 0;'>", unsafe_allow_html=True)
+    st.markdown("<hr style='border-color:#1e1e2e;margin:.75rem 0;'>", unsafe_allow_html=True)
 
-    # Quick ticker jump
-    jump = st.text_input("🔎  Analyse a ticker", placeholder="e.g. RELIANCE.NS").strip().upper()
-    if st.button("Analyse →") and jump:
-        st.session_state.selected = jump
-        st.session_state.page     = "Analysis"
-        st.rerun()
-
-    st.markdown("<hr style='border-color:#1e1e2e;margin:1rem 0;'>", unsafe_allow_html=True)
+    # ── SEARCHABLE STOCK SELECTOR ─────────────────────────────────────────
     st.markdown(
-        "<div style='font-size:0.7rem;color:#334155;'>Data via yfinance · Refreshes hourly</div>",
+        "<div style='font-size:0.72rem;color:#64748b;font-weight:600;"
+        "text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem;'>"
+        "Search &amp; Analyse Stock</div>",
+        unsafe_allow_html=True,
+    )
+
+    _cur_ticker  = st.session_state.selected
+    _cur_label   = _TICKER_TO_LABEL.get(_cur_ticker, "")
+    _placeholder = ["— choose a stock —"] + _ALL_LABELS
+    _select_idx  = (_placeholder.index(_cur_label)
+                    if _cur_label in _placeholder else 0)
+
+    _jump_label = st.selectbox(
+        "Search by company or ticker",
+        options=_placeholder,
+        index=_select_idx,
+        label_visibility="collapsed",
+        key="sidebar_stock_select",
+    )
+
+    if st.button("Analyse  →", use_container_width=True):
+        if _jump_label and _jump_label != "— choose a stock —":
+            st.session_state.selected = _LABEL_TO_TICKER.get(_jump_label, "")
+            st.session_state.page     = "Analysis"
+            st.rerun()
+
+    st.markdown("<hr style='border-color:#1e1e2e;margin:.75rem 0;'>", unsafe_allow_html=True)
+    st.markdown(
+        f"<div style='font-size:0.7rem;color:#334155;line-height:1.6;'>"
+        f"📈 {len(_stocks_df):,} Indian stocks covered<br>"
+        f"Data via yfinance · Refreshes hourly</div>",
         unsafe_allow_html=True,
     )
 
@@ -196,19 +243,22 @@ def page_screener():
         """
         <div class="kf-section-title">Stock Screener</div>
         <p style="color:#64748b;font-size:0.85rem;margin-bottom:1.5rem;">
-            Real-time valuation signals across major equities. Click a card to open deep analysis.
+            Real-time valuation signals across major Indian equities.
+            Select stocks from 500+ coverage universe or use the default watchlist.
         </p>
         """,
         unsafe_allow_html=True,
     )
 
-    # Controls
+    # Controls row 1: stock selector + sort + filter
     col_a, col_b, col_c = st.columns([3, 1, 1])
     with col_a:
-        extra = st.text_input(
-            "Add tickers (comma-separated)",
-            placeholder="e.g. BAJFINANCE.NS, ADANIENT.NS, ZOMATO.NS",
+        added_labels = st.multiselect(
+            "Add stocks to screen",
+            options=_ALL_LABELS,
+            placeholder="Search by company name or ticker symbol…",
             label_visibility="collapsed",
+            key="screener_add_stocks",
         )
     with col_b:
         sort_by = st.selectbox(
@@ -223,12 +273,17 @@ def page_screener():
             label_visibility="collapsed",
         )
 
+    # Build ticker list
     tickers = DEFAULT_TICKERS.copy()
-    if extra.strip():
-        tickers += [t.strip().upper() for t in extra.split(",") if t.strip()]
+    for lbl in added_labels:
+        t = _LABEL_TO_TICKER.get(lbl)
+        if t and t not in tickers:
+            tickers.append(t)
 
     # Progress + fetch
     progress_bar = st.progress(0, text="Loading market data…")
+    # Safety guard: should not happen with DEFAULT_TICKERS, but
+    # prevents a crash if, e.g., all network requests fail.
     results = []
     for i, ticker in enumerate(tickers):
         progress_bar.progress((i + 1) / len(tickers), text=f"Analysing {ticker}…")
@@ -236,6 +291,11 @@ def page_screener():
         score = compute_score(data)
         results.append({**data, **{"_score": score}})
     progress_bar.empty()
+
+    if not results:
+        st.warning("No data available right now. Check your connection and try again.")
+        _render_footer()
+        return
 
     # Sort
     def sort_key(r):
@@ -903,27 +963,39 @@ def page_portfolio():
         """
         <div class="kf-section-title">Portfolio Builder</div>
         <p style="color:#64748b;font-size:0.85rem;margin-bottom:1.5rem;">
-            Select stocks from the screener or type tickers below. KAIROFORGE will interpret
-            your portfolio's composition and risk profile.
+            Select stocks from the dropdown below or add them from the Screener.
+            KAIROFORGE will analyse your portfolio's composition and risk profile.
         </p>
         """,
         unsafe_allow_html=True,
     )
 
-    # Manual input
-    manual = st.text_input(
-        "Add tickers to portfolio (comma-separated)",
-        value=", ".join(st.session_state.portfolio),
-        placeholder="e.g. RELIANCE.NS, TCS.NS, HDFCBANK.NS",
-    )
-    if manual.strip():
-        st.session_state.portfolio = [
-            t.strip().upper() for t in manual.split(",") if t.strip()
-        ]
+    # Convert existing portfolio tickers to labels for the multiselect default
+    _default_port_labels = [
+        _TICKER_TO_LABEL[t] for t in st.session_state.portfolio
+        if t in _TICKER_TO_LABEL
+    ]
 
-    if st.button("Clear Portfolio"):
-        st.session_state.portfolio = []
-        st.rerun()
+    col_sel, col_clr = st.columns([4, 1])
+    with col_sel:
+        selected_labels = st.multiselect(
+            "Search and add stocks to portfolio",
+            options=_ALL_LABELS,
+            default=_default_port_labels,
+            placeholder="Search by company name or ticker…",
+            label_visibility="collapsed",
+            key="portfolio_multiselect",
+        )
+    with col_clr:
+        if st.button("Clear All", use_container_width=True):
+            st.session_state.portfolio = []
+            st.rerun()
+
+    # Sync selections back to portfolio session state
+    new_portfolio = [_LABEL_TO_TICKER[lbl] for lbl in selected_labels
+                     if lbl in _LABEL_TO_TICKER]
+    if new_portfolio != st.session_state.portfolio:
+        st.session_state.portfolio = new_portfolio
 
     if not st.session_state.portfolio:
         st.markdown(
@@ -931,7 +1003,8 @@ def page_portfolio():
             <div class="kf-card" style="text-align:center;padding:3rem;">
                 <div style="font-size:2rem;margin-bottom:.75rem;">💼</div>
                 <div style="color:#64748b;">Your portfolio is empty.<br>
-                Add stocks from the Screener or enter tickers above.</div>
+                Search and select stocks using the dropdown above,
+                or add them from the Screener page.</div>
             </div>
             """,
             unsafe_allow_html=True,
