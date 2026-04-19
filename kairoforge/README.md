@@ -1,4 +1,4 @@
-# ⚡ KAIROFORGE — Equity Intelligence Terminal
+# ⚡ KAIROFORGE — Stock Analysis Terminal
 
 > A lightweight **stock analysis terminal** built in Streamlit.
 

@@ -102,7 +102,7 @@ with st.sidebar:
                         <div class="kf-header-logo" style="font-size:1.15rem;
                              line-height:1.2;">KAIROFORGE</div>
                         <div class="kf-header-sub" style="font-size:0.7rem;">
-                            Equity Intelligence Terminal
+                            Stock Analysis Terminal
                         </div>
                     </div>
                 </div>
@@ -118,7 +118,7 @@ with st.sidebar:
             """
             <div style="padding:.5rem 0 .75rem 0;margin-bottom:.25rem;">
                 <div class="kf-header-logo">⚡ KAIROFORGE</div>
-                <div class="kf-header-sub">Equity Intelligence Terminal</div>
+                <div class="kf-header-sub">Stock Analysis Terminal</div>
             </div>
             """,
             unsafe_allow_html=True,
