@@ -5,6 +5,7 @@ Treats missing data as expected, not exceptional.
 
 import os
 import re
+import unicodedata
 import yfinance as yf
 import streamlit as st
 import pandas as pd
@@ -349,7 +350,7 @@ def _parse_news_items(raw: list) -> List[Dict]:
             publisher = _clean_news_text(
                 article.get("publisher") or content.get("provider", {}).get("displayName")
             ) or "Unknown"
-            if not title:
+            if not _has_visible_news_text(title):
                 continue
             items.append({
                 "title": title,
@@ -558,14 +559,14 @@ def _parse_rss_items(xml_text: str) -> List[Dict]:
     try:
         root = ET.fromstring(xml_text)
         for node in root.findall(".//item"):
-            title = (node.findtext("title") or "").strip()
+            title = _clean_news_text(node.findtext("title"))
             link = (node.findtext("link") or "#").strip()
             pub = (node.findtext("pubDate") or "").strip()
             source = "Google News"
             source_node = node.find("source")
             if source_node is not None and source_node.text:
-                source = source_node.text.strip()
-            if title:
+                source = _clean_news_text(source_node.text) or "Google News"
+            if _has_visible_news_text(title):
                 items.append({
                     "title": title,
                     "publisher": source,
@@ -709,7 +710,16 @@ def _clean_news_text(text: Optional[str]) -> str:
     """Normalize provider text by collapsing tabs/newlines/multi-spaces into one space."""
     if text is None:
         return ""
-    return re.sub(r"\s+", " ", str(text)).strip()
+    normalized = "".join(
+        " " if unicodedata.category(ch) in {"Cf", "Cc", "Cs"} else ch
+        for ch in str(text)
+    )
+    return re.sub(r"\s+", " ", normalized).strip(" \t\r\n-|•·")
+
+
+def _has_visible_news_text(text: Optional[str]) -> bool:
+    cleaned = _clean_news_text(text)
+    return bool(cleaned and any(ch.isalnum() for ch in cleaned))
 
 
 def _filter_market_relevant_news(items: List[Dict]) -> List[Dict]:
