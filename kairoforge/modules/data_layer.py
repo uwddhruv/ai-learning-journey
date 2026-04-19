@@ -345,7 +345,7 @@ def _parse_news_items(raw: list) -> List[Dict]:
                 or content.get("displayTime")
             )
             pub_dt = _format_publish_time(ts)
-            title = _clean_news_text(article.get("title") or content.get("title") or "Untitled")
+            title = _clean_news_text(article.get("title") or content.get("title"))
             publisher = _clean_news_text(
                 article.get("publisher") or content.get("provider", {}).get("displayName") or "Unknown"
             )
