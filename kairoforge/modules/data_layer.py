@@ -4,6 +4,7 @@ Treats missing data as expected, not exceptional.
 """
 
 import os
+import re
 import yfinance as yf
 import streamlit as st
 import pandas as pd
@@ -24,6 +25,11 @@ HTTP_HEADERS = {
     ),
     "Accept": "application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.8",
 }
+
+MARKET_NEWS_KEEP_TERMS = (
+    "india", "indian", "nifty", "sensex", "nse", "bse", "rupee",
+    "rbi", "sebi", "market", "stocks", "equity", "shares",
+)
 
 # ── Stock Universe ────────────────────────────────────────────────────────────
 
@@ -339,10 +345,16 @@ def _parse_news_items(raw: list) -> List[Dict]:
                 or content.get("displayTime")
             )
             pub_dt = _format_publish_time(ts)
+            title = _clean_news_text(article.get("title") or content.get("title"))
+            publisher = _clean_news_text(
+                article.get("publisher") or content.get("provider", {}).get("displayName")
+            ) or "Unknown"
+            if not title:
+                continue
             items.append({
-                "title":     article.get("title") or content.get("title") or "Untitled",
-                "publisher": article.get("publisher") or content.get("provider", {}).get("displayName") or "Unknown",
-                "link":      _extract_news_link(article, content),
+                "title": title,
+                "publisher": publisher,
+                "link": _extract_news_link(article, content),
                 "published": pub_dt,
             })
         except Exception:
@@ -367,7 +379,7 @@ def fetch_market_news_state(limit: int = 10) -> Dict:
     for proxy in ("^NSEI", "^BSESN"):
         try:
             raw = _fetch_yfinance_news(proxy)
-            y_items = _parse_news_items(raw)
+            y_items = _filter_market_relevant_news(_parse_news_items(raw))
             if y_items:
                 return {
                     "items": y_items[:limit],
@@ -691,3 +703,38 @@ def _extract_news_link(article: Dict, content: Dict) -> str:
         or content.get("clickThroughUrl", {}).get("url")
         or "#"
     )
+
+
+def _clean_news_text(text: Optional[str]) -> str:
+    """Normalize provider text by collapsing tabs/newlines/multi-spaces into one space."""
+    if text is None:
+        return ""
+    return re.sub(r"\s+", " ", str(text)).strip()
+
+
+def _filter_market_relevant_news(items: List[Dict]) -> List[Dict]:
+    """
+    Keep broad India-market headlines for index proxy feeds and drop duplicates.
+
+    Args:
+        items: List of dicts shaped as {title, publisher, link, published}.
+    Rules:
+        - Ignore rows with empty titles.
+        - Deduplicate by lower-cased title.
+        - Keep only headlines whose title/publisher matches MARKET_NEWS_KEEP_TERMS.
+    """
+    if not items:
+        return []
+    seen = set()
+    filtered = []
+    for item in items:
+        title = str(item.get("title", "")).strip()
+        publisher = str(item.get("publisher", "")).strip()
+        key = title.lower()
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        combined_text = f"{title} {publisher}".lower()
+        if any(term in combined_text for term in MARKET_NEWS_KEEP_TERMS):
+            filtered.append({**item, "title": title, "publisher": publisher})
+    return filtered
