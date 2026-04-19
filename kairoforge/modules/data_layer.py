@@ -31,6 +31,8 @@ MARKET_NEWS_KEEP_TERMS = (
     "india", "indian", "nifty", "sensex", "nse", "bse", "rupee",
     "rbi", "sebi", "market", "stocks", "equity", "shares",
 )
+# Characters trimmed from title/publisher edges: whitespace + common separators/bullets.
+NEWS_TEXT_EDGE_STRIP_CHARS = " \t\r\n-|•·"
 
 # ── Stock Universe ────────────────────────────────────────────────────────────
 
@@ -710,14 +712,17 @@ def _clean_news_text(text: Optional[str]) -> str:
     """Normalize provider text by collapsing tabs/newlines/multi-spaces into one space."""
     if text is None:
         return ""
+    # Unicode categories Cf (Format), Cc (Control), and Cs (Surrogate) remove
+    # invisible glyphs that can otherwise produce blank-looking headlines.
     normalized = "".join(
         " " if unicodedata.category(ch) in {"Cf", "Cc", "Cs"} else ch
         for ch in str(text)
     )
-    return re.sub(r"\s+", " ", normalized).strip(" \t\r\n-|•·")
+    return re.sub(r"\s+", " ", normalized).strip(NEWS_TEXT_EDGE_STRIP_CHARS)
 
 
 def _has_visible_news_text(text: Optional[str]) -> bool:
+    """Return True when cleaned text still contains at least one alphanumeric glyph."""
     cleaned = _clean_news_text(text)
     return bool(cleaned and any(ch.isalnum() for ch in cleaned))
 
