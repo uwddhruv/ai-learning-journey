@@ -772,6 +772,7 @@ def _render_valuation_breakdown(data: Dict, sc: Dict):
     """Side-by-side DCF vs Graham vs Market Price."""
     dcf    = sc.get("dcf",    {})
     graham = sc.get("graham", {})
+    framework = sc.get("framework", {})
     price  = data.get("current_price") or 0
 
     dcf_iv  = dcf.get("intrinsic_value")
@@ -817,6 +818,30 @@ def _render_valuation_breakdown(data: Dict, sc: Dict):
                 """,
                 unsafe_allow_html=True,
             )
+
+    # Framework valuation rater
+    if framework:
+        st.markdown("<div class='kf-section-title' style='margin-top:1.25rem;'>Framework Valuation Rater</div>", unsafe_allow_html=True)
+        st.markdown(
+            f"""
+            <div class="kf-card" style="padding:1rem 1.1rem;">
+                <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
+                    <div style="color:#94a3b8;font-size:.78rem;">Rating</div>
+                    <div style="color:#f1f5f9;font-size:1.15rem;font-weight:700;
+                                font-family:'JetBrains Mono',monospace;">
+                        {framework.get("rating", "N/A")}
+                    </div>
+                    <div style="color:#00d4aa;font-size:.86rem;font-weight:600;">
+                        {framework.get("label", "—")}
+                    </div>
+                </div>
+                <div style="margin-top:.55rem;color:#94a3b8;font-size:.78rem;line-height:1.5;">
+                    {framework.get("explanation", "")}
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
     # DCF Detail
     st.markdown("<div class='kf-section-title' style='margin-top:2rem;'>DCF Breakdown</div>", unsafe_allow_html=True)

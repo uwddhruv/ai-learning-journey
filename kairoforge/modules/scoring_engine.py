@@ -87,6 +87,7 @@ def compute_score(data: Dict) -> Dict:
     signal, label, color = signal_from_score(final)
     confidence = _confidence_label(dq, dcf.get("confidence", 0.5))
     narrative  = _build_narrative(final, signal, data, dcf, graham, relative)
+    framework  = _framework_rater(price, dcf, graham, relative)
 
     return {
         "score":       round(final, 1),
@@ -98,6 +99,7 @@ def compute_score(data: Dict) -> Dict:
         "dcf":         dcf,
         "graham":      graham,
         "relative":    relative,
+        "framework":   framework,
         "explanation": narrative,
     }
 
@@ -268,10 +270,75 @@ def _build_narrative(score, signal, data, dcf, graham, relative) -> str:
     return " ".join(parts)
 
 
+def _framework_rater(price: float, dcf: Dict, graham: Dict, relative: Dict) -> Dict:
+    """
+    Rule-based valuation rater that complements score-based signals.
+    Primary framework:
+      - Current Price < DCF Intrinsic Value
+      - Current Price < Graham Number
+    """
+    dcf_iv = dcf.get("intrinsic_value")
+    graham_iv = graham.get("graham_number")
+    pe_sig = relative.get("pe_signal")
+    peg_sig = relative.get("peg_signal")
+
+    if not price or price <= 0:
+        return {
+            "label": "Insufficient Data",
+            "rating": "N/A",
+            "checks": {},
+            "explanation": "Cannot evaluate framework without a valid current market price.",
+        }
+
+    checks = {
+        "price_below_intrinsic": bool(dcf_iv and price < dcf_iv),
+        "price_below_graham": bool(graham_iv and price < graham_iv),
+        "pe_not_expensive": pe_sig in ("cheap", "fair"),
+        "peg_not_overvalued": peg_sig in ("undervalued", "fair"),
+    }
+
+    if checks["price_below_intrinsic"] and checks["price_below_graham"]:
+        if checks["pe_not_expensive"] or checks["peg_not_overvalued"]:
+            rating, label = "A+", "Strong Undervaluation"
+        else:
+            rating, label = "A", "Undervalued"
+    elif checks["price_below_intrinsic"]:
+        if checks["pe_not_expensive"] and checks["peg_not_overvalued"]:
+            rating, label = "B+", "Moderate Undervaluation"
+        else:
+            rating, label = "B", "Slight Undervaluation"
+    elif (dcf_iv and price > dcf_iv) and (graham_iv and price > graham_iv):
+        rating, label = "D", "Overvalued"
+    else:
+        rating, label = "C", "Fair / Mixed"
+
+    conditions = []
+    conditions.append(
+        "✅ Current price < Intrinsic value" if checks["price_below_intrinsic"]
+        else "❌ Current price ≥ Intrinsic value"
+    )
+    if graham_iv:
+        conditions.append(
+            "✅ Current price < Graham number" if checks["price_below_graham"]
+            else "❌ Current price ≥ Graham number"
+        )
+    if pe_sig:
+        conditions.append("✅ P/E is not expensive" if checks["pe_not_expensive"] else "⚠️ P/E looks rich")
+    if peg_sig:
+        conditions.append("✅ PEG is reasonable" if checks["peg_not_overvalued"] else "⚠️ PEG indicates overvaluation")
+
+    return {
+        "label": label,
+        "rating": rating,
+        "checks": checks,
+        "explanation": " · ".join(conditions),
+    }
+
+
 def _null_score(reason: str) -> Dict:
     return {
         "score": 0, "signal": "NO DATA", "label": "Insufficient Data",
         "color": "#6b7280", "confidence": "Very Low",
-        "breakdown": {}, "dcf": {}, "graham": {}, "relative": {},
+        "breakdown": {}, "dcf": {}, "graham": {}, "relative": {}, "framework": {},
         "explanation": reason,
     }

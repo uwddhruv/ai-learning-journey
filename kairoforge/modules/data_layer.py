@@ -64,42 +64,38 @@ def fetch_stock_data(ticker: str) -> Dict:
         info = _fetch_info_with_retries(stock)
         fast_info = _safe_fast_info(stock)
 
-        def safe_get(key, default=None):
-            val = info.get(key, fast_info.get(key, default))
-            if val is None:
-                return default
-            try:
-                f = float(val)
-                if np.isnan(f) or np.isinf(f):
-                    return default
-                return f
-            except (TypeError, ValueError):
-                return default
+        def safe_get_any(*keys, default=None):
+            for key in keys:
+                val = info.get(key, fast_info.get(key, None))
+                num = _to_number(val, default=None)
+                if num is not None:
+                    return num
+            return default
 
         # ── Price ───────────────────────────────────────────────
         current_price = (
-            safe_get("currentPrice")
-            or safe_get("regularMarketPrice")
-            or safe_get("previousClose")
-            or safe_get("lastPrice")
-            or safe_get("regularMarketPreviousClose")
+            safe_get_any("currentPrice", "current_price")
+            or safe_get_any("regularMarketPrice", "regular_market_price")
+            or safe_get_any("lastPrice", "last_price")
+            or safe_get_any("previousClose", "previous_close")
+            or safe_get_any("regularMarketPreviousClose", "regular_market_previous_close")
         )
 
         # ── P&L ─────────────────────────────────────────────────
-        eps = safe_get("trailingEps") or safe_get("forwardEps")
-        revenue = safe_get("totalRevenue")
-        net_income = safe_get("netIncomeToCommon")
-        ebitda = safe_get("ebitda")
+        eps = safe_get_any("trailingEps", "trailing_eps") or safe_get_any("forwardEps", "forward_eps")
+        revenue = safe_get_any("totalRevenue", "total_revenue")
+        net_income = safe_get_any("netIncomeToCommon", "net_income_to_common")
+        ebitda = safe_get_any("ebitda")
 
         # ── Balance Sheet ────────────────────────────────────────
-        bvps = safe_get("bookValue")
-        total_debt = safe_get("totalDebt", 0) or 0
-        cash = safe_get("totalCash", 0) or 0
-        shares = safe_get("sharesOutstanding") or safe_get("shares")
+        bvps = safe_get_any("bookValue", "book_value")
+        total_debt = safe_get_any("totalDebt", "total_debt", default=0) or 0
+        cash = safe_get_any("totalCash", "total_cash", default=0) or 0
+        shares = safe_get_any("sharesOutstanding", "shares_outstanding") or safe_get_any("shares")
 
         # ── Cash Flow ────────────────────────────────────────────
-        fcf = safe_get("freeCashflow")
-        ocf = safe_get("operatingCashflow")
+        fcf = safe_get_any("freeCashflow", "free_cashflow")
+        ocf = safe_get_any("operatingCashflow", "operating_cashflow")
 
         # Derive FCF per share
         fcf_per_share = None
@@ -109,30 +105,47 @@ def fetch_stock_data(ticker: str) -> Dict:
             fcf_per_share = (ocf / shares) * 0.75  # conservative proxy
 
         # ── Valuation Ratios ─────────────────────────────────────
-        pe = safe_get("trailingPE") or safe_get("forwardPE")
-        pb = safe_get("priceToBook")
-        ps = safe_get("priceToSalesTrailing12Months")
-        peg = safe_get("pegRatio")
+        pe = safe_get_any("trailingPE", "trailing_pe") or safe_get_any("forwardPE", "forward_pe")
+        pb = safe_get_any("priceToBook", "price_to_book")
+        ps = safe_get_any("priceToSalesTrailing12Months", "price_to_sales_trailing_12_months")
+        peg = safe_get_any("pegRatio", "peg_ratio")
 
         # ── Quality Metrics ──────────────────────────────────────
-        roe = safe_get("returnOnEquity")
-        roa = safe_get("returnOnAssets")
-        profit_margin = safe_get("profitMargins")
-        gross_margin = safe_get("grossMargins")
-        op_margin = safe_get("operatingMargins")
+        roe = safe_get_any("returnOnEquity", "return_on_equity")
+        roa = safe_get_any("returnOnAssets", "return_on_assets")
+        profit_margin = safe_get_any("profitMargins", "profit_margins")
+        gross_margin = safe_get_any("grossMargins", "gross_margins")
+        op_margin = safe_get_any("operatingMargins", "operating_margins")
 
         # ── Growth ───────────────────────────────────────────────
-        rev_growth = safe_get("revenueGrowth")
-        earn_growth = safe_get("earningsGrowth") or safe_get("earningsQuarterlyGrowth")
+        rev_growth = safe_get_any("revenueGrowth", "revenue_growth")
+        earn_growth = safe_get_any("earningsGrowth", "earnings_growth") or safe_get_any("earningsQuarterlyGrowth", "earnings_quarterly_growth")
 
         # ── Other ────────────────────────────────────────────────
-        beta = safe_get("beta", 1.0) or 1.0
-        market_cap = safe_get("marketCap")
-        ev = safe_get("enterpriseValue")
-        ev_to_ebitda = safe_get("enterpriseToEbitda")
-        div_yield = safe_get("dividendYield", 0) or 0
-        target_price = safe_get("targetMeanPrice")
-        analyst_count = int(safe_get("numberOfAnalystOpinions", 0) or 0)
+        beta = safe_get_any("beta", default=1.0) or 1.0
+        market_cap = safe_get_any("marketCap", "market_cap")
+        ev = safe_get_any("enterpriseValue", "enterprise_value")
+        ev_to_ebitda = safe_get_any("enterpriseToEbitda", "enterprise_to_ebitda")
+        div_yield = safe_get_any("dividendYield", "dividend_yield", default=0) or 0
+        target_price = safe_get_any("targetMeanPrice", "target_mean_price")
+        analyst_count = int(safe_get_any("numberOfAnalystOpinions", "number_of_analyst_opinions", default=0) or 0)
+
+        # ── Statement fallbacks (when quote-summary fields are sparse) ───────
+        stmt = _fallback_from_financial_statements(stock)
+        revenue = revenue or stmt.get("revenue")
+        net_income = net_income or stmt.get("net_income")
+        ebitda = ebitda or stmt.get("ebitda")
+        total_debt = total_debt or stmt.get("total_debt", 0)
+        cash = cash or stmt.get("cash", 0)
+        shares = shares or stmt.get("shares")
+        fcf = fcf or stmt.get("free_cashflow")
+        ocf = ocf or stmt.get("operating_cashflow")
+        bvps = bvps or stmt.get("book_value_per_share")
+        roe = roe or stmt.get("roe")
+        roa = roa or stmt.get("roa")
+        profit_margin = profit_margin or stmt.get("profit_margin")
+        gross_margin = gross_margin or stmt.get("gross_margin")
+        op_margin = op_margin or stmt.get("operating_margin")
 
         # ── Derived Fallbacks ────────────────────────────────────
         if current_price is None:
@@ -318,12 +331,12 @@ def _parse_news_items(raw: list) -> List[Dict]:
                 or content.get("displayTime")
             )
             pub_dt = _format_publish_time(ts)
-            items.append({
-                "title":     article.get("title") or content.get("title") or "Untitled",
-                "publisher": article.get("publisher") or content.get("provider", {}).get("displayName") or "Unknown",
-                "link":      article.get("link") or article.get("canonicalUrl", {}).get("url") or content.get("clickThroughUrl", {}).get("url") or "#",
-                "published": pub_dt,
-            })
+                items.append({
+                    "title":     article.get("title") or content.get("title") or "Untitled",
+                    "publisher": article.get("publisher") or content.get("provider", {}).get("displayName") or "Unknown",
+                    "link":      article.get("link") or article.get("canonicalUrl", {}).get("url") or content.get("canonicalUrl", {}).get("url") or content.get("clickThroughUrl", {}).get("url") or "#",
+                    "published": pub_dt,
+                })
         except Exception:
             continue
     return items
@@ -393,7 +406,10 @@ def fetch_ticker_news_state(ticker: str, limit: int = 8) -> Dict:
     except Exception:
         pass
 
-    rss_items = _fetch_google_news_rss(f"{symbol} NSE stock", limit)
+    clean_symbol = symbol.replace(".NS", "").replace(".BO", "")
+    rss_items = _fetch_google_news_rss(f"{clean_symbol} NSE stock India", limit)
+    if not rss_items and clean_symbol != symbol:
+        rss_items = _fetch_google_news_rss(f"{clean_symbol} stock news", limit)
     if rss_items:
         return {
             "items": rss_items[:limit],
@@ -477,7 +493,11 @@ def _format_publish_time(raw_ts) -> str:
         if isinstance(raw_ts, (int, float)) or (isinstance(raw_ts, str) and raw_ts.isdigit()):
             dt = datetime.fromtimestamp(int(raw_ts), tz=timezone.utc)
         else:
-            dt = parsedate_to_datetime(str(raw_ts))
+            raw = str(raw_ts).strip()
+            if "T" in raw and ("-" in raw[:10]):
+                dt = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+            else:
+                dt = parsedate_to_datetime(raw)
             if dt.tzinfo is None:
                 dt = dt.replace(tzinfo=timezone.utc)
             dt = dt.astimezone(timezone.utc)
@@ -497,9 +517,16 @@ def _fetch_google_news_rss(query: str, limit: int) -> List[Dict]:
 
 def _http_get_with_retries(url: str, retries: int = 3, timeout: int = 6) -> str:
     """Perform GET with timeout + retries and return response text on success."""
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+        ),
+        "Accept": "application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.8",
+    }
     for i in range(retries):
         try:
-            r = requests.get(url, timeout=timeout)
+            r = requests.get(url, timeout=timeout, headers=headers)
             if r.ok and r.text:
                 return r.text
         except Exception:
@@ -532,3 +559,96 @@ def _parse_rss_items(xml_text: str) -> List[Dict]:
     except Exception:
         return []
     return items
+
+
+def _to_number(val, default=None) -> Optional[float]:
+    """Convert scalar values or Yahoo-style {raw: ...} payloads into finite float."""
+    if isinstance(val, dict):
+        val = val.get("raw", val.get("value"))
+    if val is None:
+        return default
+    try:
+        f = float(val)
+        if np.isnan(f) or np.isinf(f):
+            return default
+        return f
+    except (TypeError, ValueError):
+        return default
+
+
+def _fallback_from_financial_statements(stock) -> Dict:
+    """Extract common metrics from yfinance statement tables when info fields are missing."""
+    try:
+        income = getattr(stock, "income_stmt", None)
+    except Exception:
+        income = None
+    try:
+        balance = getattr(stock, "balance_sheet", None)
+    except Exception:
+        balance = None
+    try:
+        cashflow = getattr(stock, "cashflow", None)
+    except Exception:
+        cashflow = None
+
+    revenue = _statement_value(income, ["Total Revenue", "Revenue", "Operating Revenue"])
+    net_income = _statement_value(income, ["Net Income", "Net Income Common Stockholders", "NetIncome"])
+    ebitda = _statement_value(income, ["EBITDA"])
+    gross_profit = _statement_value(income, ["Gross Profit"])
+    op_income = _statement_value(income, ["Operating Income"])
+
+    total_debt = _statement_value(balance, ["Total Debt", "Long Term Debt", "Current Debt"])
+    cash = _statement_value(balance, ["Cash And Cash Equivalents", "Cash Cash Equivalents And Short Term Investments", "Cash"])
+    equity = _statement_value(balance, ["Stockholders Equity", "Total Stockholder Equity", "Total Equity Gross Minority Interest"])
+    assets = _statement_value(balance, ["Total Assets"])
+    shares = _statement_value(balance, ["Ordinary Shares Number", "Share Issued"])
+
+    fcf = _statement_value(cashflow, ["Free Cash Flow"])
+    ocf = _statement_value(cashflow, ["Operating Cash Flow", "Cash Flow From Continuing Operating Activities"])
+
+    bvps = None
+    if equity and shares and shares > 0:
+        bvps = equity / shares
+
+    profit_margin = (net_income / revenue) if (net_income is not None and revenue and revenue > 0) else None
+    gross_margin = (gross_profit / revenue) if (gross_profit is not None and revenue and revenue > 0) else None
+    operating_margin = (op_income / revenue) if (op_income is not None and revenue and revenue > 0) else None
+    roe = (net_income / equity) if (net_income is not None and equity and equity > 0) else None
+    roa = (net_income / assets) if (net_income is not None and assets and assets > 0) else None
+
+    return {
+        "revenue": revenue,
+        "net_income": net_income,
+        "ebitda": ebitda,
+        "total_debt": total_debt,
+        "cash": cash,
+        "shares": shares,
+        "free_cashflow": fcf,
+        "operating_cashflow": ocf,
+        "book_value_per_share": bvps,
+        "profit_margin": profit_margin,
+        "gross_margin": gross_margin,
+        "operating_margin": operating_margin,
+        "roe": roe,
+        "roa": roa,
+    }
+
+
+def _statement_value(df: Optional[pd.DataFrame], labels: List[str]) -> Optional[float]:
+    """Return latest non-null value for first matching statement row label."""
+    if df is None or getattr(df, "empty", True):
+        return None
+    if not isinstance(df.index, pd.Index):
+        return None
+
+    index_map = {str(idx).strip().lower(): idx for idx in df.index}
+    for label in labels:
+        key = label.strip().lower()
+        if key in index_map:
+            row = df.loc[index_map[key]]
+            if isinstance(row, pd.Series):
+                vals = row.dropna()
+                if not vals.empty:
+                    return _to_number(vals.iloc[0], default=None)
+            return _to_number(row, default=None)
+    return None
