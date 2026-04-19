@@ -26,6 +26,11 @@ HTTP_HEADERS = {
     "Accept": "application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.8",
 }
 
+MARKET_NEWS_KEEP_TERMS = (
+    "india", "indian", "nifty", "sensex", "nse", "bse", "rupee",
+    "rbi", "sebi", "market", "stocks", "equity", "shares",
+)
+
 # ── Stock Universe ────────────────────────────────────────────────────────────
 
 @st.cache_data(ttl=86400, show_spinner=False)
@@ -701,20 +706,25 @@ def _extract_news_link(article: Dict, content: Dict) -> str:
 
 
 def _clean_news_text(text: Optional[str]) -> str:
-    """Collapse irregular whitespace from provider text fields."""
+    """Normalize provider text by collapsing tabs/newlines/multi-spaces into one space."""
     if text is None:
         return ""
     return re.sub(r"\s+", " ", str(text)).strip()
 
 
 def _filter_market_relevant_news(items: List[Dict]) -> List[Dict]:
-    """Keep broad India-market headlines for index proxy feeds and drop duplicates."""
+    """
+    Keep broad India-market headlines for index proxy feeds and drop duplicates.
+
+    Args:
+        items: List of dicts shaped as {title, publisher, link, published}.
+    Rules:
+        - Ignore rows with empty titles.
+        - Deduplicate by lower-cased title.
+        - Keep only headlines whose title/publisher matches MARKET_NEWS_KEEP_TERMS.
+    """
     if not items:
         return []
-    keep_terms = (
-        "india", "indian", "nifty", "sensex", "nse", "bse", "rupee",
-        "rbi", "sebi", "market", "stocks", "equity", "shares",
-    )
     seen = set()
     filtered = []
     for item in items:
@@ -724,7 +734,7 @@ def _filter_market_relevant_news(items: List[Dict]) -> List[Dict]:
         if not key or key in seen:
             continue
         seen.add(key)
-        hay = f"{title} {publisher}".lower()
-        if any(term in hay for term in keep_terms):
+        combined_text = f"{title} {publisher}".lower()
+        if any(term in combined_text for term in MARKET_NEWS_KEEP_TERMS):
             filtered.append({**item, "title": title, "publisher": publisher or "Unknown"})
     return filtered
