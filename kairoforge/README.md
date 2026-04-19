@@ -1,18 +1,16 @@
 # ⚡ KAIROFORGE — Equity Intelligence Terminal
 
-> A lightweight **Bloomberg Terminal × Screener × TradingView hybrid**, built in Streamlit.
+> A lightweight **stock analysis terminal** built in Streamlit.
 
 ---
 
 ## What It Does
 
-KAIROFORGE blends three core tools into one clean interface:
+KAIROFORGE is focused on one core workflow:
 
 | Module | Description |
 |--------|-------------|
-| **Screener** | Scans 30 Nifty 50 stocks by default; add any of **2000+ Indian equities** from the searchable dropdown. Each stock gets a signal: STRONG BUY → AVOID |
 | **Stock Analysis** | Full equity report: Hero panel, price chart, DCF/Graham breakdown, scoring intelligence |
-| **Portfolio Builder** | Build a portfolio using the searchable multi-stock selector. Interprets composition, risk profile, and concentration |
 
 ---
 
@@ -85,8 +83,6 @@ Defence, Retail, and more.
 ### Searchable Dropdown Selector
 
 - **Sidebar**: "Search & Analyse Stock" selectbox — type to search by company name or ticker.
-- **Screener**: Multi-select to add any stock from the 2000+ universe to the screener watchlist.
-- **Portfolio Builder**: Multi-select to build a portfolio from the full stock universe.
 - No exact ticker typing required; search by partial company name or symbol.
 
 ### Scoring Rubric
