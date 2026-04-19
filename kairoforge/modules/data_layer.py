@@ -17,6 +17,14 @@ import xml.etree.ElementTree as ET
 import warnings
 warnings.filterwarnings("ignore")
 
+HTTP_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.8",
+}
+
 # ── Stock Universe ────────────────────────────────────────────────────────────
 
 @st.cache_data(ttl=86400, show_spinner=False)
@@ -331,12 +339,12 @@ def _parse_news_items(raw: list) -> List[Dict]:
                 or content.get("displayTime")
             )
             pub_dt = _format_publish_time(ts)
-                items.append({
-                    "title":     article.get("title") or content.get("title") or "Untitled",
-                    "publisher": article.get("publisher") or content.get("provider", {}).get("displayName") or "Unknown",
-                    "link":      article.get("link") or article.get("canonicalUrl", {}).get("url") or content.get("canonicalUrl", {}).get("url") or content.get("clickThroughUrl", {}).get("url") or "#",
-                    "published": pub_dt,
-                })
+            items.append({
+                "title":     article.get("title") or content.get("title") or "Untitled",
+                "publisher": article.get("publisher") or content.get("provider", {}).get("displayName") or "Unknown",
+                "link":      _extract_news_link(article, content),
+                "published": pub_dt,
+            })
         except Exception:
             continue
     return items
@@ -494,10 +502,13 @@ def _format_publish_time(raw_ts) -> str:
             dt = datetime.fromtimestamp(int(raw_ts), tz=timezone.utc)
         else:
             raw = str(raw_ts).strip()
-            if "T" in raw and ("-" in raw[:10]):
+            try:
                 dt = datetime.fromisoformat(raw.replace("Z", "+00:00"))
-            else:
-                dt = parsedate_to_datetime(raw)
+            except ValueError:
+                try:
+                    dt = parsedate_to_datetime(raw)
+                except Exception:
+                    return "—"
             if dt.tzinfo is None:
                 dt = dt.replace(tzinfo=timezone.utc)
             dt = dt.astimezone(timezone.utc)
@@ -517,16 +528,9 @@ def _fetch_google_news_rss(query: str, limit: int) -> List[Dict]:
 
 def _http_get_with_retries(url: str, retries: int = 3, timeout: int = 6) -> str:
     """Perform GET with timeout + retries and return response text on success."""
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-            "(KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
-        ),
-        "Accept": "application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.8",
-    }
     for i in range(retries):
         try:
-            r = requests.get(url, timeout=timeout, headers=headers)
+            r = requests.get(url, timeout=timeout, headers=HTTP_HEADERS)
             if r.ok and r.text:
                 return r.text
         except Exception:
@@ -562,7 +566,13 @@ def _parse_rss_items(xml_text: str) -> List[Dict]:
 
 
 def _to_number(val, default=None) -> Optional[float]:
-    """Convert scalar values or Yahoo-style {raw: ...} payloads into finite float."""
+    """
+    Convert mixed-value payloads into finite float.
+
+    Args:
+        val: Scalar number/string, or dict payload containing `raw`/`value` fields.
+        default: Fallback value returned when conversion fails or value is non-finite.
+    """
     if isinstance(val, dict):
         val = val.get("raw", val.get("value"))
     if val is None:
@@ -591,20 +601,24 @@ def _fallback_from_financial_statements(stock) -> Dict:
     except Exception:
         cashflow = None
 
-    revenue = _statement_value(income, ["Total Revenue", "Revenue", "Operating Revenue"])
-    net_income = _statement_value(income, ["Net Income", "Net Income Common Stockholders", "NetIncome"])
-    ebitda = _statement_value(income, ["EBITDA"])
-    gross_profit = _statement_value(income, ["Gross Profit"])
-    op_income = _statement_value(income, ["Operating Income"])
+    income_idx = _statement_index_map(income)
+    balance_idx = _statement_index_map(balance)
+    cashflow_idx = _statement_index_map(cashflow)
 
-    total_debt = _statement_value(balance, ["Total Debt", "Long Term Debt", "Current Debt"])
-    cash = _statement_value(balance, ["Cash And Cash Equivalents", "Cash Cash Equivalents And Short Term Investments", "Cash"])
-    equity = _statement_value(balance, ["Stockholders Equity", "Total Stockholder Equity", "Total Equity Gross Minority Interest"])
-    assets = _statement_value(balance, ["Total Assets"])
-    shares = _statement_value(balance, ["Ordinary Shares Number", "Share Issued"])
+    revenue = _statement_value(income, ["Total Revenue", "Revenue", "Operating Revenue"], index_map=income_idx)
+    net_income = _statement_value(income, ["Net Income", "Net Income Common Stockholders", "NetIncome"], index_map=income_idx)
+    ebitda = _statement_value(income, ["EBITDA"], index_map=income_idx)
+    gross_profit = _statement_value(income, ["Gross Profit"], index_map=income_idx)
+    op_income = _statement_value(income, ["Operating Income"], index_map=income_idx)
 
-    fcf = _statement_value(cashflow, ["Free Cash Flow"])
-    ocf = _statement_value(cashflow, ["Operating Cash Flow", "Cash Flow From Continuing Operating Activities"])
+    total_debt = _statement_value(balance, ["Total Debt", "Long Term Debt", "Current Debt"], index_map=balance_idx)
+    cash = _statement_value(balance, ["Cash And Cash Equivalents", "Cash Cash Equivalents And Short Term Investments", "Cash"], index_map=balance_idx)
+    equity = _statement_value(balance, ["Stockholders Equity", "Total Stockholder Equity", "Total Equity Gross Minority Interest"], index_map=balance_idx)
+    assets = _statement_value(balance, ["Total Assets"], index_map=balance_idx)
+    shares = _statement_value(balance, ["Ordinary Shares Number", "Share Issued"], index_map=balance_idx)
+
+    fcf = _statement_value(cashflow, ["Free Cash Flow"], index_map=cashflow_idx)
+    ocf = _statement_value(cashflow, ["Operating Cash Flow", "Cash Flow From Continuing Operating Activities"], index_map=cashflow_idx)
 
     bvps = None
     if equity and shares and shares > 0:
@@ -634,14 +648,28 @@ def _fallback_from_financial_statements(stock) -> Dict:
     }
 
 
-def _statement_value(df: Optional[pd.DataFrame], labels: List[str]) -> Optional[float]:
-    """Return latest non-null value for first matching statement row label."""
+def _statement_index_map(df: Optional[pd.DataFrame]) -> Dict[str, str]:
+    """Create case-insensitive index map: lowercase label -> original DataFrame index label."""
+    if df is None or getattr(df, "empty", True) or not isinstance(df.index, pd.Index):
+        return {}
+    return {str(idx).strip().lower(): idx for idx in df.index}
+
+
+def _statement_value(df: Optional[pd.DataFrame], labels: List[str], index_map: Optional[Dict[str, str]] = None) -> Optional[float]:
+    """
+    Return latest non-null value for the first matching statement row label.
+
+    Args:
+        df: Financial statement DataFrame with metrics on index and periods on columns.
+        labels: Candidate row labels in priority order (first match wins).
+        index_map: Optional precomputed lowercase index map for repeated lookups.
+    """
     if df is None or getattr(df, "empty", True):
         return None
     if not isinstance(df.index, pd.Index):
         return None
 
-    index_map = {str(idx).strip().lower(): idx for idx in df.index}
+    index_map = index_map or _statement_index_map(df)
     for label in labels:
         key = label.strip().lower()
         if key in index_map:
@@ -652,3 +680,14 @@ def _statement_value(df: Optional[pd.DataFrame], labels: List[str]) -> Optional[
                     return _to_number(vals.iloc[0], default=None)
             return _to_number(row, default=None)
     return None
+
+
+def _extract_news_link(article: Dict, content: Dict) -> str:
+    """Resolve a usable headline URL across multiple Yahoo news payload shapes."""
+    return (
+        article.get("link")
+        or article.get("canonicalUrl", {}).get("url")
+        or content.get("canonicalUrl", {}).get("url")
+        or content.get("clickThroughUrl", {}).get("url")
+        or "#"
+    )
