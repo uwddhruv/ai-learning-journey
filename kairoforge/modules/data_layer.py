@@ -351,9 +351,11 @@ def _parse_news_items(raw: list) -> List[Dict]:
             )
             if not title:
                 continue
+            if not publisher:
+                publisher = "Unknown"
             items.append({
                 "title": title,
-                "publisher": publisher or "Unknown",
+                "publisher": publisher,
                 "link": _extract_news_link(article, content),
                 "published": pub_dt,
             })
@@ -736,5 +738,5 @@ def _filter_market_relevant_news(items: List[Dict]) -> List[Dict]:
         seen.add(key)
         combined_text = f"{title} {publisher}".lower()
         if any(term in combined_text for term in MARKET_NEWS_KEEP_TERMS):
-            filtered.append({**item, "title": title, "publisher": publisher or "Unknown"})
+            filtered.append({**item, "title": title, "publisher": publisher})
     return filtered
