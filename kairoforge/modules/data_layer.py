@@ -4,6 +4,7 @@ Treats missing data as expected, not exceptional.
 """
 
 import os
+import re
 import yfinance as yf
 import streamlit as st
 import pandas as pd
@@ -339,10 +340,16 @@ def _parse_news_items(raw: list) -> List[Dict]:
                 or content.get("displayTime")
             )
             pub_dt = _format_publish_time(ts)
+            title = _clean_news_text(article.get("title") or content.get("title") or "Untitled")
+            publisher = _clean_news_text(
+                article.get("publisher") or content.get("provider", {}).get("displayName") or "Unknown"
+            )
+            if not title:
+                continue
             items.append({
-                "title":     article.get("title") or content.get("title") or "Untitled",
-                "publisher": article.get("publisher") or content.get("provider", {}).get("displayName") or "Unknown",
-                "link":      _extract_news_link(article, content),
+                "title": title,
+                "publisher": publisher or "Unknown",
+                "link": _extract_news_link(article, content),
                 "published": pub_dt,
             })
         except Exception:
@@ -367,7 +374,7 @@ def fetch_market_news_state(limit: int = 10) -> Dict:
     for proxy in ("^NSEI", "^BSESN"):
         try:
             raw = _fetch_yfinance_news(proxy)
-            y_items = _parse_news_items(raw)
+            y_items = _filter_market_relevant_news(_parse_news_items(raw))
             if y_items:
                 return {
                     "items": y_items[:limit],
@@ -691,3 +698,33 @@ def _extract_news_link(article: Dict, content: Dict) -> str:
         or content.get("clickThroughUrl", {}).get("url")
         or "#"
     )
+
+
+def _clean_news_text(text: Optional[str]) -> str:
+    """Collapse irregular whitespace from provider text fields."""
+    if text is None:
+        return ""
+    return re.sub(r"\s+", " ", str(text)).strip()
+
+
+def _filter_market_relevant_news(items: List[Dict]) -> List[Dict]:
+    """Keep broad India-market headlines for index proxy feeds and drop duplicates."""
+    if not items:
+        return []
+    keep_terms = (
+        "india", "indian", "nifty", "sensex", "nse", "bse", "rupee",
+        "rbi", "sebi", "market", "stocks", "equity", "shares",
+    )
+    seen = set()
+    filtered = []
+    for item in items:
+        title = _clean_news_text(item.get("title", ""))
+        publisher = _clean_news_text(item.get("publisher", ""))
+        key = title.lower()
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        hay = f"{title} {publisher}".lower()
+        if any(term in hay for term in keep_terms):
+            filtered.append({**item, "title": title, "publisher": publisher or "Unknown"})
+    return filtered

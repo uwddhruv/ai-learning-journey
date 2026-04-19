@@ -166,11 +166,18 @@ def _score_relative(rel: Dict) -> float:
     pb_map   = {"deep_value": 3.0, "fair": 2.0, "growth_premium": 0.8, "expensive": 0.0}
     eve_map  = {"cheap": 3.0, "fair": 2.0, "slightly_rich": 0.8, "expensive": 0.0}
 
+    pe_signal = rel.get("pe_signal")
+    peg_signal = rel.get("peg_signal")
+    pb_signal = rel.get("pb_signal")
+    ev_signal = rel.get("ev_ebitda_signal")
+    if not any([pe_signal, peg_signal, pb_signal, ev_signal]):
+        return 0.0
+
     score = 0.0
-    score += pe_map.get(rel.get("pe_signal"), 1.5)
-    score += peg_map.get(rel.get("peg_signal"), 1.0)
-    score += pb_map.get(rel.get("pb_signal"), 0.8)
-    score += eve_map.get(rel.get("ev_ebitda_signal"), 0.8)
+    score += pe_map.get(pe_signal, 0.0)
+    score += peg_map.get(peg_signal, 0.0)
+    score += pb_map.get(pb_signal, 0.0)
+    score += eve_map.get(ev_signal, 0.0)
 
     return min(15.0, score)
 
