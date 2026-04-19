@@ -224,7 +224,7 @@ def render_score_gauge(score: float, color: str) -> str:
         score = float(score)
         if not np.isfinite(score):
             score = 0.0
-    except Exception:
+    except (TypeError, ValueError):
         score = 0.0
     score = max(0.0, min(100.0, score))
 
@@ -302,7 +302,7 @@ def page_screener():
         st.session_state.screener_applied_sig_filter = st.session_state.screener_sig_filter
 
     # Use live control values so search/filter changes are reflected immediately.
-    added_labels = list(st.session_state.screener_selected_labels)
+    added_labels = list(st.session_state.screener_selected_labels or [])
     sort_by = st.session_state.screener_sort_by
     sig_filter = st.session_state.screener_sig_filter
 
