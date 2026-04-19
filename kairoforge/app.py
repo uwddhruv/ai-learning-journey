@@ -1,5 +1,5 @@
 """
-KAIROFORGE — Equity Research Terminal
+KAIROFORGE — Stock Analysis Terminal
 A lightweight stock analysis platform.
 
 Entry point: streamlit run app.py
