@@ -22,10 +22,11 @@ st.set_page_config(
 import os
 import base64
 import html
+import re
 from urllib.parse import urlparse
 import numpy as np
 import plotly.graph_objects as go
-from typing import List, Dict
+from typing import List, Dict, Tuple
 from collections import Counter
 
 from modules.data_layer import (
@@ -57,6 +58,20 @@ PLOTLY_DARK = dict(
     yaxis=dict(gridcolor="#1e1e2e", showline=False, zeroline=False),
     margin=dict(l=10, r=10, t=30, b=10),
 )
+
+NEWS_POSITIVE_TERMS = (
+    "beats", "surge", "rise", "gain", "growth", "bull", "record", "up"
+)
+NEWS_NEGATIVE_TERMS = (
+    "miss", "fall", "drop", "decline", "cuts", "down", "warn", "loss"
+)
+NEWS_THEME_KEYWORD_MAP = {
+    "Earnings": ("earnings", "profit", "results", "revenue", "quarter"),
+    "Regulation": ("rbi", "sebi", "regulation", "policy", "approval"),
+    "Deals": ("acquisition", "deal", "merger", "stake", "buyout"),
+    "Market Move": ("target", "upgrade", "downgrade", "rating", "outlook"),
+    "Operations": ("plant", "capacity", "expansion", "order", "contract"),
+}
 
 PROVIDED_LOGO_URL = os.getenv(
     "KAIROFORGE_LOGO_URL",
@@ -1032,13 +1047,11 @@ def _render_news_summary(news_items: list):
 
 
 def _news_sentiment_label(news_items: list) -> str:
-    positive_terms = ("beats", "surge", "rise", "gain", "growth", "bull", "record", "up")
-    negative_terms = ("miss", "fall", "drop", "decline", "cuts", "down", "warn", "loss")
     score = 0
     for item in news_items:
         text = str(item.get("title", "")).lower()
-        score += sum(1 for term in positive_terms if term in text)
-        score -= sum(1 for term in negative_terms if term in text)
+        score += sum(1 for term in NEWS_POSITIVE_TERMS if _contains_whole_word(text, term))
+        score -= sum(1 for term in NEWS_NEGATIVE_TERMS if _contains_whole_word(text, term))
     if score > 0:
         return "positive"
     if score < 0:
@@ -1047,23 +1060,16 @@ def _news_sentiment_label(news_items: list) -> str:
 
 
 def _news_themes(news_items: list, top_n: int = 3) -> List[str]:
-    keyword_map = {
-        "Earnings": ("earnings", "profit", "results", "revenue", "quarter"),
-        "Regulation": ("rbi", "sebi", "regulation", "policy", "approval"),
-        "Deals": ("acquisition", "deal", "merger", "stake", "buyout"),
-        "Market Move": ("target", "upgrade", "downgrade", "rating", "outlook"),
-        "Operations": ("plant", "capacity", "expansion", "order", "contract"),
-    }
     counts = Counter()
     for item in news_items:
         text = str(item.get("title", "")).lower()
-        for theme, terms in keyword_map.items():
-            if any(term in text for term in terms):
+        for theme, terms in NEWS_THEME_KEYWORD_MAP.items():
+            if any(_contains_whole_word(text, term) for term in terms):
                 counts[theme] += 1
     return [theme for theme, _ in counts.most_common(top_n)]
 
 
-def _news_sources(news_items: list, top_n: int = 5) -> List[tuple]:
+def _news_sources(news_items: list, top_n: int = 5) -> List[Tuple[str, str]]:
     seen = set()
     sources = []
     for item in news_items:
@@ -1081,6 +1087,11 @@ def _news_sources(news_items: list, top_n: int = 5) -> List[tuple]:
         if len(sources) >= top_n:
             break
     return sources
+
+
+def _contains_whole_word(text: str, term: str) -> bool:
+    """Return True when term appears as a whole word/phrase in text."""
+    return re.search(rf"\b{re.escape(term)}\b", text) is not None
 
 
 # ══════════════════════════════════════════════════════════════════════════════
