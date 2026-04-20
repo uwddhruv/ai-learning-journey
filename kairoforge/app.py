@@ -26,6 +26,7 @@ from urllib.parse import urlparse
 import numpy as np
 import plotly.graph_objects as go
 from typing import List, Dict
+from collections import Counter
 
 from modules.data_layer import (
     fetch_stock_data, fetch_price_history, fetch_ticker_news_state,
@@ -954,6 +955,8 @@ def _render_news_feed(
         )
         return
 
+    _render_news_summary(news_items)
+
     rows_html = ""
     for item in news_items:
         title = html.escape(str(item.get("title", "Untitled")), quote=True)
@@ -963,18 +966,23 @@ def _render_news_feed(
         parsed_link = urlparse(link)
         if parsed_link.scheme.lower() not in ("http", "https"):
             link = "#"
+            source_link = "#"
+        else:
+            source_link = f"{parsed_link.scheme}://{parsed_link.netloc}"
         link = html.escape(link, quote=True)
+        source_link = html.escape(source_link, quote=True)
         rows_html += f"""
         <div style="padding:.65rem 0;border-bottom:1px solid #1a1a28;">
             <a href="{link}" target="_blank" rel="noopener noreferrer"
                style="color:#e2e8f0;font-size:.85rem;font-weight:500;text-decoration:none;
-                       line-height:1.4;display:block;margin-bottom:.25rem;">
+                        line-height:1.4;display:block;margin-bottom:.25rem;">
                 {title}
             </a>
             <div style="display:flex;gap:1rem;align-items:center;">
-                <span style="color:#00d4aa;font-size:.72rem;font-weight:600;">
+                <a href="{source_link}" target="_blank" rel="noopener noreferrer"
+                   style="color:#00d4aa;font-size:.72rem;font-weight:600;text-decoration:none;">
                     {publisher}
-                </span>
+                </a>
                 <span style="color:#334155;font-size:.72rem;">
                     {published}
                 </span>
@@ -986,6 +994,93 @@ def _render_news_feed(
         f'<div class="kf-card" style="padding:.5rem 1.25rem;">{rows_html}</div>',
         unsafe_allow_html=True,
     )
+
+
+def _render_news_summary(news_items: list):
+    """Render a compact summary panel for the current stock news set."""
+    sentiment = _news_sentiment_label(news_items)
+    themes = _news_themes(news_items)
+    source_links = _news_sources(news_items)
+
+    summary_parts = [
+        f"Overall headline tone looks <b>{sentiment}</b> based on the latest coverage."
+    ]
+    if themes:
+        summary_parts.append("Main themes: " + ", ".join(themes) + ".")
+    summary_text = " ".join(summary_parts)
+
+    sources_html = ""
+    if source_links:
+        chips = []
+        for name, link in source_links:
+            chips.append(
+                f"<a href='{html.escape(link, quote=True)}' target='_blank' rel='noopener noreferrer' "
+                f"style='color:#00d4aa;text-decoration:none;font-size:.72rem;'>"
+                f"{html.escape(name, quote=True)}</a>"
+            )
+        sources_html = (
+            "<div style='margin-top:.5rem;color:#64748b;font-size:.72rem;'>"
+            "Sources: " + " · ".join(chips) + "</div>"
+        )
+
+    st.markdown(
+        "<div class='kf-card' style='padding:.75rem 1rem;margin-bottom:.65rem;'>"
+        "<div style='color:#cbd5e1;font-size:.82rem;line-height:1.55;'>"
+        f"{summary_text}</div>{sources_html}</div>",
+        unsafe_allow_html=True,
+    )
+
+
+def _news_sentiment_label(news_items: list) -> str:
+    positive_terms = ("beats", "surge", "rise", "gain", "growth", "bull", "record", "up")
+    negative_terms = ("miss", "fall", "drop", "decline", "cuts", "down", "warn", "loss")
+    score = 0
+    for item in news_items:
+        text = str(item.get("title", "")).lower()
+        score += sum(1 for term in positive_terms if term in text)
+        score -= sum(1 for term in negative_terms if term in text)
+    if score > 0:
+        return "positive"
+    if score < 0:
+        return "cautious"
+    return "neutral"
+
+
+def _news_themes(news_items: list, top_n: int = 3) -> List[str]:
+    keyword_map = {
+        "Earnings": ("earnings", "profit", "results", "revenue", "quarter"),
+        "Regulation": ("rbi", "sebi", "regulation", "policy", "approval"),
+        "Deals": ("acquisition", "deal", "merger", "stake", "buyout"),
+        "Market Move": ("target", "upgrade", "downgrade", "rating", "outlook"),
+        "Operations": ("plant", "capacity", "expansion", "order", "contract"),
+    }
+    counts = Counter()
+    for item in news_items:
+        text = str(item.get("title", "")).lower()
+        for theme, terms in keyword_map.items():
+            if any(term in text for term in terms):
+                counts[theme] += 1
+    return [theme for theme, _ in counts.most_common(top_n)]
+
+
+def _news_sources(news_items: list, top_n: int = 5) -> List[tuple]:
+    seen = set()
+    sources = []
+    for item in news_items:
+        publisher = str(item.get("publisher", "Unknown")).strip() or "Unknown"
+        link = str(item.get("link", "#")).strip()
+        parsed = urlparse(link)
+        if parsed.scheme.lower() not in ("http", "https") or not parsed.netloc:
+            continue
+        source_url = f"{parsed.scheme}://{parsed.netloc}"
+        key = (publisher.lower(), source_url)
+        if key in seen:
+            continue
+        seen.add(key)
+        sources.append((publisher, source_url))
+        if len(sources) >= top_n:
+            break
+    return sources
 
 
 # ══════════════════════════════════════════════════════════════════════════════
